@@ -117,6 +117,32 @@ export async function getUser(req, res) {
     }
 }
 
+/** Lấy thông tin người dùng dựa trên username */
+export async function getUserById(req, res) {
+    const { id } = req.params;
+    try {
+        // Kiểm tra xem `id` có hợp lệ hay không trước khi tìm kiếm
+        if (!mongoose.Types.ObjectId.isValid(id)) {
+            return res.status(400).send({ error: "Id không hợp lệ" });
+        }
+
+        // Tìm người dùng bằng `findById`
+        UserModel.findById(id, function (err, user) { 
+            
+            if (err) return res.status(500).send({ error: "Lỗi truy vấn cơ sở dữ liệu", details: err });
+            if (!user) return res.status(404).send({ error: "Không tìm thấy người dùng" });
+
+            console.log(user);
+            return res.status(200).send(user); // Sửa mã phản hồi thành `200`
+        });
+
+    } catch (error) {
+        console.error("Catch error:", error);
+        return res.status(500).send({ error: "Không thể tìm thấy dữ liệu người dùng" });
+    }
+}
+
+
 // Cập nhật thông tin người dùng
 export async function updateUser(req, res) {
     try {
