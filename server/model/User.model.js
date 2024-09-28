@@ -31,7 +31,7 @@ export const UserSchema = new mongoose.Schema({
     },
     is_locked: {
         type: Boolean,
-        default: false
+        default: false  
     },
     google_id: {
         type: String
