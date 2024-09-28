@@ -121,10 +121,6 @@ export async function getUser(req, res) {
 export async function getUserById(req, res) {
     const { id } = req.params;
     try {
-        // Kiểm tra xem `id` có hợp lệ hay không trước khi tìm kiếm
-        if (!mongoose.Types.ObjectId.isValid(id)) {
-            return res.status(400).send({ error: "Id không hợp lệ" });
-        }
 
         // Tìm người dùng bằng `findById`
         UserModel.findById(id, function (err, user) { 
@@ -146,20 +142,35 @@ export async function getUserById(req, res) {
 // Cập nhật thông tin người dùng
 export async function updateUser(req, res) {
     try {
-        const { userId } = req.user;
-        if (userId) {
-            const body = req.body;
-            UserModel.updateOne({ _id: userId }, body, function (err, data) {
-                if (err) throw err;
-                return res.status(201).send({ msg: "Thông tin đã được cập nhật!" });
-            });
-        } else {
-            return res.status(401).send({ error: "Không tìm thấy người dùng!" });
-        }
+      const { userId } = req.user; // Lấy `userId` từ `req.user`
+      if (!userId) {
+        return res.status(401).send({ error: "Không tìm thấy người dùng!" });
+      }
+  
+      const body = req.body;
+      if (!body || Object.keys(body).length === 0) {
+        return res.status(400).send({ error: "Dữ liệu cập nhật không hợp lệ!" });
+      }
+  
+      // Sử dụng `findOneAndUpdate` để cập nhật và trả về dữ liệu sau khi cập nhật
+      const updatedUser = await UserModel.findOneAndUpdate(
+        { _id: userId },       // Điều kiện tìm kiếm theo `userId`
+        body,                  // Dữ liệu cần cập nhật
+        { new: true }          // Trả về bản ghi đã được cập nhật
+      );
+  
+      if (!updatedUser) {
+        return res.status(404).send({ error: "Không thể cập nhật thông tin người dùng." });
+      }
+  
+      // Trả về dữ liệu người dùng đã cập nhật
+      return res.status(200).send(updatedUser);
     } catch (error) {
-        return res.status(401).send({ error });
+      console.error("Error in updateUser:", error);
+      return res.status(500).send({ error: "Lỗi server. Không thể cập nhật thông tin!" });
     }
-}
+  }
+  
 
 // Tạo mã OTP
 export async function generateOTP(req, res) {
