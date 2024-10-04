@@ -1,0 +1,261 @@
+[
+  {
+    "category": "s",
+    "group": "c",
+    "questionText": "v",
+    "answers": [
+      "b",
+      "b"
+    ],
+    "correctAnswers": [
+      0
+    ]
+  },
+  {
+    "category": "d",
+    "group": "d",
+    "questionText": "d",
+    "answers": [
+      "f",
+      "ư"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "category": "d",
+    "group": "f",
+    "questionText": "v",
+    "answers": [
+      "b",
+      "f"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "category": "d",
+    "group": "v",
+    "questionText": "x",
+    "answers": [
+      "b",
+      "c",
+      "n"
+    ],
+    "correctAnswers": [
+      1,
+      2
+    ]
+  },
+  {
+    "category": "xs",
+    "group": "x",
+    "questionText": "x",
+    "answers": [
+      "xx",
+      "c",
+      "v"
+    ],
+    "correctAnswers": [
+      2
+    ]
+  },
+  {
+    "category": "s",
+    "group": "d",
+    "questionText": "cc",
+    "answers": [
+      "v",
+      "x",
+      "x"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      "15*6 *",
+      "Không",
+      "B",
+      "C",
+      "F"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      1,
+      2,
+      3,
+      4
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [],
+    "correctAnswers": [
+      13
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [],
+    "correctAnswers": [
+      13
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      "15*6 *",
+      "Không",
+      "Bdcd",
+      "Cdcdc",
+      "Fdcdc"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      "1dcd",
+      "2dcdc",
+      "3cdcd",
+      "4cdcd"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      "dcdcdc",
+      "fcdcd"
+    ],
+    "correctAnswers": [
+      13,
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      "dcdcd",
+      "ưcdc"
+    ],
+    "correctAnswers": [
+      13,
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      "15*6 *",
+      "Không",
+      "B",
+      "C",
+      "F"
+    ],
+    "correctAnswers": [
+      0,
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      1,
+      2,
+      3,
+      "4d"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      "dd",
+      "đf"
+    ],
+    "correctAnswers": [
+      13
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "Ngày mới đẹp không ?",
+    "answers": [
+      "dd",
+      "dff"
+    ],
+    "correctAnswers": [
+      13
+    ]
+  },
+  {
+    "category": "gg",
+    "group": "g",
+    "questionText": "gg",
+    "answers": [
+      "g",
+      "g"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  },
+  {
+    "category": "",
+    "group": "",
+    "questionText": "ff",
+    "answers": [
+      "f",
+      "d"
+    ],
+    "correctAnswers": [
+      1
+    ]
+  }
+]
