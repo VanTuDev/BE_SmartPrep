@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-// Định nghĩa schema cho người dùng với timestamps
+// Define schema for users with timestamps
 const UserSchema = new mongoose.Schema({
     username: {
         type: String,
@@ -49,12 +49,6 @@ const UserSchema = new mongoose.Schema({
     }
 }, {
     timestamps: true // Kích hoạt tự động `createdAt` và `updatedAt`
-});
-
-// Middleware cập nhật `updated_at` cho các truy vấn `findOneAndUpdate` và `update`
-UserSchema.pre('findOneAndUpdate', function (next) {
-    this.set({ updatedAt: Date.now() });
-    next();
 });
 
 // Export model

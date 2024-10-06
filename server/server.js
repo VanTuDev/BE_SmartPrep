@@ -20,9 +20,9 @@ app.use(cors());
 app.use(express.json());
 
 // Sử dụng các router cho các module
-app.use('/api/questions', questionRoutes); // Đường dẫn cho câu hỏi
-app.use('/api/users', userRoutes);         // Đường dẫn cho người dùng
-app.use('/api/category', categoryRoutes);  // Đường dẫn cho danh mục
+app.use('/api/questions', questionRoutes);
+app.use('/api/users', userRoutes);
+app.use('/api/category', categoryRoutes);
 
 // Khởi động server
 app.listen(PORT, () => {

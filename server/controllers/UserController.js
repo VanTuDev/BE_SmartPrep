@@ -38,7 +38,14 @@ export async function register(req, res) {
 
         // Mã hóa mật khẩu và tạo người dùng mới
         const hashedPassword = await bcrypt.hash(password, 10);
-        const newUser = new UserModel({ username, fullname, email, phone, password: hashedPassword, role: role || 'user' });
+        const newUser = new UserModel({
+            username,
+            fullname,
+            email,
+            phone,
+            password: hashedPassword,
+            role: role || 'user'
+        });
         await newUser.save();
 
         console.log("Người dùng mới đã được tạo:", newUser);
@@ -51,26 +58,67 @@ export async function register(req, res) {
 
 // Đăng nhập người dùng
 
+// Đăng nhập người dùng
+// Đăng nhập người dùng
 export async function login(req, res) {
     try {
-        const { identifier, password } = req.body;
-        // Bao gồm trường `password` trong truy vấn
+        const { identifier, password } = req.body; // Lấy identifier và password từ body
+        console.log("Đang đăng nhập với identifier:", identifier);
+
+        // Tìm người dùng bằng username hoặc email
         const user = await UserModel.findOne({ $or: [{ username: identifier }, { email: identifier }] }).select('+password');
 
-        if (!user) return res.status(404).json({ error: "Tên đăng nhập hoặc Email không tồn tại!" });
+        if (!user) {
+            console.log("Tên đăng nhập hoặc Email không tồn tại!");
+            return res.status(404).json({ error: "Tên đăng nhập hoặc Email không tồn tại!" });
+        }
 
         // Kiểm tra mật khẩu
         const passwordCheck = await bcrypt.compare(password, user.password);
-        if (!passwordCheck) return res.status(400).json({ error: "Mật khẩu không đúng!" });
+        if (!passwordCheck) {
+            console.log("Mật khẩu không đúng!");
+            return res.status(400).json({ error: "Mật khẩu không đúng!" });
+        }
 
         // Tạo token JWT
-        const token = jwt.sign({ userId: user._id, username: user.username, role: user.role }, process.env.JWT_SECRET, { expiresIn: "24h" });
-        res.status(200).json({ msg: "Đăng nhập thành công!", token });
+        const token = jwt.sign(
+            { userId: user._id, username: user.username, role: user.role },
+            process.env.JWT_SECRET,
+            { expiresIn: "24h" }
+        );
+
+        // Ghi log thông tin người dùng
+        console.log("Thông tin người dùng đã đăng nhập:", {
+            username: user.username,
+            email: user.email,
+            phone: user.phone,
+            role: user.role
+        });
+
+        // Trả về thông tin chi tiết
+        return res.status(200).json({
+            msg: "Đăng nhập thành công!",
+            token,
+            user: {
+                username: user.username,
+                email: user.email,
+                phone: user.phone,
+                role: user.role,
+                fullname: user.fullname, // Thêm fullname vào thông tin trả về
+                createdAt: user.createdAt, // Thêm createdAt vào thông tin trả về
+                updatedAt: user.updatedAt  // Thêm updatedAt vào thông tin trả về
+            }
+        });
     } catch (error) {
-        console.error("Lỗi đăng nhập:", error);
-        res.status(500).json({ error: "Lỗi đăng nhập!" });
+        console.error("Lỗi khi đăng nhập:", error);
+        return res.status(500).json({ error: "Lỗi khi đăng nhập!" });
     }
 }
+
+
+
+
+
 // Lấy tất cả người dùng (Chỉ dành cho Admin)
 export async function getAllUsers(req, res) {
     try {

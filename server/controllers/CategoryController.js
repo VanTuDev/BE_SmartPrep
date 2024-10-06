@@ -4,30 +4,29 @@ import QuestionModel from '../model/Question.model.js';
 // Tạo danh mục mới
 export async function createCategory(req, res) {
    try {
-      console.log("Request Body:", req.body);
-
-      // Kiểm tra xem req.user có được định nghĩa không
-      if (!req.user || !req.user.userId) {
-         console.error("Không tìm thấy thông tin người dùng trong request");
-         return res.status(403).json({ error: "Xác thực không thành công!" });
+      // Kiểm tra xem người dùng có phải là instructor không
+      if (req.user.role !== 'instructor') {
+         return res.status(403).json({ error: "Chỉ có giảng viên mới có thể tạo danh mục." });
       }
 
+      console.log("Request Body:", req.body);
       const newCategory = new CategoryModel({
          ...req.body,
-         created_by: req.user.userId,
+         created_by: req.user.userId, // Lưu thông tin người tạo
       });
       await newCategory.save();
-      console.log("Danh mục đã được tạo thành công:", newCategory);
       res.status(201).json({ msg: "Danh mục đã được tạo thành công!", category: newCategory });
    } catch (error) {
       console.error("Lỗi khi tạo danh mục:", error);
       res.status(500).json({ error: "Lỗi khi tạo danh mục!" });
    }
 }
+
 // Lấy tất cả các danh mục
 export async function getAllCategories(req, res) {
    try {
-      const categories = await CategoryModel.find({});
+      // Lấy danh mục theo người tạo
+      const categories = await CategoryModel.find({ created_by: req.user.userId });
       console.log("Danh sách danh mục:", categories);
       res.status(200).json(categories);
    } catch (error) {
@@ -56,20 +55,30 @@ export async function getQuestionsByCategoryId(req, res) {
 // Cập nhật danh mục
 export async function updateCategory(req, res) {
    try {
-      console.log("Request Category ID để cập nhật:", req.params.id);
+      // Lấy ID và loại bỏ ký tự không mong muốn
+      const categoryId = req.params.id.trim(); // Loại bỏ khoảng trắng hoặc ký tự không cần thiết
+      console.log("Request Category ID để cập nhật:", categoryId);
       console.log("Request Body:", req.body);
-      const category = await CategoryModel.findByIdAndUpdate(req.params.id, req.body, { new: true });
+
+      // Tìm và cập nhật danh mục
+      const category = await CategoryModel.findByIdAndUpdate(categoryId, req.body, { new: true });
+
+      // Kiểm tra xem danh mục có tồn tại không
       if (!category) {
-         console.log("Không tìm thấy danh mục để cập nhật với ID:", req.params.id);
+         console.log("Không tìm thấy danh mục để cập nhật với ID:", categoryId);
          return res.status(404).json({ error: "Không thể cập nhật danh mục!" });
       }
+
       console.log("Danh mục đã được cập nhật:", category);
       res.status(200).json({ msg: "Cập nhật danh mục thành công!", category });
    } catch (error) {
       console.error("Lỗi khi cập nhật danh mục:", error);
-      res.status(500).json({ error: "Lỗi khi cập nhật danh mục!" });
+      return res.status(500).json({ error: "Lỗi khi cập nhật danh mục!" });
    }
 }
+
+
+
 
 // Xóa danh mục
 export async function deleteCategory(req, res) {
