@@ -15,16 +15,16 @@ export function verifyInstructorRole(req, res, next) {
 // Tạo câu hỏi mới
 export async function createQuestion(req, res) {
    try {
-      console.log("Request Body:", req.body); // Log dữ liệu gửi lên
+      console.log("Request Body:", req.body);
       const newQuestion = new QuestionModel({
          ...req.body,
-         created_by: req.user.userId, // Thêm ID của Instructor vào trường `created_by`
+         created_by: req.user.userId, // Gán ID của người tạo câu hỏi
       });
       await newQuestion.save();
-      console.log("Câu hỏi đã được tạo thành công:", newQuestion); // Log khi tạo câu hỏi thành công
+      console.log("Câu hỏi đã được tạo thành công:", newQuestion);
       res.status(201).json({ msg: "Câu hỏi đã được tạo thành công!", question: newQuestion });
    } catch (error) {
-      console.error("Lỗi khi tạo câu hỏi:", error); // Log lỗi nếu tạo không thành công
+      console.error("Lỗi khi tạo câu hỏi:", error);
       res.status(500).json({ error: "Lỗi khi tạo câu hỏi!" });
    }
 }
@@ -32,13 +32,11 @@ export async function createQuestion(req, res) {
 // Lấy tất cả các câu hỏi của Instructor hiện tại
 export async function getAllQuestions(req, res) {
    try {
-      const instructorId = req.user.userId; // Lấy ID của Instructor hiện tại
-      console.log("Lấy tất cả câu hỏi cho Instructor:", instructorId); // Log ID của Instructor hiện tại
-      const questions = await QuestionModel.find({ created_by: instructorId });
-      console.log("Danh sách câu hỏi:", questions); // Log danh sách câu hỏi tìm được
+      const questions = await QuestionModel.find({ created_by: req.user.userId });
+      console.log("Danh sách câu hỏi:", questions);
       res.status(200).json(questions);
    } catch (error) {
-      console.error("Lỗi khi lấy danh sách câu hỏi:", error); // Log lỗi khi lấy câu hỏi
+      console.error("Lỗi khi lấy danh sách câu hỏi:", error);
       res.status(500).json({ error: "Lỗi khi lấy danh sách câu hỏi!" });
    }
 }
