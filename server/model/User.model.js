@@ -1,45 +1,61 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
-export const UserSchema = new mongoose.Schema({
+// Định nghĩa schema cho người dùng với timestamps
+const UserSchema = new mongoose.Schema({
     username: {
         type: String,
-        required: [true, "Please provide unique Username"],
-        unique: [true, "Username already exists"]
-    },
-    password: {
-        type: String,
-        required: [true, "Please provide a password"],
-    },
-    email: {
-        type: String,
-        required: [true, "Please provide a unique email"],
+        required: true,
         unique: true,
+        trim: true
     },
     fullname: {
         type: String,
-        required: [true, "Please provide your full name"]
+        required: true,
+        trim: true
+    },
+    email: {
+        type: String,
+        required: true,
+        unique: true,
+        lowercase: true,
+        trim: true
     },
     phone: {
-        type: String,  // Dùng String để lưu số điện thoại để tránh vấn đề với số 0 ở đầu
-        required: [true, "Please provide a phone number"]
+        type: String,
+        required: true,
+        trim: true
     },
-    address: {
-        type: String
+    password: {
+        type: String,
+        required: true,
+        select: false // Không lấy mật khẩu theo mặc định khi truy vấn
     },
     profile: {
-        type: String
-    },
-    is_locked: {
-        type: Boolean,
-        default: false  
-    },
-    google_id: {
-        type: String
+        type: String,
+        default: 'default-profile.jpg' // Đặt mặc định nếu không có
     },
     role: {
         type: String,
+        enum: ['user', 'instructor', 'admin'], // Xác định các vai trò hợp lệ
         default: 'user'
+    },
+    is_locked: {
+        type: Boolean,
+        default: false
+    },
+    google_id: {
+        type: String,
+        default: null
     }
+}, {
+    timestamps: true // Kích hoạt tự động `createdAt` và `updatedAt`
 });
 
+// Middleware cập nhật `updated_at` cho các truy vấn `findOneAndUpdate` và `update`
+UserSchema.pre('findOneAndUpdate', function (next) {
+    this.set({ updatedAt: Date.now() });
+    next();
+});
+
+// Export model
 export default mongoose.model('User', UserSchema);

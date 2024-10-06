@@ -2,7 +2,7 @@ import crypto from 'crypto';
 import fs from 'fs';
 import path from 'path';
 
-// Sinh ra một chuỗi bí mật dài 64 ký tự
+// Sinh ra một chuỗi bí mật dài 12 ký tự
 const secret = crypto.randomBytes(12).toString('hex');
 
 // Ghi chuỗi bí mật vào file .env hoặc in ra console
