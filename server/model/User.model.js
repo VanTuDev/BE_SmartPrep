@@ -1,55 +1,55 @@
 import mongoose from 'mongoose';
 
-// Define schema for users with timestamps
+// Định nghĩa schema cho người dùng với các trường thời gian
 const UserSchema = new mongoose.Schema({
     username: {
-        type: String,
-        required: true,
-        unique: true,
-        trim: true
+        type: String,           // Kiểu dữ liệu của trường
+        required: true,        // Trường là bắt buộc
+        unique: true,          // Tên người dùng phải là duy nhất
+        trim: true             // Loại bỏ khoảng trắng ở đầu và cuối chuỗi
     },
     fullname: {
-        type: String,
-        required: true,
-        trim: true
+        type: String,           // Kiểu dữ liệu của trường
+        required: true,        // Trường là bắt buộc
+        trim: true             // Loại bỏ khoảng trắng ở đầu và cuối chuỗi
     },
     email: {
-        type: String,
-        required: true,
-        unique: true,
-        lowercase: true,
-        trim: true
+        type: String,           // Kiểu dữ liệu của trường
+        required: true,        // Trường là bắt buộc
+        unique: true,          // Email phải là duy nhất
+        lowercase: true,       // Chuyển đổi email thành chữ thường
+        trim: true             // Loại bỏ khoảng trắng ở đầu và cuối chuỗi
     },
     phone: {
-        type: String,
-        required: true,
-        trim: true
+        type: String,           // Kiểu dữ liệu của trường
+        required: true,        // Trường là bắt buộc
+        trim: true             // Loại bỏ khoảng trắng ở đầu và cuối chuỗi
     },
     password: {
-        type: String,
-        required: true,
-        select: false // Không lấy mật khẩu theo mặc định khi truy vấn
+        type: String,           // Kiểu dữ liệu của trường
+        required: true,        // Trường là bắt buộc
+        select: false           // Không bao gồm mật khẩu trong kết quả truy vấn mặc định
     },
     profile: {
-        type: String,
-        default: 'default-profile.jpg' // Đặt mặc định nếu không có
+        type: String,           // Kiểu dữ liệu của trường
+        default: 'default-profile.jpg' // Đặt hình đại diện mặc định nếu không có
     },
     role: {
-        type: String,
-        enum: ['user', 'instructor', 'admin'], // Xác định các vai trò hợp lệ
-        default: 'user'
+        type: String,           // Kiểu dữ liệu của trường
+        enum: ['user', 'instructor', 'admin'], // Định nghĩa các vai trò hợp lệ
+        default: 'user'        // Vai trò mặc định là 'user'
     },
     is_locked: {
-        type: Boolean,
-        default: false
+        type: Boolean,          // Kiểu dữ liệu của trường
+        default: false          // Giá trị mặc định là false (người dùng không bị khóa)
     },
     google_id: {
-        type: String,
-        default: null
+        type: String,           // Kiểu dữ liệu của trường
+        default: null           // Giá trị mặc định là null (không liên kết với tài khoản Google)
     }
 }, {
-    timestamps: true // Kích hoạt tự động `createdAt` và `updatedAt`
+    timestamps: true // Kích hoạt tự động tạo trường createdAt và updatedAt
 });
 
-// Export model
+// Xuất model
 export default mongoose.model('User', UserSchema);
