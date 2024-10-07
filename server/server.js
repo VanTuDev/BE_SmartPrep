@@ -7,7 +7,7 @@ import connect from './database/conn.js';
 import questionRoutes from './router/question.routes.js';
 import userRoutes from './router/user.routes.js';
 import categoryRoutes from './router/Category.routes.js'
-// import testRoutes from './router/test.routes'
+import testRoutes from './router/test.routes.js'
 
 dotenv.config();
 
@@ -21,7 +21,7 @@ app.use(express.json());
 app.use('/api/questions', questionRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/category', categoryRoutes);
-// app.use('/api/test', testRoutes);
+app.use('/api/test', testRoutes);
 
 
 app.listen(PORT, () => {

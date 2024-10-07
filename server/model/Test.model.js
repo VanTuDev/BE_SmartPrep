@@ -21,11 +21,7 @@ const TestSchema = new mongoose.Schema({
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Question', // Tham chiếu đến model Question
             required: true,
-         },
-         correct_answers: {
-            type: [String],
-            default: null, // Thông tin về câu hỏi đúng hay sai
-         },
+         }
       },
    ],
    duration: {
