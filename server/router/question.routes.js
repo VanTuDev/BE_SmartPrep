@@ -13,5 +13,4 @@ router.get('/category/:categoryId', Auth, questionController.getQuestionsByCateg
 router.put('/:id', Auth, questionController.verifyInstructorRole, questionController.updateQuestion); // Route cập nhật câu hỏi
 router.delete('/:id', Auth, questionController.verifyInstructorRole, questionController.deleteQuestion); // Route xóa câu hỏi
 router.post('/upload', Auth, questionController.verifyInstructorRole, upload.single('file'), questionController.addQuestionsFromExcel); // Route thêm câu hỏi từ file Excel
-
 export default router;
