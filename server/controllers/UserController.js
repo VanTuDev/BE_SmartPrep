@@ -176,13 +176,24 @@ export async function getUser(req, res) {
 }
 
 // Cập nhật thông tin người dùng
+// Cập nhật thông tin người dùng
+// controllers/UserController.js
+// Cập nhật thông tin người dùng và hỗ trợ cập nhật ảnh đại diện
 export async function updateUser(req, res) {
     try {
-        const { userId } = req.user;
+        const { userId } = req.user; // Kiểm tra userId từ middleware Auth
         console.log("Đang cập nhật thông tin người dùng với ID:", userId);
         if (!userId) return res.status(401).send({ error: "Không tìm thấy người dùng!" });
 
         const body = req.body;
+        console.log("Thông tin cập nhật nhận được:", body);
+
+        // Kiểm tra xem có hình ảnh được tải lên hay không
+        if (req.file) {
+            body.profile = req.file.filename; // Gán tên tệp vào trường profile trong body
+        }
+
+        // Cập nhật thông tin người dùng
         const updatedUser = await UserModel.findByIdAndUpdate(userId, body, { new: true });
         if (!updatedUser) return res.status(404).send({ error: "Không thể cập nhật thông tin người dùng." });
 
@@ -193,6 +204,8 @@ export async function updateUser(req, res) {
         res.status(500).json({ error: "Lỗi khi cập nhật thông tin người dùng!" });
     }
 }
+
+
 
 // Xóa người dùng (Chỉ dành cho Admin)
 export async function deleteUser(req, res) {
@@ -209,5 +222,26 @@ export async function deleteUser(req, res) {
     } catch (error) {
         console.error("Lỗi khi xóa người dùng:", error);
         res.status(500).json({ error: "Lỗi khi xóa người dùng!" });
+    }
+}
+
+// UserController.js
+// controllers/UserController.js
+
+// Lấy thông tin hồ sơ người dùng
+export async function getUserProfile(req, res) {
+    try {
+        const { userId } = req.user;
+        console.log("Đang lấy thông tin người dùng với userId:", userId);
+
+        const user = await UserModel.findById(userId).select('-password');
+        if (!user) {
+            return res.status(404).json({ error: "Không tìm thấy thông tin người dùng!" });
+        }
+
+        return res.status(200).json(user);
+    } catch (error) {
+        console.error("Lỗi khi lấy thông tin hồ sơ:", error);
+        return res.status(500).json({ error: "Lỗi khi lấy thông tin hồ sơ!" });
     }
 }

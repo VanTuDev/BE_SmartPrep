@@ -15,17 +15,17 @@ export function verifyInstructorRole(req, res, next) {
 // Tạo câu hỏi mới
 export async function createQuestion(req, res) {
    try {
-      console.log("Request Body:", req.body);
       const newQuestion = new QuestionModel({
          ...req.body,
-         created_by: req.user.userId, // Gán ID của người tạo câu hỏi
+         created_by: req.user.userId,
       });
+
       await newQuestion.save();
-      console.log("Câu hỏi đã được tạo thành công:", newQuestion);
-      res.status(201).json({ msg: "Câu hỏi đã được tạo thành công!", question: newQuestion });
+      console.log('Câu hỏi đã được tạo thành công:', newQuestion);
+      res.status(201).json({ msg: 'Câu hỏi đã được tạo thành công!', question: newQuestion });
    } catch (error) {
-      console.error("Lỗi khi tạo câu hỏi:", error);
-      res.status(500).json({ error: "Lỗi khi tạo câu hỏi!" });
+      console.error('Lỗi khi tạo câu hỏi:', error);
+      res.status(500).json({ error: 'Lỗi khi tạo câu hỏi!' });
    }
 }
 
@@ -131,50 +131,86 @@ export async function deleteQuestion(req, res) {
 }
 
 // Thêm câu hỏi bằng file Excel
+// Thêm câu hỏi bằng file Excel
 export async function addQuestionsFromExcel(req, res) {
    try {
-      console.log("Bắt đầu thêm câu hỏi từ file Excel..."); // Log khi bắt đầu xử lý file Excel
+      console.log("Bắt đầu thêm câu hỏi từ file Excel...");
       if (!req.file) {
-         console.log("Không tìm thấy file tải lên."); // Log khi không tìm thấy file
+         console.log("Không tìm thấy file tải lên.");
          return res.status(400).json({ error: "Vui lòng tải lên một tệp Excel." });
       }
 
-      console.log("File đã được tải lên:", req.file.originalname); // Log tên file tải lên
+      console.log("File đã được tải lên:", req.file.originalname);
       const workbook = XLSX.read(req.file.buffer, { type: 'buffer' });
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
       const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
-      console.log("Dữ liệu từ file Excel:", rows); // Log dữ liệu từ file Excel
+      console.log("Dữ liệu từ file Excel:", rows);
       const addedQuestions = [];
 
+      // Bỏ qua dòng tiêu đề
       for (let i = 1; i < rows.length; i++) {
          const row = rows[i];
-         console.log("Đang xử lý dòng:", row); // Log từng dòng trong file Excel
 
-         const question_text = row[0];
-         const option = row.slice(1, row.length - 1); // Các cột tiếp theo là các lựa chọn
-         const correct_answers = row[row.length - 1].split(',').map(answer => answer.trim());
+         const category = row[0]; // Cột category
+         const group = row[1]; // Cột group
+         const question_text = row[2]; // Cột question_text
+         const options = row.slice(3, row.length - 1); // Các cột option
+         const correct_answers = row[row.length - 1].split(',').map(answer => answer.trim()); // Cột correct_answers
 
          const newQuestion = new QuestionModel({
-            category: 'null', // Cần cập nhật sau khi thêm trường category
-            group: 'null',
+            category: category || 'null',
+            group: group || 'null',
             question_text,
             question_type: 'multiple-choice',
-            option,
+            option: options,
             correct_answers,
-            created_by: req.user.userId, // Gán ID của Instructor tạo câu hỏi
+            created_by: req.user.userId,
          });
 
          await newQuestion.save();
-         console.log("Câu hỏi mới đã được thêm:", newQuestion); // Log câu hỏi mới thêm vào
+         console.log("Câu hỏi mới đã được thêm:", newQuestion);
          addedQuestions.push(newQuestion);
       }
 
-      console.log("Tất cả câu hỏi đã được thêm:", addedQuestions); // Log tất cả các câu hỏi đã thêm
+      console.log("Tất cả câu hỏi đã được thêm:", addedQuestions);
       return res.status(201).json({ msg: "Thêm câu hỏi từ file Excel thành công!", questions: addedQuestions });
    } catch (error) {
-      console.error("Lỗi khi thêm câu hỏi từ file Excel:", error); // Log lỗi khi thêm câu hỏi
+      console.error("Lỗi khi thêm câu hỏi từ file Excel:", error);
       return res.status(500).json({ error: "Lỗi khi thêm câu hỏi từ file Excel." });
    }
 }
+
+
+// Thêm nhiều câu hỏi
+export async function createMultipleQuestions(req, res) {
+   try {
+      const questionsData = req.body; // Giả định rằng dữ liệu là mảng các câu hỏi
+
+      // Kiểm tra nếu không có câu hỏi nào được gửi
+      if (!Array.isArray(questionsData) || questionsData.length === 0) {
+         return res.status(400).json({ error: "Không có câu hỏi nào để thêm." });
+      }
+
+      // Tạo mảng để lưu các câu hỏi mới
+      const addedQuestions = [];
+
+      // Lặp qua từng câu hỏi và tạo mới
+      for (const questionData of questionsData) {
+         const newQuestion = new QuestionModel({
+            ...questionData,
+            created_by: req.user.userId, // Gán ID của người tạo
+         });
+         await newQuestion.save();
+         addedQuestions.push(newQuestion);
+      }
+
+      console.log('Đã thêm các câu hỏi mới:', addedQuestions);
+      res.status(201).json({ msg: 'Thêm câu hỏi thành công!', questions: addedQuestions });
+   } catch (error) {
+      console.error('Lỗi khi thêm nhiều câu hỏi:', error);
+      res.status(500).json({ error: 'Lỗi khi thêm nhiều câu hỏi.' });
+   }
+}
+
