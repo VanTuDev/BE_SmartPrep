@@ -1,21 +1,19 @@
 import { Router } from 'express';
+import multer from 'multer';
 const router = Router();
-import * as testController from '../controllers/TestControllre.js';
+const upload = multer();
+
+import * as testController from '../controllers/TestController.js';
 import Auth from '../middleware/auth.js';
 
 
-// Định nghĩa các route người dùng
-router.post('/register', t.register);
-router.post('/login', userController.login);
-// Các route để lấy và cập nhật thông tin người dùng
-router.get('/user/:username', userController.getUser);
-router.get('/user/id/:id', Auth, userController.getUserById);
-router.get('/users', Auth, userController.getAllUsers); // Chỉ Admin
-router.get('/all', Auth, userController.getAllUsers);
-// Cập nhật thông tin người dùng
-router.put('/updateuser', Auth, userController.updateUser);
+// router.post('/create', Auth, testController.verifyInstructorRole, testController.createTest);
+// router.post('/create', testController.createTest);
+router.post('/create_with_ques', Auth, testController.verifyInstructorRole, testController.createExamWithQuestions);
+router.get('/get_all_test', testController.getAllTest);
+router.get('/:id', testController.getTestById);
+router.put('/:id', testController.updateTest);
+router.delete('/:id', testController.deleteTest);
 
-// Xóa người dùng
-router.delete('/deleteuser/:id', Auth, userController.deleteUser);
 
 export default router;

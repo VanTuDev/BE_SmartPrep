@@ -7,6 +7,7 @@ import connect from './database/conn.js';
 // Import các router
 import questionRoutes from './router/question.routes.js';
 import userRoutes from './router/user.routes.js';
+import testRoutes from './router/test.routes.js'
 import categoryRoutes from './router/Category.routes.js';
 import groupRoutes from './router/group.routes.js'; // Nhập router cho nhóm
 
@@ -26,6 +27,7 @@ app.use('/uploads', express.static(path.join(path.resolve(), 'uploads')));
 app.use('/api/questions', questionRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/category', categoryRoutes);
+app.use('/api/test', testRoutes);
 app.use('/api/groups', groupRoutes); // Thêm router cho nhóm
 
 // Kiểm tra xem server có hoạt động hay không

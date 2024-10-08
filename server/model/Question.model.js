@@ -10,7 +10,11 @@ const QuestionSchema = new mongoose.Schema({
    group: {
       type: mongoose.Schema.Types.ObjectId, // Kiểu dữ liệu là ObjectId
       ref: 'Group', // Tham chiếu đến mô hình Group
-
+   },
+   test_id: {
+      type: mongoose.Schema.Types.ObjectId, // Kiểu dữ liệu là ObjectId
+      ref: 'Test', // Tham chiếu đến mô hình Test
+      required: false, // không bắt buộc phải có !!!!
    },
    question_text: {
       type: String, // Kiểu dữ liệu là chuỗi
@@ -21,7 +25,7 @@ const QuestionSchema = new mongoose.Schema({
       enum: ['essay', 'multiple-choice', 'choice'], // Giá trị phải nằm trong danh sách này
 
    },
-   option: {
+   options: {
       type: [String], // Kiểu dữ liệu là mảng chuỗi
       required: [true, "Please provide the options for the question"], // Bắt buộc phải có, thông báo nếu không có
    },
