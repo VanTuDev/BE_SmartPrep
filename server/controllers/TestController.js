@@ -126,7 +126,8 @@ export async function deleteTest(req, res) {
 
 export async function createExamWithQuestions(req, res) {
    try {
-      const examData = req.body;
+      const examData = req.body.exam;
+      console.log(JSON.stringify(req.body, null, 2));
       const { questions, ...restExamData } = examData;
 
       // Tạo từng câu hỏi và lưu lại _id
@@ -137,7 +138,7 @@ export async function createExamWithQuestions(req, res) {
             question_type: questionData.question_type,
             options: questionData.options,
             correct_answers: questionData.correct_answers,
-            created_by: examData.user_id // Liên kết câu hỏi với người tạo
+            created_by: req.user.userId // Liên kết câu hỏi với người tạo
          });
 
          // Lưu câu hỏi vào DB và lấy _id
@@ -148,7 +149,8 @@ export async function createExamWithQuestions(req, res) {
       // Tạo bài kiểm tra với danh sách câu hỏi (questionIds)
       const newTest = new TestModel({
          ...restExamData, // Thông tin khác của bài kiểm tra
-         questions: questionIds // Gán _id của các câu hỏi vào mảng questions
+         questions: questionIds, // Gán _id của các câu hỏi vào mảng questions
+         user_id: req.user.userId
       });
       
       await newTest.save();

@@ -8,8 +8,8 @@ import Auth from '../middleware/auth.js';
 
 
 // router.post('/create', Auth, testController.verifyInstructorRole, testController.createTest);
-router.post('/create', testController.createTest);
-router.post('/create_with_ques', testController.createExamWithQuestions);
+// router.post('/create', testController.createTest);
+router.post('/create_with_ques', Auth, testController.verifyInstructorRole, testController.createExamWithQuestions);
 router.get('/get_all_test', testController.getAllTest);
 router.get('/:id', testController.getTestById);
 router.put('/:id', testController.updateTest);
