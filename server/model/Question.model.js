@@ -5,12 +5,11 @@ const QuestionSchema = new mongoose.Schema({
    category: {
       type: mongoose.Schema.Types.ObjectId, // Kiểu dữ liệu là ObjectId
       ref: 'Category', // Tham chiếu đến mô hình Category
-      required: false, // không bắt buộc phải có !!!!
+
    },
    group: {
-      type: String, // Kiểu dữ liệu là chuỗi
-      default: 'null', // Giá trị mặc định là 'null'
-      required: false, // không bắt buộc phải có !!!!
+      type: mongoose.Schema.Types.ObjectId, // Kiểu dữ liệu là ObjectId
+      ref: 'Group', // Tham chiếu đến mô hình Group
    },
    test_id: {
       type: mongoose.Schema.Types.ObjectId, // Kiểu dữ liệu là ObjectId
@@ -24,7 +23,7 @@ const QuestionSchema = new mongoose.Schema({
    question_type: {
       type: String, // Kiểu dữ liệu là chuỗi
       enum: ['essay', 'multiple-choice', 'choice'], // Giá trị phải nằm trong danh sách này
-      required: [false, "Please specify the question type"], // không bắt buộc phải có !!!!
+
    },
    options: {
       type: [String], // Kiểu dữ liệu là mảng chuỗi
