@@ -36,9 +36,10 @@ const UserSchema = new mongoose.Schema({
     },
     role: {
         type: String,           // Kiểu dữ liệu của trường
-        enum: ['user', 'instructor', 'admin'], // Định nghĩa các vai trò hợp lệ
-        default: 'user'        // Vai trò mặc định là 'user'
+        enum: ['learner', 'instructor', 'admin'], // Định nghĩa các vai trò hợp lệ
+        default: 'learner'        // Vai trò mặc định là 'learner'
     },
+
     is_locked: {
         type: Boolean,          // Kiểu dữ liệu của trường
         default: false          // Giá trị mặc định là false (người dùng không bị khóa)

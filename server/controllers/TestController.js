@@ -131,6 +131,7 @@ export async function createExamWithQuestions(req, res) {
    }
 }
 
+
 export async function updateExamWithQuestions(req, res) {
    try {
       const examId = req.params.examId; // ID của exam cần cập nhật
