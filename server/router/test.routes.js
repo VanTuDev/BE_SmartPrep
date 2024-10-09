@@ -12,7 +12,7 @@ import Auth from '../middleware/auth.js';
 router.post('/create_with_ques', Auth, testController.verifyInstructorRole, testController.createExamWithQuestions);
 router.get('/get_all_test', testController.getAllTest);
 router.get('/:id', testController.getTestById);
-router.put('/:id', testController.updateTest);
+router.put('/:examId', Auth, testController.verifyInstructorRole, testController.updateExamWithQuestions);
 router.delete('/:id', testController.deleteTest);
 
 
