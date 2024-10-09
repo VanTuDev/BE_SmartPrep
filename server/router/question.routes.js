@@ -27,5 +27,4 @@ router.delete('/:id', Auth, questionController.verifyInstructorRole, questionCon
 
 // Route thêm câu hỏi từ file Excel
 router.post('/upload-excel', Auth, upload.single('file'), questionController.addQuestionsFromExcel);
-
 export default router;
