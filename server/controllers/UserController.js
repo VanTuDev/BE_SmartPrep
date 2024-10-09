@@ -44,7 +44,7 @@ export async function register(req, res) {
             email,
             phone,
             password: hashedPassword,
-            role: role || 'user'
+            role: role || 'learner'
         });
         await newUser.save();
 
@@ -58,8 +58,6 @@ export async function register(req, res) {
 
 // Đăng nhập người dùng
 
-// Đăng nhập người dùng
-// Đăng nhập người dùng
 export async function login(req, res) {
     try {
         const { identifier, password } = req.body; // Lấy identifier và password từ body
