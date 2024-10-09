@@ -131,57 +131,59 @@ export async function deleteQuestion(req, res) {
 }
 
 // Thêm câu hỏi bằng file Excel
-// Thêm câu hỏi bằng file Excel
 export async function addQuestionsFromExcel(req, res) {
    try {
       console.log("Bắt đầu thêm câu hỏi từ file Excel...");
+
+      // Kiểm tra nếu không có file nào được tải lên
       if (!req.file) {
          console.log("Không tìm thấy file tải lên.");
          return res.status(400).json({ error: "Vui lòng tải lên một tệp Excel." });
       }
 
       console.log("File đã được tải lên:", req.file.originalname);
+
+      // Đọc file Excel và chuyển đổi thành định dạng JSON
       const workbook = XLSX.read(req.file.buffer, { type: 'buffer' });
       const sheetName = workbook.SheetNames[0];
       const worksheet = workbook.Sheets[sheetName];
       const rows = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
 
       console.log("Dữ liệu từ file Excel:", rows);
+
       const addedQuestions = [];
 
-      // Bỏ qua dòng tiêu đề
+      // Duyệt từng hàng dữ liệu, bỏ qua dòng đầu tiên là tiêu đề
       for (let i = 1; i < rows.length; i++) {
          const row = rows[i];
+         const question_text = row[0]; // Cột chứa nội dung câu hỏi
+         const options = row.slice(1, row.length - 1); // Các cột từ thứ 2 đến cột gần cuối là các options
+         const correct_answers = row[row.length - 1].split(',').map(answer => answer.trim()); // Cột cuối cùng chứa correct_answers, ngăn cách bởi dấu phẩy
 
-         const category = row[0]; // Cột category
-         const group = row[1]; // Cột group
-         const question_text = row[2]; // Cột question_text
-         const options = row.slice(3, row.length - 1); // Các cột option
-         const correct_answers = row[row.length - 1].split(',').map(answer => answer.trim()); // Cột correct_answers
-
+         // Tạo đối tượng câu hỏi mới
          const newQuestion = new QuestionModel({
-            category: category || 'null',
-            group: group || 'null',
-            question_text,
-            question_type: 'multiple-choice',
-            option: options,
-            correct_answers,
-            created_by: req.user.userId,
+            question_text, // Nội dung câu hỏi
+            question_type: 'multiple-choice', // Loại câu hỏi là multiple-choice
+            options, // Các lựa chọn cho câu hỏi
+            correct_answers, // Đáp án đúng
+            created_by: req.user.userId, // Người tạo
          });
 
+         // Lưu câu hỏi vào cơ sở dữ liệu
          await newQuestion.save();
          console.log("Câu hỏi mới đã được thêm:", newQuestion);
          addedQuestions.push(newQuestion);
       }
 
       console.log("Tất cả câu hỏi đã được thêm:", addedQuestions);
+
+      // Trả về phản hồi với các câu hỏi đã được thêm thành công
       return res.status(201).json({ msg: "Thêm câu hỏi từ file Excel thành công!", questions: addedQuestions });
    } catch (error) {
       console.error("Lỗi khi thêm câu hỏi từ file Excel:", error);
       return res.status(500).json({ error: "Lỗi khi thêm câu hỏi từ file Excel." });
    }
 }
-
 
 // Thêm nhiều câu hỏi
 export async function createMultipleQuestions(req, res) {
