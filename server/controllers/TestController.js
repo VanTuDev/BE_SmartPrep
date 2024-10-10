@@ -14,7 +14,6 @@ export function verifyInstructorRole(req, res, next) {
    }
    next();
 }
-
 export async function getAllTest(req, res) {
    try {
       // const tests = await TestModel.find({ instructor_id: req.user.userId });
@@ -26,7 +25,6 @@ export async function getAllTest(req, res) {
       res.status(500).json({ error: "Lỗi khi lấy danh sách bài kiểm tra!" });
    }
 }
-
 export async function getTestById(req, res) {
    try {
       console.log("Request ID:", req.params.id); // Log ID của câu hỏi được yêu cầu
@@ -44,7 +42,6 @@ export async function getTestById(req, res) {
          options: q.question_id.options,
          correct_answers: q.question_id.correct_answers,
       }));
-
       console.log("Test tìm thấy:", test); // Log câu hỏi tìm được
       res.status(200).json(test);
    } catch (error) {
@@ -52,18 +49,10 @@ export async function getTestById(req, res) {
       res.status(500).json({ error: "Lỗi khi lấy câu hỏi!" });
    }
 }
-
 export async function updateTest(req, res) {
    try {
       console.log("Request ID để cập nhật:", req.params.id); // Log ID của câu hỏi cần cập nhật
       const test = await TestModel.findById(req.params.id);
-
-      // // Kiểm tra quyền cập nhật
-      // if (!test || test.created_by.toString() !== req.user.userId) {
-      //    console.log("Bạn không có quyền cập nhật câu hỏi này hoặc câu hỏi không tồn tại."); // Log nếu không có quyền cập nhật
-      //    return res.status(403).json({ error: "Bạn không có quyền cập nhật câu hỏi này!" });
-      // }
-
       Object.assign(test, req.body);
       await test.save();
       console.log("Test đã được cập nhật:", test); // Log câu hỏi đã cập nhật thành công
@@ -78,12 +67,6 @@ export async function deleteTest(req, res) {
    try {
       console.log("Request ID để xóa:", req.params.id); // Log ID của test cần xóa
       const test = await TestModel.findById(req.params.id);
-
-      // // Kiểm tra quyền xóa
-      // if (!test || test.created_by.toString() !== req.user.userId) {
-      //    console.log("Bạn không có quyền xóa test này hoặc test không tồn tại."); // Log nếu không có quyền xóa
-      //    return res.status(403).json({ error: "Bạn không có quyền xóa test này!" });
-      // }
 
       await test.remove();
       console.log("Xóa test thành công với ID:", req.params.id); // Log khi xóa thành công
