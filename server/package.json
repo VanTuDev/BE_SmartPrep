@@ -27,6 +27,7 @@
     "nodemon": "^2.0.20",
     "otp-generator": "^4.0.0",
     "path": "^0.12.7",
+    "react-modal": "^3.16.1",
     "server": "file:",
     "xlsx": "^0.18.5"
   },
