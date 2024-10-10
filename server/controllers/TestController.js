@@ -96,8 +96,7 @@ export async function deleteTest(req, res) {
 
 export async function createExamWithQuestions(req, res) {
    try {
-      const examData = req.body.exam;
-      console.log(JSON.stringify(req.body, null, 2));
+      const examData = req.body;
       const { questions, ...restExamData } = examData;
 
       // Tạo từng câu hỏi và lưu lại _id
@@ -136,7 +135,7 @@ export async function updateExamWithQuestions(req, res) {
    try {
       const examId = req.params.examId; // ID của exam cần cập nhật
       // console.log(examId)
-      const examData = req.body.exam;
+      const examData = req.body;
       // console.log(JSON.stringify(req.body, null, 2));
 
       const { questions, ...restExamData } = examData;
