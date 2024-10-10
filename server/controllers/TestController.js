@@ -79,7 +79,7 @@ export async function deleteTest(req, res) {
 
 export async function createExamWithQuestions(req, res) {
    try {
-      const examData = req.body.exam;
+      const examData = req.body;
       console.log(JSON.stringify(req.body, null, 2));
       const { questions, ...restExamData } = examData;
 
@@ -105,7 +105,7 @@ export async function createExamWithQuestions(req, res) {
          questions: questionIds, // Gán _id của các câu hỏi vào mảng questions
          user_id: req.user.userId
       });
-      
+
       await newTest.save();
       res.status(201).json(newTest);
    } catch (error) {
@@ -119,7 +119,7 @@ export async function updateExamWithQuestions(req, res) {
    try {
       const examId = req.params.examId; // ID của exam cần cập nhật
       // console.log(examId)
-      const examData = req.body.exam;
+      const examData = req.body;
       // console.log(JSON.stringify(req.body, null, 2));
 
       const { questions, ...restExamData } = examData;
@@ -153,15 +153,15 @@ export async function updateExamWithQuestions(req, res) {
          if (questionData._id) {
             // Nếu câu hỏi đã có _id (đã tồn tại), giữ lại câu hỏi
             const updatedQuestion = await QuestionModel.findByIdAndUpdate(
-               questionData._id, 
+               questionData._id,
                {
-                   question_text: questionData.question_text,
-                   question_type: questionData.question_type,
-                   options: questionData.options,
-                   correct_answers: questionData.correct_answers
+                  question_text: questionData.question_text,
+                  question_type: questionData.question_type,
+                  options: questionData.options,
+                  correct_answers: questionData.correct_answers
                },
                { new: true } // Trả về document mới sau khi cập nhật
-           );
+            );
             updatedQuestionIds.push({ question_id: updatedQuestion._id });
          } else {
             // Nếu câu hỏi không có _id (câu hỏi mới), tạo mới
