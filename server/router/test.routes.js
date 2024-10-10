@@ -7,9 +7,9 @@ import * as testController from '../controllers/TestController.js';
 import Auth from '../middleware/auth.js';
 
 router.post('/create_with_ques', Auth, testController.verifyInstructorRole, testController.createExamWithQuestions);
-router.get('/get_all_test', testController.getAllTest);
-router.get('/:id', testController.getTestById);
+router.get('/get_all_test', Auth, testController.verifyInstructorRole, testController.getAllTest);
+router.get('/:id', Auth, testController.verifyInstructorRole, testController.getTestById);
 router.put('/:examId', Auth, testController.verifyInstructorRole, testController.updateExamWithQuestions);
-router.delete('/:id', testController.deleteTest);
+router.delete('/:id', Auth, testController.verifyInstructorRole, testController.deleteTest);
 
 export default router;

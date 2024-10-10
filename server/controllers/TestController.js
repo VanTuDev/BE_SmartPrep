@@ -82,7 +82,7 @@ export async function createExamWithQuestions(req, res) {
       const examData = req.body;
       console.log(JSON.stringify(req.body, null, 2));
       const { questions, ...restExamData } = examData;
-
+     
       // Tạo từng câu hỏi và lưu lại _id
       const questionIds = [];
       for (const questionData of questions) {
