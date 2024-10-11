@@ -14,10 +14,11 @@ export function verifyInstructorRole(req, res, next) {
    }
    next();
 }
+
 export async function getAllTest(req, res) {
    try {
       // const tests = await TestModel.find({ instructor_id: req.user.userId });
-      const tests = await TestModel.find();
+      const tests = await TestModel.find({ user_id: req.user.userId });
       console.log("Danh sách bài thi:", tests);
       res.status(200).json(tests);
    } catch (error) {
@@ -28,7 +29,7 @@ export async function getAllTest(req, res) {
 export async function getTestById(req, res) {
    try {
       console.log("Request ID:", req.params.id); // Log ID của câu hỏi được yêu cầu
-      const test = await TestModel.findById(req.params.id).populate('questions.question_id').lean();
+      const test = await TestModel.findOne({ _id: req.params.id, user_id: req.user.userId }).populate('questions.question_id').lean();
 
       if (!test) {
          return res.status(404).json({ error: "Test not found!" });
@@ -52,7 +53,7 @@ export async function getTestById(req, res) {
 export async function updateTest(req, res) {
    try {
       console.log("Request ID để cập nhật:", req.params.id); // Log ID của câu hỏi cần cập nhật
-      const test = await TestModel.findById(req.params.id);
+      const test = await TestModel.findOne({ _id: req.params.id, user_id: req.user.userId });
       Object.assign(test, req.body);
       await test.save();
       console.log("Test đã được cập nhật:", test); // Log câu hỏi đã cập nhật thành công
@@ -66,7 +67,7 @@ export async function updateTest(req, res) {
 export async function deleteTest(req, res) {
    try {
       console.log("Request ID để xóa:", req.params.id); // Log ID của test cần xóa
-      const test = await TestModel.findById(req.params.id);
+      const test = await TestModel.findOne({ _id: req.params.id, user_id: req.user.userId });
 
       await test.remove();
       console.log("Xóa test thành công với ID:", req.params.id); // Log khi xóa thành công
