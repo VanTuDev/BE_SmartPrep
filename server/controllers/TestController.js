@@ -14,11 +14,10 @@ export function verifyInstructorRole(req, res, next) {
    }
    next();
 }
-
 export async function getAllTest(req, res) {
    try {
-      // const tests = await TestModel.find({ instructor_id: req.user.userId });
-      const tests = await TestModel.find({ user_id: req.user.userId });
+
+      const tests = await TestModel.find();
       console.log("Danh sách bài thi:", tests);
       res.status(200).json(tests);
    } catch (error) {
@@ -29,7 +28,7 @@ export async function getAllTest(req, res) {
 export async function getTestById(req, res) {
    try {
       console.log("Request ID:", req.params.id); // Log ID của câu hỏi được yêu cầu
-      const test = await TestModel.findOne({ _id: req.params.id, user_id: req.user.userId }).populate('questions.question_id').lean();
+      const test = await TestModel.findById(req.params.id).populate('questions.question_id').lean();
 
       if (!test) {
          return res.status(404).json({ error: "Test not found!" });
@@ -53,7 +52,7 @@ export async function getTestById(req, res) {
 export async function updateTest(req, res) {
    try {
       console.log("Request ID để cập nhật:", req.params.id); // Log ID của câu hỏi cần cập nhật
-      const test = await TestModel.findOne({ _id: req.params.id, user_id: req.user.userId });
+      const test = await TestModel.findById(req.params.id);
       Object.assign(test, req.body);
       await test.save();
       console.log("Test đã được cập nhật:", test); // Log câu hỏi đã cập nhật thành công
@@ -67,7 +66,7 @@ export async function updateTest(req, res) {
 export async function deleteTest(req, res) {
    try {
       console.log("Request ID để xóa:", req.params.id); // Log ID của test cần xóa
-      const test = await TestModel.findOne({ _id: req.params.id, user_id: req.user.userId });
+      const test = await TestModel.findById(req.params.id);
 
       await test.remove();
       console.log("Xóa test thành công với ID:", req.params.id); // Log khi xóa thành công
@@ -105,7 +104,7 @@ export async function createExamWithQuestions(req, res) {
          questions: questionIds, // Gán _id của các câu hỏi vào mảng questions
          user_id: req.user.userId
       });
-      
+
       await newTest.save();
       res.status(201).json(newTest);
    } catch (error) {
@@ -153,15 +152,15 @@ export async function updateExamWithQuestions(req, res) {
          if (questionData._id) {
             // Nếu câu hỏi đã có _id (đã tồn tại), giữ lại câu hỏi
             const updatedQuestion = await QuestionModel.findByIdAndUpdate(
-               questionData._id, 
+               questionData._id,
                {
-                   question_text: questionData.question_text,
-                   question_type: questionData.question_type,
-                   options: questionData.options,
-                   correct_answers: questionData.correct_answers
+                  question_text: questionData.question_text,
+                  question_type: questionData.question_type,
+                  options: questionData.options,
+                  correct_answers: questionData.correct_answers
                },
                { new: true } // Trả về document mới sau khi cập nhật
-           );
+            );
             updatedQuestionIds.push({ question_id: updatedQuestion._id });
          } else {
             // Nếu câu hỏi không có _id (câu hỏi mới), tạo mới

@@ -11,7 +11,7 @@ router.post('/create', Auth, groupController.createGroup);
 router.get('/', Auth, groupController.getAllGroups);
 
 // Lấy danh sách câu hỏi theo nhóm
-router.get('/:id/questions', groupController.getQuestionsByGroupId);
+router.get('/:id/questions', Auth, groupController.getQuestionsByGroupId);
 
 // Cập nhật nhóm
 router.put('/:id', Auth, groupController.updateGroup);

@@ -87,6 +87,7 @@ export async function login(req, res) {
 
         // Ghi log thông tin người dùng
         console.log("Thông tin người dùng đã đăng nhập:", {
+            _id: user._id,
             username: user.username,
             email: user.email,
             phone: user.phone,
@@ -98,6 +99,7 @@ export async function login(req, res) {
             msg: "Đăng nhập thành công!",
             token,
             user: {
+                _id: user._id,
                 username: user.username,
                 email: user.email,
                 phone: user.phone,
