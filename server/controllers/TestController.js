@@ -2,6 +2,7 @@ import TestModel from '../model/Test.model.js';
 import QuestionModel from '../model/Question.model.js';
 import CategoryModel from '../model/Category.model.js';
 import UserModel from '../model/User.model.js';
+import SubmissionModel from '../model/Submission.model.js';
 
 
 // Middleware để kiểm tra quyền của Instructor
@@ -113,7 +114,6 @@ export async function createExamWithQuestions(req, res) {
    }
 }
 
-
 export async function updateExamWithQuestions(req, res) {
    try {
       const examId = req.params.examId; // ID của exam cần cập nhật
@@ -191,6 +191,27 @@ export async function updateExamWithQuestions(req, res) {
       res.status(500).json({ message: 'Unable to update exam with questions.' });
    }
 }
+
+// Lấy tất cả các bài làm của một bài kiểm tra cụ thể dựa trên test_id
+export const getSubmissionsByTestId = async (req, res) => {
+   const { test_id } = req.params; // Lấy `test_id` từ tham số trong request
+
+   try {
+      // Tìm kiếm tất cả submission có `_id_test` khớp với `test_id`
+      const submissions = await SubmissionModel.find({ _id_test: test_id })
+         .populate('_id_user') // Populate thêm thông tin user (tên người dùng)
+         .populate('_id_test'); // Populate thêm thông tin bài kiểm tra (tên bài kiểm tra)
+
+      // Kiểm tra nếu không có submission nào
+      if (!submissions || submissions.length === 0) {
+         return res.status(404).json({ message: 'No submissions found for this test' });
+      }
+
+      res.status(200).json(submissions); // Trả về danh sách submission dưới dạng JSON
+   } catch (error) {
+      res.status(500).json({ message: `Error fetching submissions: ${error.message}` });
+   }
+};
 
 
 // Hàm để tạo bài kiểm tra với câu hỏi bốc ngẫu nhiên
