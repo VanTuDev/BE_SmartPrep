@@ -17,7 +17,7 @@ const ClassRoomSchema = new mongoose.Schema({
          uploaded_by: { type: mongoose.Schema.Types.ObjectId, ref: 'User' }
       }
    ],
-   tests: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Test' }] // Tham chiếu tới các bài kiểm tra
+   tests: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Test' }]
 }, { timestamps: true });
 
 const ClassRoomModel = mongoose.model('ClassRoom', ClassRoomSchema);

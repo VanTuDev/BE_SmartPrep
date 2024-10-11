@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import * as classRoomController from '../controllers/ClassRoomController.js';
 import Auth from '../middleware/auth.js';
-import upload from '../middleware/upload.js';
+
 
 const router = Router();
 
@@ -61,6 +61,8 @@ router.get('/:classId/details', Auth, classRoomController.getClassRoomDetails);
 // URL: PUT /api/classrooms/:classId
 // Chức năng: Cập nhật các thông tin cơ bản của lớp học như tên, mô tả. Chỉ giáo viên của lớp mới có quyền thực hiện.
 router.put('/:classId', Auth, classRoomController.updateClassRoom);
+
+router.delete('/classrooms/:classId', Auth, classRoomController.deleteClassRoom);
 
 // Tải tài liệu lên lớp học
 // URL: POST /api/classrooms/:classId/upload

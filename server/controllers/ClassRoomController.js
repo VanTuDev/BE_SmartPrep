@@ -294,6 +294,24 @@ export async function updateClassRoom(req, res) {
       res.status(500).json({ error: "Lỗi khi cập nhật thông tin lớp học!" }); // Trả về lỗi nếu xảy ra
    }
 }
+// Xóa lớp học dựa trên ID lớp
+export async function deleteClassRoom(req, res) {
+   console.log("Request nhận được:", req.headers); // In ra thông tin headers
+   console.log("Request body:", req.body); // In ra thông tin body
+   console.log("Params:", req.params); // In ra params để xác thực
+   const { classId } = req.params;
+   console.log("ID lớp học để xóa:", classId);
+
+   try {
+      const deletedClass = await ClassRoomModel.findByIdAndDelete(classId);
+      if (!deletedClass) return res.status(404).json({ error: 'Không tìm thấy lớp học để xóa!' });
+
+      res.status(200).json({ msg: 'Xóa lớp học thành công!', deletedClass });
+   } catch (error) {
+      console.error("Lỗi trong quá trình xóa lớp:", error);
+      res.status(500).json({ error: 'Lỗi trong quá trình xóa lớp!' });
+   }
+}
 
 
 
