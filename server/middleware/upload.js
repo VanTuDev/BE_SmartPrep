@@ -1,35 +1,34 @@
-// middleware/upload.js
 import multer from 'multer';
 import path from 'path';
 
 // Cấu hình thư mục lưu trữ file và đặt tên file
 const storage = multer.diskStorage({
    destination: (req, file, cb) => {
-      cb(null, 'uploads/'); // Lưu ảnh vào thư mục 'uploads'
+      cb(null, 'uploads/'); // Lưu file vào thư mục 'uploads'
    },
    filename: (req, file, cb) => {
-      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9); // Đặt tên tệp theo timestamp
-      cb(null, uniqueSuffix + path.extname(file.originalname)); // Lưu với định dạng gốc
+      const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1e9); // Đặt tên tệp theo timestamp
+      cb(null, uniqueSuffix + path.extname(file.originalname)); // Giữ nguyên định dạng gốc
    }
 });
 
-// Kiểm tra loại file hợp lệ (chỉ hỗ trợ ảnh JPEG và PNG)
+// Bộ lọc file hợp lệ (chỉ cho phép ảnh JPEG/PNG và file PDF)
 const fileFilter = (req, file, cb) => {
-   const allowedTypes = /jpeg|jpg|png/;
+   const allowedTypes = /jpeg|jpg|png|pdf/;
    const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
    const mimeType = allowedTypes.test(file.mimetype);
 
    if (extName && mimeType) {
-      return cb(null, true); // Định dạng file hợp lệ
+      cb(null, true); // Định dạng hợp lệ
    } else {
-      cb('Lỗi: Chỉ hỗ trợ định dạng ảnh JPEG và PNG!'); // Trả về lỗi nếu định dạng không hợp lệ
+      cb(new Error('Chỉ chấp nhận file JPEG, PNG hoặc PDF')); // Thông báo lỗi rõ ràng
    }
 };
 
-// Khởi tạo middleware upload với các tùy chọn
+// Khởi tạo middleware upload
 const upload = multer({
    storage: storage,
-   limits: { fileSize: 1024 * 1024 * 5 }, // Giới hạn kích thước 5MB
+   limits: { fileSize: 1024 * 1024 * 20 }, // Giới hạn kích thước 20MB
    fileFilter: fileFilter
 });
 
