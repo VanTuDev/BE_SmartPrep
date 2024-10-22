@@ -28,6 +28,9 @@ app.use(express.json());
 
 app.use(morgan('combined')); // Hoặc 'dev' cho log đơn giản hơn
 app.use('/uploads', express.static(path.join(path.resolve(), 'uploads')));
+// Tăng giới hạn kích thước body (nếu cần cho JSON hoặc form)
+app.use(express.json({ limit: '20mb' }));
+app.use(express.urlencoded({ limit: '20mb', extended: true }));
 
 
 app.use('/api/instructor/questions', questionRoutes);
