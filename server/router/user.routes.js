@@ -28,4 +28,7 @@ router.put('/updateuser', Auth, upload.single('profile'), userController.updateU
 // Xóa người dùng (yêu cầu quyền Admin)
 router.delete('/deleteuser/:id', Auth, userController.deleteUser);
 
+// ADMIN ROUTER
+router.get('/admin/get_user/:role', Auth, userController.getUserByRole);
+
 export default router;
