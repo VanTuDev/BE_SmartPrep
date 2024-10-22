@@ -13,7 +13,8 @@ import categoryRoutes from './router/category.routes.js';
 import groupRoutes from './router/group.routes.js';
 import classRoomRoutes from './router/classRoom.routes.js';
 import submissionRoutes from './router/submission.routes.js';
-
+import gradeRoutes from './router/grade.routes.js';
+import morgan from 'morgan';
 dotenv.config();
 
 const app = express();
@@ -25,21 +26,21 @@ connect();
 app.use(cors());
 app.use(express.json());
 
-
+app.use(morgan('combined')); // Hoặc 'dev' cho log đơn giản hơn
 app.use('/uploads', express.static(path.join(path.resolve(), 'uploads')));
 // Tăng giới hạn kích thước body (nếu cần cho JSON hoặc form)
 app.use(express.json({ limit: '20mb' }));
 app.use(express.urlencoded({ limit: '20mb', extended: true }));
 
 
-app.use('/api/questions', questionRoutes);
+app.use('/api/instructor/questions', questionRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/category', categoryRoutes);
+app.use('/api/instructor/category', categoryRoutes);
 app.use('/api/test', testRoutes);
-app.use('/api/groups', groupRoutes);
+app.use('/api/instructor/groups', groupRoutes);
 app.use('/api/classrooms', classRoomRoutes);
 app.use('/api/submissions', submissionRoutes);
-
+app.use('/api/instructor/grades', gradeRoutes);
 
 app.get('/', (req, res) => {
     res.send('API Server is running...');

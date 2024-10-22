@@ -1,22 +1,27 @@
-import { Router } from 'express';
-import * as groupController from '../controllers/GroupQuestionController.js'; // Nhập controller cho nhóm
-import Auth from '../middleware/auth.js'; // Nhập middleware để xác thực người dùng
+   // router/group.routes.js
+   import { Router } from 'express';
+   import * as groupController from '../controllers/GroupQuestionController.js';
+   import Auth from '../middleware/auth.js';
+   import verifyInstructor from '../middleware/instructorAuth.js';
 
-const router = Router();
+   const router = Router();
 
-// Tạo nhóm mới
-router.post('/create', Auth, groupController.createGroup);
+   // Tạo chương mới (Chỉ Instructor)
+   router.post('/create', Auth, verifyInstructor, groupController.createGroup);
 
-// Lấy tất cả các nhóm
-router.get('/', Auth, groupController.getAllGroups);
+   // Lấy tất cả các chương của instructor
+   router.get('/', Auth, groupController.getAllGroups);
+   router.get('/byCategory', Auth, verifyInstructor, groupController.getGroupsByCategory);
 
-// Lấy danh sách câu hỏi theo nhóm
-router.get('/:id/questions', Auth, groupController.getQuestionsByGroupId);
+   // Lấy thông tin của chương học theo ID
+   router.get('/:id', Auth, groupController.getGroupById);
+   // Route lấy tất cả các chương theo môn học (category_id)
 
-// Cập nhật nhóm
-router.put('/:id', Auth, groupController.updateGroup);
 
-// Xóa nhóm
-router.delete('/:id', Auth, groupController.deleteGroup);
+   // Cập nhật chương
+   router.put('/:id', Auth, verifyInstructor, groupController.updateGroup);
 
-export default router; // Xuất router
+   // Xóa chương
+   router.delete('/:id', Auth, verifyInstructor, groupController.deleteGroup);
+
+   export default router;

@@ -1,61 +1,67 @@
 import mongoose from 'mongoose';
 
-const questionSchema = new mongoose.Schema({
+// Định nghĩa schema cho câu hỏi trong bài làm
+const QuestionSchema = new mongoose.Schema({
    question_text: {
       type: String,
-      required: true
+      required: [true, "Please provide the question text."]
    },
    question_type: {
       type: String,
-      required: false
-   }, // Sử dụng số để định danh kiểu câu hỏi (ví dụ: 0: multiple-choice, 1: essay)
-   options: {
-      type: [String],
-      require: true,
-   },
-   correct_answers: {
-      type: [String], // Đảm bảo đúng định dạng là mảng chuỗi
-      required: true,
-   },
-   answer: {
-      type: String
-   },
-   submission_time: {
-      type: Date,
-      default: Date.now
-   },
-});
-
-const submissionSchema = new mongoose.Schema({
-   _id_user: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      enum: ['multiple-choice', 'essay', 'true-false'], // Loại câu hỏi
       required: true
    },
-   _id_test: {
+   options: {
+      type: [String], // Mảng tùy chọn cho câu hỏi
+      required: [true, "Please provide the options for the question."]
+   },
+   correct_answers: {
+      type: [String], // Mảng chứa đáp án đúng
+      required: [true, "Please provide the correct answers."]
+   },
+   user_answer: {
+      type: String, // Câu trả lời của người dùng
+      default: null
+   },
+   submission_time: {
+      type: Date, // Thời gian nộp câu trả lời
+      default: Date.now
+   }
+});
+
+// Định nghĩa schema cho bài làm (Submission)
+const SubmissionSchema = new mongoose.Schema({
+   learner: { // Tham chiếu đến người nộp bài
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User', // Người dùng là học sinh
+      required: true
+   },
+   test_id: { // Tham chiếu đến bài kiểm tra
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Test',
       required: true
    },
-   questions: [questionSchema],
-   started_at: {
+   questions: [QuestionSchema], // Danh sách câu hỏi và câu trả lời của người dùng
+   started_at: { // Thời gian bắt đầu bài kiểm tra
       type: Date,
       default: Date.now
    },
-   finished_at: {
-      type: Date
+   finished_at: { // Thời gian kết thúc bài kiểm tra
+      type: Date,
+      default: null
    },
-   score: {
-      type: Number, // Thêm trường `score` để lưu điểm
-      default: 0,
+   score: { // Điểm số bài kiểm tra
+      type: Number,
+      default: 0
    },
-   status: {
+   status: { // Trạng thái bài làm
       type: String,
       enum: ['in-progress', 'completed', 'submitted'],
       default: 'in-progress'
-   },
-}, { timestamps: true });
+   }
+}, { timestamps: true }); // Tự động thêm createdAt và updatedAt
 
-const SubmissionModel = mongoose.models.Submission || mongoose.model('Submission', submissionSchema);
+// Kiểm tra model đã tồn tại hay chưa trước khi tạo mới
+const SubmissionModel = mongoose.models.Submission || mongoose.model('Submission', SubmissionSchema);
 
 export default SubmissionModel;

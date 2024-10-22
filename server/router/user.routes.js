@@ -3,7 +3,7 @@ import { Router } from 'express';
 const router = Router();
 import * as userController from '../controllers/UserController.js';
 import Auth from '../middleware/auth.js';
-import upload from '../middleware/upload.js'; // Nhập middleware xử lý upload file ảnh
+import { uploadImage } from '../middleware/upload.js'; // Import chính xác
 
 // Định nghĩa các route cho người dùng
 router.post('/register', upload.single('cv'), userController.register); // Đăng ký tài khoản mới
@@ -25,7 +25,7 @@ router.get('/users', Auth, userController.getAllUsers);
 router.get('/all', Auth, userController.getAllUsers);
 
 // Cập nhật thông tin người dùng (có hỗ trợ upload ảnh đại diện)
-router.put('/updateuser', Auth, upload.single('profile'), userController.updateUser);
+router.put('/updateuser', Auth, uploadImage.single('profile'), userController.updateUser);
 
 // Xóa người dùng (yêu cầu quyền Admin)
 router.delete('/deleteuser/:id', Auth, userController.deleteUser);
