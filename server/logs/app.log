@@ -1,0 +1,532 @@
+[2024-10-21T12:27:44.130Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:27:44.146Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:30:52.817Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T12:30:52.818Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T12:30:52.828Z] ERROR: Lỗi khi thêm nhiều câu hỏi: Question validation failed: question_type: Path `question_type` is required.
+[2024-10-21T12:31:39.703Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T12:31:39.704Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T12:31:39.705Z] ERROR: Lỗi khi thêm nhiều câu hỏi: Question validation failed: question_type: Path `question_type` is required.
+[2024-10-21T12:40:39.952Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:40:39.969Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:40:57.030Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T12:40:57.031Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T12:40:57.038Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T12:40:57.058Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:47:10.444Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:47:10.465Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:48:45.079Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:48:45.099Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:48:52.021Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T12:48:52.024Z] INFO: Yêu cầu cập nhật câu hỏi ID: 671600d48d1b0a598b02047a
+[2024-10-21T12:48:52.055Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T12:51:10.694Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T12:51:10.695Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T12:51:10.698Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T12:51:10.715Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T13:03:56.723Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T13:03:56.751Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T13:04:03.559Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T13:04:03.560Z] INFO: Yêu cầu cập nhật câu hỏi ID: 67164e3e68928b494afc712b
+[2024-10-21T13:04:03.576Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T13:04:23.453Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T13:04:23.454Z] INFO: Yêu cầu xóa câu hỏi ID: 67164e3e68928b494afc712b
+[2024-10-21T13:04:23.469Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T13:04:24.413Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T13:04:24.413Z] INFO: Yêu cầu xóa câu hỏi ID: 67164e3e68928b494afc712a
+[2024-10-21T13:04:24.425Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T13:04:54.264Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T13:04:54.282Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T13:05:02.934Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T13:05:02.934Z] INFO: Yêu cầu cập nhật câu hỏi ID: 67164bd968928b494afc70f9
+[2024-10-21T13:05:02.952Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:11:59.574Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:11:59.593Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:12:58.121Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:12:58.138Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:13:13.928Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T14:13:13.929Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T14:13:13.934Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T14:13:13.950Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:14:06.178Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:14:06.194Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:16:56.424Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:16:56.438Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:19:45.307Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T14:19:45.309Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T14:19:45.310Z] WARN: Không có câu hỏi để thêm.
+[2024-10-21T14:25:34.163Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:25:34.179Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:38:03.067Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:38:03.085Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:45:28.392Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:45:28.411Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:48:45.288Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:48:45.300Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:48:49.213Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:48:49.228Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:49:05.204Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T14:49:05.205Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T14:49:05.218Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T14:49:05.236Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:50:35.059Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:50:35.078Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:50:48.502Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T14:50:48.503Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T14:50:48.509Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T14:50:48.527Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:55:21.535Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T14:55:21.536Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T14:55:21.541Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T14:55:21.560Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:55:24.154Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T14:55:24.155Z] INFO: Yêu cầu xóa câu hỏi ID: 67166b59d59096609ca90ced
+[2024-10-21T14:55:24.171Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T14:55:25.826Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T14:55:25.827Z] INFO: Yêu cầu xóa câu hỏi ID: 67166a48d59096609ca90ce2
+[2024-10-21T14:55:25.844Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:01:03.090Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:01:03.090Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T15:01:03.094Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T15:01:03.110Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:17:47.735Z] ERROR: Error uploading questions from Excel: Row 4: Correct answer '2' does not match any options.
+[2024-10-21T15:19:48.161Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:19:48.180Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:19:51.477Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:19:51.479Z] INFO: Yêu cầu xóa câu hỏi ID: 6716710983f6e10ea29e4fde
+[2024-10-21T15:19:51.512Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:19:56.416Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:19:56.417Z] INFO: Yêu cầu cập nhật câu hỏi ID: 6716710983f6e10ea29e4fdf
+[2024-10-21T15:19:56.445Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:19:57.702Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:19:57.703Z] INFO: Yêu cầu xóa câu hỏi ID: 6716710983f6e10ea29e4fdf
+[2024-10-21T15:19:57.721Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:19:59.102Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:19:59.103Z] INFO: Yêu cầu xóa câu hỏi ID: 6716710983f6e10ea29e4fe0
+[2024-10-21T15:19:59.119Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:20:01.342Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:20:01.343Z] INFO: Yêu cầu xóa câu hỏi ID: 67166cafd59096609ca90d1b
+[2024-10-21T15:20:01.359Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:20:02.077Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:20:02.079Z] INFO: Yêu cầu xóa câu hỏi ID: 671669e1d59096609ca90cca
+[2024-10-21T15:20:02.096Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:20:02.933Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:20:02.934Z] INFO: Yêu cầu xóa câu hỏi ID: 6716617968928b494afc719d
+[2024-10-21T15:20:02.948Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:20:04.019Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:20:04.020Z] INFO: Yêu cầu xóa câu hỏi ID: 67164bd968928b494afc70f9
+[2024-10-21T15:20:04.033Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:20:05.597Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:20:05.597Z] INFO: Yêu cầu xóa câu hỏi ID: 671600d48d1b0a598b02047b
+[2024-10-21T15:20:05.610Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:20:07.046Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T15:20:07.046Z] INFO: Yêu cầu xóa câu hỏi ID: 671630e9e780119c2ae9fe05
+[2024-10-21T15:20:07.060Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:20:09.115Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:20:09.126Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:24:56.865Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:24:56.876Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:27:59.628Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:27:59.647Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:31:47.739Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:31:47.755Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:34:01.218Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:34:01.234Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:37:07.539Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:37:07.556Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:57:06.655Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T15:57:06.670Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:02:42.066Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:02:42.083Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:03:01.470Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:03:01.471Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:03:01.475Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:03:01.492Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:03:34.203Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:03:34.204Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:03:34.210Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:03:34.228Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:03:56.543Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:03:56.543Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:03:56.546Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:03:56.564Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:14.886Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:14.887Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:04:14.892Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:04:14.910Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:43.529Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:43.530Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b7e83f6e10ea29e50dc
+[2024-10-21T16:04:43.547Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:45.389Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:45.390Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b7e83f6e10ea29e50db
+[2024-10-21T16:04:45.404Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:47.082Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:47.083Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b7e83f6e10ea29e50da
+[2024-10-21T16:04:47.099Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:48.331Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:48.332Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b6c83f6e10ea29e50cc
+[2024-10-21T16:04:48.346Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:49.452Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:49.453Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b6c83f6e10ea29e50cb
+[2024-10-21T16:04:49.470Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:50.358Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:50.359Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b6c83f6e10ea29e50ca
+[2024-10-21T16:04:50.371Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:51.475Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:51.476Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b5683f6e10ea29e50c0
+[2024-10-21T16:04:51.490Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:52.516Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:52.517Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b5683f6e10ea29e50bf
+[2024-10-21T16:04:52.528Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:53.739Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:53.740Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b5683f6e10ea29e50be
+[2024-10-21T16:04:53.753Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:04:55.475Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:04:55.475Z] INFO: Yêu cầu xóa câu hỏi ID: 67167b3583f6e10ea29e50b4
+[2024-10-21T16:04:55.491Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:05:17.282Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:05:17.283Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:05:17.285Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:05:17.298Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:06:40.913Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:06:40.929Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:18:39.719Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:18:39.739Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:18:49.124Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:18:49.125Z] INFO: Yêu cầu cập nhật câu hỏi ID: 671600d48d1b0a598b02047a
+[2024-10-21T16:18:49.142Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:19:00.605Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:19:00.605Z] INFO: Yêu cầu cập nhật câu hỏi ID: 67167bbd83f6e10ea29e5150
+[2024-10-21T16:19:00.622Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:19:07.109Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:19:07.110Z] INFO: Yêu cầu cập nhật câu hỏi ID: 671600d48d1b0a598b02047a
+[2024-10-21T16:19:07.127Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:19:12.859Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:19:12.871Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:19:22.718Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:19:22.719Z] INFO: Yêu cầu cập nhật câu hỏi ID: 67167bbd83f6e10ea29e5150
+[2024-10-21T16:19:22.738Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:19:27.783Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:19:27.795Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:22:58.346Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:22:58.361Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:23:03.684Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:23:03.685Z] INFO: Yêu cầu cập nhật câu hỏi ID: 671600d48d1b0a598b02047a
+[2024-10-21T16:23:03.707Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:27:06.999Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:27:07.015Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:27:12.015Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:27:12.016Z] INFO: Yêu cầu cập nhật câu hỏi ID: 671600d48d1b0a598b02047a
+[2024-10-21T16:27:12.033Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:28:24.002Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:28:24.003Z] INFO: Yêu cầu cập nhật câu hỏi ID: 671600d48d1b0a598b02047a
+[2024-10-21T16:28:24.021Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:30:15.799Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:30:15.814Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:31:02.057Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:31:02.078Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:31:28.618Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:31:28.619Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:31:28.622Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:31:28.638Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:33:11.846Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:33:11.863Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:34:27.662Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:34:27.663Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:34:27.672Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:37:08.991Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:37:09.007Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:37:26.106Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:37:26.106Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:37:26.110Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:37:26.127Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:46:11.037Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:46:11.038Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:46:11.041Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:46:11.059Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:51:37.021Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:51:37.035Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:51:51.171Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:51:51.172Z] INFO: Yêu cầu cập nhật câu hỏi ID: 671600d48d1b0a598b02047a
+[2024-10-21T16:51:51.195Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:52:04.975Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:52:04.976Z] INFO: Yêu cầu cập nhật câu hỏi ID: 6716855383f6e10ea29e528d
+[2024-10-21T16:52:04.992Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:54:27.985Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:54:28.001Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:54:36.571Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:54:36.571Z] INFO: Yêu cầu cập nhật câu hỏi ID: 6716855383f6e10ea29e528d
+[2024-10-21T16:54:36.594Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:56:04.774Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:56:04.775Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:56:04.778Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:56:04.793Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:58:57.115Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:58:57.129Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:18.614Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:18.615Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T16:59:18.617Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T16:59:18.630Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:39.207Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:39.208Z] INFO: Yêu cầu xóa câu hỏi ID: 6716886683f6e10ea29e52fa
+[2024-10-21T16:59:39.226Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:40.853Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:40.854Z] INFO: Yêu cầu xóa câu hỏi ID: 671687a483f6e10ea29e52e6
+[2024-10-21T16:59:40.866Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:41.903Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:41.904Z] INFO: Yêu cầu xóa câu hỏi ID: 6716855383f6e10ea29e528d
+[2024-10-21T16:59:41.918Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:42.821Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:42.822Z] INFO: Yêu cầu xóa câu hỏi ID: 6716834683f6e10ea29e527b
+[2024-10-21T16:59:42.836Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:43.622Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:43.623Z] INFO: Yêu cầu xóa câu hỏi ID: 6716829383f6e10ea29e526b
+[2024-10-21T16:59:43.636Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:44.629Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:44.629Z] INFO: Yêu cầu xóa câu hỏi ID: 6716829383f6e10ea29e526a
+[2024-10-21T16:59:44.648Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:45.740Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:45.740Z] INFO: Yêu cầu xóa câu hỏi ID: 6716829383f6e10ea29e5269
+[2024-10-21T16:59:45.750Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:47.009Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:47.009Z] INFO: Yêu cầu xóa câu hỏi ID: 671681e083f6e10ea29e5235
+[2024-10-21T16:59:47.022Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:48.326Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:48.327Z] INFO: Yêu cầu xóa câu hỏi ID: 67167bbd83f6e10ea29e5150
+[2024-10-21T16:59:48.337Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T16:59:49.659Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T16:59:49.660Z] INFO: Yêu cầu xóa câu hỏi ID: 671600d48d1b0a598b02047a
+[2024-10-21T16:59:49.670Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:02:58.368Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:02:58.376Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:03:12.347Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T17:03:12.352Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T17:03:12.356Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T17:03:12.373Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:08:45.387Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:08:45.400Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:08:51.922Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T17:08:51.923Z] INFO: Yêu cầu cập nhật câu hỏi ID: 6716895083f6e10ea29e5367
+[2024-10-21T17:08:51.936Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:15:11.004Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:15:11.017Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:15:21.500Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T17:15:21.501Z] INFO: Yêu cầu cập nhật câu hỏi ID: 6716895083f6e10ea29e5366
+[2024-10-21T17:15:21.517Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:21:54.007Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T17:21:54.007Z] INFO: Yêu cầu cập nhật câu hỏi ID: 6716895083f6e10ea29e5367
+[2024-10-21T17:21:54.025Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:14.535Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:14.554Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:19.760Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:19.778Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:22.571Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:22.589Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:31.201Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:31.214Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:37.712Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:37.729Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:45.144Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:22:45.157Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:09.173Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:09.185Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:13.044Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T17:23:13.045Z] INFO: Yêu cầu xóa câu hỏi ID: 6716895083f6e10ea29e5366
+[2024-10-21T17:23:13.058Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:14.552Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T17:23:14.553Z] INFO: Yêu cầu xóa câu hỏi ID: 6716895083f6e10ea29e5367
+[2024-10-21T17:23:14.569Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:16.022Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T17:23:16.023Z] INFO: Yêu cầu xóa câu hỏi ID: 6716895083f6e10ea29e5368
+[2024-10-21T17:23:16.031Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:34.641Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:34.649Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:54.241Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:23:54.246Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:31:14.879Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:31:14.886Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:37:20.330Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:37:20.338Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:38:08.785Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:38:08.792Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:39:00.603Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:39:00.609Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:39:10.647Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:39:10.653Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:40:23.674Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:40:23.680Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:40:55.981Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:40:55.988Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:41:47.973Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:41:47.982Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:50:59.567Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:50:59.577Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:57:35.223Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:57:35.230Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:57:47.400Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:57:47.409Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:58:02.399Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T17:58:02.407Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:03:30.049Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:03:30.055Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:15:24.551Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:15:24.566Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:16:26.351Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:16:26.358Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:17:19.855Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:17:19.862Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:17:58.361Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:17:58.371Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:20:34.317Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:20:34.322Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:20:43.721Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:20:43.726Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:20:59.086Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:20:59.091Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:23:26.787Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:23:26.794Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:23:27.851Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:23:27.858Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:27:47.708Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:27:47.714Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:30:18.365Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:30:18.371Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:30:31.480Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:30:31.489Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:31:24.432Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:31:24.439Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:31:26.977Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:31:26.985Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:31:27.873Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:31:27.886Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:31:46.273Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:31:46.280Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:33:26.553Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:33:26.560Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:33:41.913Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:33:41.919Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:34:10.366Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:34:10.373Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:34:23.915Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:34:23.922Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:35:16.458Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:35:16.467Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:35:44.342Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:35:44.357Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:36:45.123Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:36:45.131Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:38:33.507Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:38:33.513Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:39:44.526Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:39:44.534Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:40:19.459Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:40:19.467Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:41:03.713Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:41:03.719Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:45:09.797Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:45:09.807Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:45:51.289Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:45:51.296Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:45:55.757Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:45:55.765Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:47:59.856Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:47:59.859Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:50:19.533Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:50:19.541Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:50:24.434Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:50:24.440Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:51:54.256Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:51:54.262Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:52:09.412Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:52:09.421Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:52:15.706Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:52:15.714Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:52:25.188Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:52:25.195Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:54:26.477Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:54:26.484Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:54:34.573Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:54:34.580Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:55:41.808Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:55:41.817Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:57:23.755Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T18:57:23.764Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:00:48.980Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:00:48.988Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:03:14.959Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:03:14.965Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:07:10.696Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:07:10.706Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:10:04.943Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:10:04.952Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:19:35.237Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:19:35.244Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:21:13.084Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:21:13.091Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:24:02.988Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:24:02.993Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:24:22.916Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T19:24:22.916Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-21T19:24:22.924Z] INFO: Câu hỏi đã được thêm:
+[2024-10-21T19:24:22.938Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:24:33.553Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T19:24:33.554Z] INFO: Yêu cầu cập nhật câu hỏi ID: 6716aa66cca8db5a579ed077
+[2024-10-21T19:24:33.568Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:24:42.565Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-21T19:24:42.565Z] INFO: Yêu cầu cập nhật câu hỏi ID: 6716aa66cca8db5a579ed077
+[2024-10-21T19:24:42.579Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:03.968Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:03.979Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:06.318Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:06.334Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:10.598Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:10.609Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:22.201Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:22.211Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:25.649Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:25.658Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:27.592Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-21T19:25:27.603Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:33:33.513Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:33:33.552Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:44:53.115Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:44:53.132Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:44:56.423Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:44:56.445Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:45:07.906Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:45:07.920Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:45:14.115Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T03:45:14.129Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:18:12.221Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:18:12.258Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:18:14.503Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:18:14.514Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:18:21.401Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:18:21.412Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:18:38.574Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:18:38.585Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:19:29.211Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:19:29.223Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:24:15.954Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:24:15.967Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:28:41.765Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:28:41.772Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:30:37.133Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:30:37.146Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:31:44.112Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:31:44.119Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:31:47.669Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T04:31:47.670Z] INFO: Yêu cầu xóa câu hỏi ID: 6716aa66cca8db5a579ed077
+[2024-10-22T04:31:47.681Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:31:49.230Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T04:31:49.231Z] INFO: Yêu cầu xóa câu hỏi ID: 6716aa66cca8db5a579ed078
+[2024-10-22T04:31:49.242Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:31:50.957Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T04:31:50.957Z] INFO: Yêu cầu xóa câu hỏi ID: 6716aa66cca8db5a579ed079
+[2024-10-22T04:31:50.964Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:32:30.944Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T04:32:30.945Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-22T04:32:30.953Z] INFO: Câu hỏi đã được thêm:
+[2024-10-22T04:32:30.968Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T04:32:43.338Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T04:32:43.339Z] INFO: Yêu cầu cập nhật câu hỏi ID: 67172adeef3c2f71b1c22e9f
+[2024-10-22T04:32:43.357Z] INFO: Lấy danh sách tất cả câu hỏi:

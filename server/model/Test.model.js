@@ -10,23 +10,24 @@ const TestSchema = new mongoose.Schema({
       type: String,
       required: [true, "Please provide a description for the test"],
    },
-   user_id: {
+   instructor: { // Tham chiếu đến giáo viên tạo bài kiểm tra
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User', // Tham chiếu đến model User để biết ai đã tạo bài kiểm tra
+      ref: 'User',
       required: true,
    },
-   questions: [
-      {
-         question_id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Question', // Tham chiếu đến model Question
-            required: true,
-         }
-      },
-   ],
+   questions: [{ // Tham chiếu đến danh sách câu hỏi trong bài kiểm tra
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Question',
+      required: true,
+   }],
+   classRoom_id: { // Tham chiếu đến lớp học liên quan
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'ClassRoom',
+      required: false, // Không bắt buộc vì có thể có hoặc không
+   },
    duration: {
       type: Number,
-      required: [true, "Please provide the duration of the test in minutes"], // thời gian làm bài kiểm tra
+      required: [true, "Please provide the duration of the test in minutes"],
    },
    access_type: {
       type: String,
@@ -41,22 +42,20 @@ const TestSchema = new mongoose.Schema({
       type: Date,
       required: true, // Ngày kết thúc
    },
-   invite_users: {
-      type: [String], // Danh sách email người dùng được mời làm bài
+   invite_users: { // Danh sách email người dùng được mời làm bài kiểm tra
+      type: [String],
       default: [],
    },
-   access_link: {
-      type: String, // Đường dẫn đến bài kiểm tra
+   access_link: { // Đường dẫn truy cập bài kiểm tra
+      type: String,
       required: true,
    },
    status: {
       type: String,
-      enum: ['published', 'draft'], // Trạng thái của bài kiểm tra
+      enum: ['published', 'draft'], // Trạng thái bài kiểm tra
       default: 'draft',
    },
-}, {
-   timestamps: true, // Tự động thêm createdAt và updatedAt
-});
+}, { timestamps: true }); // Tự động thêm createdAt và updatedAt
 
 // Kiểm tra xem model đã tồn tại hay chưa
 const TestModel = mongoose.models.Test || mongoose.model('Test', TestSchema);

@@ -1,116 +1,130 @@
-import GroupModel from '../model/GroupQuestion.model.js'; // Nhập model cho nhóm câu hỏi
-import QuestionModel from '../model/Question.model.js'; // Nhập model cho câu hỏi
-
-// Tạo nhóm mới
+// controllers/GroupController.js
+import GroupModel from '../model/GroupQuestion.model.js';
+import mongoose from 'mongoose';
+// Tạo chương học mới
 export async function createGroup(req, res) {
    try {
-      // Kiểm tra xem người dùng có phải là instructor không
-      if (req.user.role !== 'instructor') {
-         return res.status(403).json({ error: "Chỉ có giảng viên mới có thể tạo nhóm." });
+      const { name, description, category_id } = req.body;
+
+      if (!mongoose.Types.ObjectId.isValid(category_id)) {
+         return res.status(400).json({ error: 'category_id không hợp lệ!' });
       }
 
-      const { name, description } = req.body; // Lấy tên và mô tả từ body
-
-      // Kiểm tra các trường đầu vào
-      if (!name || !description) {
-         return res.status(400).json({ error: "Tên nhóm và mô tả không được để trống." });
-      }
-
-      console.log("Request Body:", req.body);
       const newGroup = new GroupModel({
          name,
          description,
-         created_by: req.user.userId, // Lưu thông tin người tạo
+         category_id: new mongoose.Types.ObjectId(category_id),
+         instructor: req.user.userId,
       });
 
       await newGroup.save();
-      res.status(201).json({ msg: "Nhóm đã được tạo thành công!", group: newGroup });
+      res.status(201).json({ msg: 'Chương học đã được tạo!', group: newGroup });
    } catch (error) {
-      console.error("Lỗi khi tạo nhóm:", error);
-      return res.status(500).json({ error: "Lỗi khi tạo nhóm: " + error.message }); // Ghi lại lỗi chi tiết
+      console.error('Lỗi khi tạo chương học:', error);
+      res.status(500).json({ error: 'Lỗi khi tạo chương học!' });
    }
 }
 
-// Lấy tất cả các nhóm
+// Lấy tất cả các chương học của instructor
 export async function getAllGroups(req, res) {
    try {
-      // Lấy nhóm theo người tạo
-      const groups = await GroupModel.find({ created_by: req.user.userId });
-      console.log("Danh sách nhóm:", groups);
+      const groups = await GroupModel.find({ instructor: req.user.userId });
       res.status(200).json(groups);
    } catch (error) {
-      console.error("Lỗi khi lấy danh sách nhóm:", error);
-      res.status(500).json({ error: "Lỗi khi lấy danh sách nhóm!" });
+      console.error("Lỗi khi lấy danh sách chương:", error);
+      res.status(500).json({ error: "Lỗi khi lấy danh sách chương!" });
    }
 }
 
-// Lấy danh sách câu hỏi theo nhóm
-export async function getQuestionsByGroupId(req, res) {
-   try {
-      console.log("Request Group ID:", req.params.id);
-      const questions = await QuestionModel.find({ group: req.params.id });
-      if (!questions.length) {
-         console.log("Không tìm thấy câu hỏi nào cho nhóm ID:", req.params.id);
-         return res.status(404).json({ error: "Không tìm thấy câu hỏi nào cho nhóm này." });
-      }
-      console.log("Danh sách câu hỏi theo nhóm:", questions);
-      res.status(200).json(questions);
-   } catch (error) {
-      console.error("Lỗi khi lấy danh sách câu hỏi theo nhóm:", error);
-      res.status(500).json({ error: "Lỗi khi lấy danh sách câu hỏi theo nhóm!" });
-   }
-}
-
-// Cập nhật nhóm
+// Cập nhật chương học
 export async function updateGroup(req, res) {
    try {
-      const groupId = req.params.id.trim(); // Loại bỏ khoảng trắng hoặc ký tự không cần thiết
-      console.log("Request Group ID để cập nhật:", groupId);
-      console.log("Request Body:", req.body);
+      const groupId = req.params.id;
+      const updatedGroup = await GroupModel.findByIdAndUpdate(
+         groupId,
+         req.body,
+         { new: true }
+      );
 
-      // Tìm và cập nhật nhóm
-      const group = await GroupModel.findByIdAndUpdate(groupId, req.body, { new: true });
-
-      // Kiểm tra xem nhóm có tồn tại không
-      if (!group) {
-         console.error("Không tìm thấy nhóm để cập nhật với ID:", groupId);
-         return res.status(404).json({ error: "Không thể cập nhật nhóm! Nhóm không tồn tại." });
+      if (!updatedGroup) {
+         return res.status(404).json({ error: "Không tìm thấy chương học!" });
       }
 
-      console.log("Nhóm đã được cập nhật:", group);
-      res.status(200).json({ msg: "Cập nhật nhóm thành công!", group });
+      res.status(200).json({ msg: "Cập nhật chương học thành công!", group: updatedGroup });
    } catch (error) {
-      console.error("Lỗi khi cập nhật nhóm:", error.message);
+      console.error("Lỗi khi cập nhật chương học:", error);
+      res.status(500).json({ error: "Lỗi khi cập nhật chương học!" });
+   }
+}
 
-      // Xử lý các lỗi khác nhau
-      if (error.name === 'CastError') {
-         return res.status(400).json({ error: "ID nhóm không hợp lệ." });
+// Xóa chương học
+export async function deleteGroup(req, res) {
+   try {
+      const group = await GroupModel.findById(req.params.id);
+      if (!group) {
+         return res.status(404).json({ error: "Không tìm thấy chương học!" });
       }
-      if (error.name === 'ValidationError') {
-         return res.status(400).json({ error: error.message });
+
+      await group.remove();
+      res.status(200).json({ msg: "Xóa chương học thành công!" });
+   } catch (error) {
+      console.error("Lỗi khi xóa chương học:", error);
+      res.status(500).json({ error: "Lỗi khi xóa chương học!" });
+   }
+}
+
+// Lấy thông tin của chương học theo ID
+export async function getGroupById(req, res) {
+   try {
+      const groupId = req.params.id;
+      console.log(`Đang lấy chương với ID: ${groupId}`);
+
+      // Kiểm tra xem groupId có phải là ObjectId hợp lệ không
+      if (!mongoose.Types.ObjectId.isValid(groupId)) {
+         console.error(`groupId không hợp lệ: ${groupId}`);
+         return res.status(400).json({ error: "ID của chương học không hợp lệ!" });
       }
-      return res.status(500).json({ error: "Lỗi khi cập nhật nhóm!" });
+
+      // Truy vấn chương học theo ID
+      const group = await GroupModel.findById(groupId);
+      console.log(`Kết quả truy vấn:`, group);
+
+      if (!group) {
+         console.warn(`Không tìm thấy chương học với ID: ${groupId}`);
+         return res.status(404).json({ error: "Không tìm thấy chương học!" });
+      }
+
+      res.status(200).json(group);
+   } catch (error) {
+      console.error("Lỗi khi lấy chương học:", error);
+      res.status(500).json({ error: "Lỗi khi lấy chương học!", details: error.message });
    }
 }
 
 
-
-// Xóa nhóm
-export async function deleteGroup(req, res) {
+export async function getGroupsByCategory(req, res) {
    try {
-      console.log("Request Group ID để xóa:", req.params.id);
-      const group = await GroupModel.findById(req.params.id);
-      if (!group) {
-         console.log("Không tìm thấy nhóm để xóa với ID:", req.params.id);
-         return res.status(404).json({ error: "Không thể xóa nhóm!" });
+      const { category_id } = req.query;
+
+      console.log(`Nhận được category_id: ${category_id}`);
+
+      // Kiểm tra nếu category_id hợp lệ
+      if (!mongoose.isValidObjectId(category_id)) {
+         console.error(`category_id không hợp lệ: ${category_id}`);
+         return res.status(400).json({ error: "ID của môn học không hợp lệ!" });
       }
 
-      // Xóa nhóm
-      await group.remove();
-      console.log("Nhóm đã được xóa thành công với ID:", req.params.id);
-      res.status(200).json({ msg: "Xóa nhóm thành công!" });
+      // Truy vấn tất cả các nhóm dựa trên category_id
+      const groups = await GroupModel.find({ category_id: mongoose.Types.ObjectId(category_id) });
+
+      console.log(`Số lượng nhóm tìm thấy: ${groups.length}`);
+      if (groups.length === 0) {
+         return res.status(404).json({ error: "Không có chương nào cho môn học này!" });
+      }
+
+      res.status(200).json(groups);
    } catch (error) {
-      console.error("Lỗi khi xóa nhóm:", error);
-      res.status(500).json({ error: "Lỗi khi xóa nhóm!" });
+      console.error("Lỗi khi lấy danh sách chương:", error);
+      res.status(500).json({ error: "Lỗi khi lấy danh sách chương!", details: error.message });
    }
 }

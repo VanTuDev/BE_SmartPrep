@@ -251,3 +251,36 @@ export async function createTestWithRandomQuestions(req, res) {
       res.status(500).json({ error: "Lỗi khi tạo bài kiểm tra!" });
    }
 }
+
+export async function createTest(req, res) {
+   try {
+      const { title, description, questions, duration, access_type, start_date, end_date, access_link } = req.body;
+
+      const newTest = new TestModel({
+         title,
+         description,
+         questions,
+         duration,
+         access_type,
+         start_date,
+         end_date,
+         access_link,
+         instructor: req.user.userId
+      });
+
+      await newTest.save();
+      res.status(201).json({ msg: "Bài kiểm tra đã được tạo!", test: newTest });
+   } catch (error) {
+      res.status(500).json({ error: "Lỗi khi tạo bài kiểm tra!" });
+   }
+}
+
+// Lấy tất cả các bài kiểm tra của giáo viên
+export async function getAllTests(req, res) {
+   try {
+      const tests = await TestModel.find({ instructor: req.user.userId });
+      res.status(200).json(tests);
+   } catch (error) {
+      res.status(500).json({ error: "Lỗi khi lấy danh sách bài kiểm tra!" });
+   }
+}

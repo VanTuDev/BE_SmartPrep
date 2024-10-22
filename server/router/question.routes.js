@@ -1,30 +1,94 @@
+// question.routes.js
+
 import { Router } from 'express';
 import * as questionController from '../controllers/QuestionController.js';
-import Auth from '../middleware/auth.js'; // Middleware xác thực người dùng
+import Auth from '../middleware/auth.js'; // Authentication middleware
 import multer from 'multer';
 
-const upload = multer(); // Khởi tạo multer để xử lý file
+// Configure multer to handle in-memory file uploads
+const upload = multer({ storage: multer.memoryStorage() });
+
 const router = Router();
 
-// Route thêm câu hỏi mới
-router.post('/create', Auth, questionController.verifyInstructorRole, questionController.createQuestion);
-router.post('/create/multiple', Auth, questionController.verifyInstructorRole, questionController.createMultipleQuestions);
+// Create multiple questions route
+router.post(
+   '/create/multiple',
+   Auth,
+   questionController.verifyInstructorRole,
+   questionController.createMultipleQuestions
+);
 
-// Route lấy tất cả các câu hỏi (chỉ của Instructor hiện tại)
-router.get('/', Auth, questionController.getAllQuestions);
+// Update a specific question by ID
+router.put(
+   '/:id',
+   Auth,
+   questionController.verifyInstructorRole,
+   questionController.updateQuestion
+);
 
-// Route lấy câu hỏi theo ID
-router.get('/:id', Auth, questionController.getQuestionById);
+// Delete a specific question by ID
+router.delete(
+   '/:id',
+   Auth,
+   questionController.verifyInstructorRole,
+   questionController.deleteQuestion
+);
 
-// Route lấy tất cả câu hỏi theo danh mục
-router.get('/category/:categoryId', Auth, questionController.getQuestionsByCategory);
+// Upload questions from Excel
+router.post(
+   '/upload-excel',
+   Auth,
+   upload.single('file'),
+   questionController.addQuestionsFromExcel
+);
 
-// Route cập nhật câu hỏi
-router.put('/:id', Auth, questionController.verifyInstructorRole, questionController.updateQuestion);
+// Get all questions (with instructor permissions)
+router.get(
+   '/',
+   Auth,
+   questionController.getAllQuestions
+);
 
-// Route xóa câu hỏi
-router.delete('/:id', Auth, questionController.verifyInstructorRole, questionController.deleteQuestion);
+// Get a specific question by ID
+router.get(
+   '/:id',
+   Auth,
+   questionController.getQuestionById
+);
 
-// Route thêm câu hỏi từ file Excel
-router.post('/upload-excel', Auth, upload.single('file'), questionController.addQuestionsFromExcel);
+// Get questions by category (subject)
+router.get(
+   '/category/:categoryId',
+   Auth,
+   questionController.getQuestionsByCategory
+);
+
+// Get questions by grade (level)
+router.get(
+   '/grade/:gradeId',
+   Auth,
+   questionController.getQuestionsByGrade
+);
+
+// Get questions by group (chapter)
+router.get(
+   '/group/:groupId',
+   Auth,
+   questionController.getQuestionsByGroup
+);
+
+// Get questions by classroom
+router.get(
+   '/classroom/:classRoomId',
+   Auth,
+   questionController.getQuestionsByClassRoom
+);
+
+// Get questions by test ID
+router.get(
+   '/test/:testId',
+   Auth,
+   questionController.getQuestionsByTest
+);
+
 export default router;
