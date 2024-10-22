@@ -6,8 +6,10 @@ import Auth from '../middleware/auth.js';
 import upload from '../middleware/upload.js'; // Nhập middleware xử lý upload file ảnh
 
 // Định nghĩa các route cho người dùng
-router.post('/register', userController.register); // Đăng ký tài khoản mới
+router.post('/register', upload.single('cv'), userController.register); // Đăng ký tài khoản mới
 router.post('/login', userController.login); // Đăng nhập tài khoản
+router.post('/forgotPW', userController.forgotPW); // Quên MK
+router.post('/resetPW', userController.resetPW); // Quên MK
 
 // Lấy thông tin hồ sơ người dùng đã đăng nhập (dựa vào token JWT)
 router.get('/profile', Auth, userController.getUserProfile);
