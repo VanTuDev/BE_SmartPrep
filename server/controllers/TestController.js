@@ -1,286 +1,185 @@
+import mongoose from 'mongoose';
+import xlsx from 'xlsx';
 import TestModel from '../model/Test.model.js';
 import QuestionModel from '../model/Question.model.js';
-import CategoryModel from '../model/Category.model.js';
-import UserModel from '../model/User.model.js';
-import SubmissionModel from '../model/Submission.model.js';
+import logger from '../utils/logger.js'; // Winston logger
 
-
-// Middleware để kiểm tra quyền của Instructor
+// Middleware kiểm tra quyền Instructor
 export function verifyInstructorRole(req, res, next) {
-   const { role } = req.user;
-   console.log("Xác thực quyền Instructor:", role); // Log quyền của người dùng hiện tại
-   if (role !== 'instructor') {
-      console.log("Người dùng không có quyền Instructor."); // Log khi không có quyền
-      return res.status(403).json({ error: "Chỉ có Instructor mới có quyền này!" });
-   }
-   next();
-}
-export async function getAllTest(req, res) {
    try {
-
-      const tests = await TestModel.find();
-      console.log("Danh sách bài thi:", tests);
-      res.status(200).json(tests);
-   } catch (error) {
-      console.error("Lỗi khi lấy danh sách bài kiểm tra:", error);
-      res.status(500).json({ error: "Lỗi khi lấy danh sách bài kiểm tra!" });
-   }
-}
-export async function getTestById(req, res) {
-   try {
-      console.log("Request ID:", req.params.id); // Log ID của câu hỏi được yêu cầu
-      const test = await TestModel.findById(req.params.id).populate('questions.question_id').lean();
-
-      if (!test) {
-         return res.status(404).json({ error: "Test not found!" });
+      const { role } = req.user;
+      logger.info(`Xác thực quyền Instructor cho người dùng: ${role}`);
+      if (role !== 'instructor') {
+         logger.warn(`Người dùng không có quyền Instructor. Role: ${role}`);
+         return res.status(403).json({ error: 'Chỉ có Instructor mới có quyền này!' });
       }
-
-      // Chuyển đổi định dạng câu hỏi
-      test.questions = test.questions.map(q => ({
-         id: q.question_id._id,
-         question_text: q.question_id.question_text,
-         question_type: q.question_id.question_type,
-         options: q.question_id.options,
-         correct_answers: q.question_id.correct_answers,
-      }));
-      console.log("Test tìm thấy:", test); // Log câu hỏi tìm được
-      res.status(200).json(test);
+      next();
    } catch (error) {
-      console.error("Lỗi khi lấy câu hỏi:", error); // Log lỗi khi lấy câu hỏi
-      res.status(500).json({ error: "Lỗi khi lấy câu hỏi!" });
-   }
-}
-export async function updateTest(req, res) {
-   try {
-      console.log("Request ID để cập nhật:", req.params.id); // Log ID của câu hỏi cần cập nhật
-      const test = await TestModel.findById(req.params.id);
-      Object.assign(test, req.body);
-      await test.save();
-      console.log("Test đã được cập nhật:", test); // Log câu hỏi đã cập nhật thành công
-      res.status(200).json({ msg: "cập nhật bài kiểm tra thành công!", test: test });
-   } catch (error) {
-      console.error("Lỗi khi cập nhật bài kiểm tra:", error);
-      return res.status(500).json({ error: "Lỗi khi cập nhật bài kiểm tra" });
+      logger.error('Lỗi khi xác thực quyền Instructor:', error);
+      res.status(500).json({ error: 'Lỗi khi xác thực quyền Instructor!' });
    }
 }
 
-export async function deleteTest(req, res) {
+// Tạo bài kiểm tra với câu hỏi trực tiếp, ngẫu nhiên hoặc từ Excel
+export async function createTest(req, res) {
    try {
-      console.log("Request ID để xóa:", req.params.id); // Log ID của test cần xóa
-      const test = await TestModel.findById(req.params.id);
+      const {
+         title, description, duration, start_date, end_date, status,
+         grade_id, category_id, group_id, classRoom_id, numQuestions, questions
+      } = req.body;
+      const file = req.file;
+      let questionIds = [];
 
-      await test.remove();
-      console.log("Xóa test thành công với ID:", req.params.id); // Log khi xóa thành công
-      res.status(200).json({ msg: "Xóa test thành công!" });
-   } catch (error) {
-      console.error("Lỗi khi xóa bài kiểm tra:", error);
-      res.status(500).json({ error: "Lỗi khi xóa bài kiểm tra!" });
-   }
-}
+      logger.info('Dữ liệu nhận từ client:', req.body);
 
-export async function createExamWithQuestions(req, res) {
-   try {
-      const examData = req.body;
-      const { questions, ...restExamData } = examData;
-
-      // Tạo từng câu hỏi và lưu lại _id
-      const questionIds = [];
-      for (const questionData of questions) {
-         const newQuestion = new QuestionModel({
-            question_text: questionData.question_text,
-            question_type: questionData.question_type,
-            options: questionData.options,
-            correct_answers: questionData.correct_answers,
-            created_by: req.user.userId // Liên kết câu hỏi với người tạo
-         });
-
-         // Lưu câu hỏi vào DB và lấy _id
-         const savedQuestion = await newQuestion.save();
-         questionIds.push({ question_id: savedQuestion._id });
+      // Trường hợp câu hỏi trực tiếp
+      if (questions && questions.length > 0) {
+         questionIds = questions.map(q => q.question_id);
+         logger.info(`Đã nhận ${questionIds.length} câu hỏi từ client.`);
       }
+      // Trường hợp random câu hỏi từ ngân hàng
+      else if (numQuestions) {
+         const filter = {};
+         if (grade_id) filter.grade_id = grade_id;
+         if (category_id) filter.category_id = category_id;
+         if (group_id) filter.group_id = group_id;
 
-      // Tạo bài kiểm tra với danh sách câu hỏi (questionIds)
-      const newTest = new TestModel({
-         ...restExamData, // Thông tin khác của bài kiểm tra
-         questions: questionIds, // Gán _id của các câu hỏi vào mảng questions
-         user_id: req.user.userId
-      });
+         const allQuestions = await QuestionModel.find(filter);
+         if (allQuestions.length < numQuestions) {
+            logger.warn('Không đủ câu hỏi để tạo bài kiểm tra.');
+            return res.status(400).json({ error: 'Không đủ câu hỏi để tạo bài kiểm tra!' });
+         }
 
-      await newTest.save();
-      res.status(201).json(newTest);
-   } catch (error) {
-      console.error('Error creating exam with questions:', error);
-      throw new Error('Unable to create exam with questions.');
-   }
-}
-
-export async function updateExamWithQuestions(req, res) {
-   try {
-      const examId = req.params.examId; // ID của exam cần cập nhật
-      // console.log(examId)
-      const examData = req.body;
-      // console.log(JSON.stringify(req.body, null, 2));
-
-      const { questions, ...restExamData } = examData;
-
-      // Lấy exam hiện tại từ DB
-      const existingExam = await TestModel.findById(examId).populate('questions');
-      if (!existingExam) {
-         return res.status(404).json({ message: 'Exam not found' });
+         const randomQuestions = allQuestions
+            .sort(() => 0.5 - Math.random())
+            .slice(0, numQuestions);
+         questionIds = randomQuestions.map(q => q._id);
+         logger.info(`Đã chọn ngẫu nhiên ${questionIds.length} câu hỏi.`);
       }
+      // Trường hợp upload câu hỏi từ Excel
+      else if (file) {
+         const workbook = xlsx.readFile(file.path);
+         const sheetName = workbook.SheetNames[0];
+         const sheetData = xlsx.utils.sheet_to_json(workbook.Sheets[sheetName]);
 
-      // Tạo danh sách _id của câu hỏi hiện tại trong exam
-      const currentQuestionIds = existingExam.questions.map(q => q._id.toString());
+         const newQuestions = [];
 
-      // Danh sách _id của các câu hỏi mới từ dữ liệu yêu cầu
-      const newQuestionIds = questions.filter(q => q._id).map(q => q._id);
-
-      // Tìm các câu hỏi bị xóa (tức là các câu hỏi có trong exam nhưng không có trong dữ liệu yêu cầu)
-      const deletedQuestionIds = currentQuestionIds.filter(id => !newQuestionIds.includes(id));
-
-      // Xóa các câu hỏi bị xóa trong cả QuestionModel và exam
-      if (deletedQuestionIds.length > 0) {
-         await QuestionModel.deleteMany({ _id: { $in: deletedQuestionIds } }); // Xóa câu hỏi trong QuestionModel
-         existingExam.questions = existingExam.questions.filter(q => !deletedQuestionIds.includes(q._id.toString())); // Xóa trong exam
-      }
-
-      // Danh sách questionId để lưu vào exam sau khi xử lý
-      const updatedQuestionIds = [];
-
-      // Duyệt qua danh sách câu hỏi mới
-      for (const questionData of questions) {
-         if (questionData._id) {
-            // Nếu câu hỏi đã có _id (đã tồn tại), giữ lại câu hỏi
-            const updatedQuestion = await QuestionModel.findByIdAndUpdate(
-               questionData._id,
-               {
-                  question_text: questionData.question_text,
-                  question_type: questionData.question_type,
-                  options: questionData.options,
-                  correct_answers: questionData.correct_answers
-               },
-               { new: true } // Trả về document mới sau khi cập nhật
-            );
-            updatedQuestionIds.push({ question_id: updatedQuestion._id });
-         } else {
-            // Nếu câu hỏi không có _id (câu hỏi mới), tạo mới
-            const newQuestion = new QuestionModel({
-               question_text: questionData.question_text,
-               question_type: questionData.question_type,
-               options: questionData.options,
-               correct_answers: questionData.correct_answers,
-               created_by: req.user.userId
+         for (const row of sheetData) {
+            const existingQuestion = await QuestionModel.findOne({
+               question_text: row['Question Text'],
+               instructor: req.user.userId
             });
 
-            // Lưu câu hỏi vào DB và lấy _id
-            const savedQuestion = await newQuestion.save();
-            updatedQuestionIds.push({ question_id: savedQuestion._id });
+            if (!existingQuestion) {
+               const options = Object.keys(row)
+                  .filter(key => key.startsWith('Option'))
+                  .map(optionKey => row[optionKey])
+                  .filter(option => option);
+
+               const newQuestion = new QuestionModel({
+                  question_text: row['Question Text'],
+                  question_type: row['Question Type'] || 'multiple-choice',
+                  options: options,
+                  correct_answers: row['Correct Answers'].split(',').map(ans => ans.trim()),
+                  instructor: req.user.userId,
+                  grade_id: grade_id || null,
+                  category_id: category_id || null,
+                  group_id: group_id || null,
+                  classRoom_id: classRoom_id ? [classRoom_id] : []
+               });
+
+               const savedQuestion = await newQuestion.save();
+               newQuestions.push(savedQuestion._id);
+               logger.info(`Đã thêm câu hỏi mới: ${newQuestion.question_text}`);
+            } else {
+               newQuestions.push(existingQuestion._id);
+               logger.info(`Câu hỏi đã tồn tại: ${existingQuestion.question_text}`);
+            }
          }
+         questionIds = newQuestions;
       }
-
-      // Cập nhật lại exam với thông tin mới
-      existingExam.questions = updatedQuestionIds;
-      Object.assign(existingExam, restExamData); // Cập nhật các trường khác của exam
-
-      // Lưu lại exam đã cập nhật
-      const updatedExam = await existingExam.save();
-
-      res.status(200).json(updatedExam);
-   } catch (error) {
-      console.error('Error updating exam with questions:', error);
-      res.status(500).json({ message: 'Unable to update exam with questions.' });
-   }
-}
-
-// Lấy tất cả các bài làm của một bài kiểm tra cụ thể dựa trên test_id
-export const getSubmissionsByTestId = async (req, res) => {
-   const { test_id } = req.params; // Lấy `test_id` từ tham số trong request
-
-   try {
-      // Tìm kiếm tất cả submission có `_id_test` khớp với `test_id`
-      const submissions = await SubmissionModel.find({ _id_test: test_id })
-         .populate('_id_user') // Populate thêm thông tin user (tên người dùng)
-         .populate('_id_test'); // Populate thêm thông tin bài kiểm tra (tên bài kiểm tra)
-
-      // Kiểm tra nếu không có submission nào
-      if (!submissions || submissions.length === 0) {
-         return res.status(404).json({ message: 'No submissions found for this test' });
-      }
-
-      res.status(200).json(submissions); // Trả về danh sách submission dưới dạng JSON
-   } catch (error) {
-      res.status(500).json({ message: `Error fetching submissions: ${error.message}` });
-   }
-};
-
-
-// Hàm để tạo bài kiểm tra với câu hỏi bốc ngẫu nhiên
-export async function createTestWithRandomQuestions(req, res) {
-   try {
-      const { title, description, duration, access_type, start_date, end_date, time_do, invite_users, access_link } = req.body;
-
-      // Kiểm tra các trường bắt buộc
-      if (!title || !description || !duration || !start_date || !end_date || !time_do || !access_link) {
-         return res.status(400).json({ error: "Vui lòng cung cấp đầy đủ thông tin!" });
-      }
-
-      // Bốc ngẫu nhiên câu hỏi từ thư viện câu hỏi
-      const allQuestions = await QuestionModel.find({}); // Lấy tất cả câu hỏi
-      const randomQuestions = allQuestions.sort(() => 0.5 - Math.random()).slice(0, 5); // Lấy 5 câu hỏi ngẫu nhiên
 
       // Tạo bài kiểm tra mới
       const newTest = new TestModel({
          title,
          description,
-         user_id: req.user.userId, // ID của instructor
-         questions: randomQuestions.map(q => ({ question_id: q._id })), // Lưu ID của câu hỏi
+         questions_id: questionIds,
          duration,
-         access_type,
          start_date,
          end_date,
-         time_do,
-         invite_users,
-         access_link,
-         status: 'published' // Hoặc 'draft' tùy theo nhu cầu
-      });
-
-      await newTest.save(); // Lưu bài kiểm tra vào cơ sở dữ liệu
-      res.status(201).json({ msg: "Bài kiểm tra đã được tạo thành công!", test: newTest });
-   } catch (error) {
-      console.error("Lỗi khi tạo bài kiểm tra:", error);
-      res.status(500).json({ error: "Lỗi khi tạo bài kiểm tra!" });
-   }
-}
-
-export async function createTest(req, res) {
-   try {
-      const { title, description, questions, duration, access_type, start_date, end_date, access_link } = req.body;
-
-      const newTest = new TestModel({
-         title,
-         description,
-         questions,
-         duration,
-         access_type,
-         start_date,
-         end_date,
-         access_link,
+         grade_id: grade_id || null,
+         category_id: category_id || null,
+         group_id: group_id || null,
+         classRoom_id: classRoom_id || null,
+         status: status || 'draft',
          instructor: req.user.userId
       });
 
       await newTest.save();
-      res.status(201).json({ msg: "Bài kiểm tra đã được tạo!", test: newTest });
+      logger.info(`Bài kiểm tra mới đã được tạo: ${newTest.title}`);
+
+      res.status(201).json({
+         msg: 'Bài kiểm tra đã được tạo thành công!',
+         test: newTest
+      });
    } catch (error) {
-      res.status(500).json({ error: "Lỗi khi tạo bài kiểm tra!" });
+      logger.error('Lỗi khi tạo bài kiểm tra:', error);
+      res.status(500).json({ error: `Lỗi khi tạo bài kiểm tra: ${error.message}` });
    }
 }
 
-// Lấy tất cả các bài kiểm tra của giáo viên
-export async function getAllTests(req, res) {
+// Cập nhật bài kiểm tra
+export async function updateTest(req, res) {
    try {
-      const tests = await TestModel.find({ instructor: req.user.userId });
-      res.status(200).json(tests);
+      const { examId } = req.params;
+      const updatedData = req.body;
+
+      const updatedTest = await TestModel.findByIdAndUpdate(examId, updatedData, { new: true });
+
+      if (!updatedTest) {
+         logger.warn(`Không tìm thấy bài kiểm tra với ID: ${examId}`);
+         return res.status(404).json({ error: 'Không tìm thấy bài kiểm tra!' });
+      }
+
+      logger.info(`Bài kiểm tra đã được cập nhật: ${updatedTest.title}`);
+      res.status(200).json({ msg: 'Cập nhật bài kiểm tra thành công!', test: updatedTest });
    } catch (error) {
-      res.status(500).json({ error: "Lỗi khi lấy danh sách bài kiểm tra!" });
+      logger.error('Lỗi khi cập nhật bài kiểm tra:', error);
+      res.status(500).json({ error: `Lỗi khi cập nhật bài kiểm tra: ${error.message}` });
+   }
+}
+
+// Lấy bài kiểm tra theo ID
+export async function getTestById(req, res) {
+   try {
+      const test = await TestModel.findById(req.params.id).populate('questions_id').lean();
+
+      if (!test) {
+         logger.warn(`Không tìm thấy bài kiểm tra với ID: ${req.params.id}`);
+         return res.status(404).json({ error: 'Không tìm thấy bài kiểm tra!' });
+      }
+
+      res.status(200).json(test);
+   } catch (error) {
+      logger.error('Lỗi khi lấy bài kiểm tra:', error);
+      res.status(500).json({ error: 'Lỗi khi lấy bài kiểm tra!' });
+   }
+}
+
+// Xóa bài kiểm tra
+export async function deleteTest(req, res) {
+   try {
+      const test = await TestModel.findById(req.params.id);
+      if (!test) {
+         logger.warn(`Không tìm thấy bài kiểm tra với ID: ${req.params.id}`);
+         return res.status(404).json({ error: 'Không tìm thấy bài kiểm tra!' });
+      }
+
+      await test.remove();
+      logger.info(`Đã xóa bài kiểm tra với ID: ${req.params.id}`);
+      res.status(200).json({ msg: 'Xóa bài kiểm tra thành công!' });
+   } catch (error) {
+      logger.error('Lỗi khi xóa bài kiểm tra:', error);
+      res.status(500).json({ error: 'Lỗi khi xóa bài kiểm tra!' });
    }
 }

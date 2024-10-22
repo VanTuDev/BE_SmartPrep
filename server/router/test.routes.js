@@ -1,17 +1,20 @@
 import { Router } from 'express';
-import multer from 'multer';
-const router = Router();
-const upload = multer();
-
-import * as testController from '../controllers/TestController.js';
 import Auth from '../middleware/auth.js';
+import { uploadExcel } from '../middleware/upload.js';
+import * as testController from '../controllers/TestController.js';
 
-router.post('/create_with_ques', Auth, testController.verifyInstructorRole, testController.createExamWithQuestions);
-router.get('/get_all_test', testController.getAllTest);
+const router = Router();
+
+router.post(
+   '/create',
+   Auth,
+   testController.verifyInstructorRole,
+   uploadExcel.single('file'),
+   testController.createTest
+);
+
 router.get('/:id', testController.getTestById);
-router.put('/:examId', Auth, testController.verifyInstructorRole, testController.updateExamWithQuestions);
+router.put('/:examId', Auth, testController.verifyInstructorRole, testController.updateTest);
 router.delete('/:id', Auth, testController.verifyInstructorRole, testController.deleteTest);
-
-router.get('/submissions/test/:test_id' , testController.getSubmissionsByTestId);
 
 export default router;
