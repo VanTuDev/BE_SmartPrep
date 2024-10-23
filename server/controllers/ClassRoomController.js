@@ -20,7 +20,7 @@ export async function createClassRoom(req, res) {
    } catch (error) {
       res.status(500).json({ error: "Lỗi khi tạo lớp học!" });
    }
-}
+} 
 
 // Hàm tạo mã code ngẫu nhiên cho lớp học
 function generateClassCode() {
@@ -33,23 +33,49 @@ function generateClassCode() {
 // Thêm học sinh bằng email hoặc số điện thoại
 export async function addMultipleLearners(req, res) {
    try {
-      const { classId } = req.params;
-      const { emails, phones } = req.body;
+       const { classId } = req.params;
+       const { emails, phones } = req.body;
 
-      const classroom = await ClassRoomModel.findById(classId);
-      if (!classroom) return res.status(404).json({ error: "Không tìm thấy lớp học!" });
+       // Find the classroom by ID
+       const classroom = await ClassRoomModel.findById(classId);
+       if (!classroom) return res.status(404).json({ error: "Không tìm thấy lớp học!" });
 
-      const learnersToAdd = await UserModel.find({
-         $or: [{ email: { $in: emails || [] } }, { phone: { $in: phones || [] } }]
-      });
+       // Extract the instructor's ID
+       const instructorId = classroom.instructor.toString();
 
-      const learnersIds = learnersToAdd.map(learner => learner._id.toString());
-      classroom.learners = [...new Set([...classroom.learners, ...learnersIds])];
+       // Find the learners based on the provided emails or phone numbers
+       const learnersToAdd = await UserModel.find({
+           $or: [{ email: { $in: emails || [] } }, { phone: { $in: phones || [] } }]
+       });
 
-      await classroom.save();
-      res.status(200).json({ msg: 'Thêm học sinh thành công!', addedLearners: learnersToAdd });
+       // Extract the IDs of learners to add and filter out the instructor
+       const learnersIdsToAdd = learnersToAdd
+           .map(learner => learner._id.toString())
+           .filter(learnerId => learnerId !== instructorId);
+
+       // Filter out learners that are already part of the class
+       const newLearnersIds = learnersIdsToAdd.filter(
+           learnerId => !classroom.learners.includes(learnerId)
+       );
+
+       if (newLearnersIds.length === 0) {
+           return res.status(400).json({ error: 'Bạn không thể thêm bản thân hoặc học sinh đã tham gia lớp!' });
+       }
+
+       // Add only the new learners to the class
+       classroom.learners = [...classroom.learners, ...newLearnersIds];
+
+       // Save the updated classroom
+       await classroom.save();
+
+       res.status(200).json({
+           msg: 'Thêm học sinh thành công!',
+           addedLearners: learnersToAdd.filter(learner =>
+               newLearnersIds.includes(learner._id.toString())
+           )
+       });
    } catch (error) {
-      res.status(500).json({ error: 'Lỗi khi thêm học sinh vào lớp!' });
+       res.status(500).json({ error: 'Lỗi khi thêm học sinh vào lớp!' });
    }
 }
 
@@ -222,7 +248,6 @@ export async function getClassRoomDetails(req, res) {
       res.status(500).json({ error: "Lỗi khi lấy chi tiết lớp học!" });
    }
 }
-
 
 // Cập nhật thông tin lớp học
 export async function updateClassRoom(req, res) {
