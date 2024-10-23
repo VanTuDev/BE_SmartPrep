@@ -183,3 +183,46 @@ export async function deleteTest(req, res) {
       res.status(500).json({ error: 'Lỗi khi xóa bài kiểm tra!' });
    }
 }
+
+// Hàm lấy tất cả bài kiểm tra
+export async function getAllTests(req, res) {
+   try {
+      const { grade_id, category_id, group_id, classRoom_id } = req.query;
+      const filter = {}; // Bộ lọc bài kiểm tra
+
+      if (grade_id) filter.grade_id = grade_id;
+      if (category_id) filter.category_id = category_id;
+      if (group_id) filter.group_id = group_id;
+      if (classRoom_id) filter.classRoom_id = classRoom_id;
+
+      const tests = await TestModel.find(filter).populate('instructor').lean();
+      logger.info(`Đã lấy ${tests.length} bài kiểm tra.`);
+      res.status(200).json(tests);
+   } catch (error) {
+      logger.error('Lỗi khi lấy danh sách bài kiểm tra:', error);
+      res.status(500).json({ error: 'Lỗi khi lấy danh sách bài kiểm tra!' });
+   }
+}
+
+// Hàm lấy tất cả bài làm của một bài kiểm tra
+export async function getSubmissionsByTestId(req, res) {
+   try {
+      const { test_id } = req.params;
+
+      const submissions = await SubmissionModel.find({ _id_test: test_id })
+         .populate('_id_user', 'name email') // Lấy thông tin người dùng
+         .populate('_id_test', 'title') // Lấy thông tin bài kiểm tra
+         .lean();
+
+      if (!submissions.length) {
+         logger.warn(`Không tìm thấy bài làm cho bài kiểm tra với ID: ${test_id}`);
+         return res.status(404).json({ message: 'Không tìm thấy bài làm nào!' });
+      }
+
+      logger.info(`Đã lấy ${submissions.length} bài làm cho bài kiểm tra với ID: ${test_id}`);
+      res.status(200).json(submissions);
+   } catch (error) {
+      logger.error('Lỗi khi lấy bài làm:', error);
+      res.status(500).json({ error: `Lỗi khi lấy bài làm: ${error.message}` });
+   }
+}

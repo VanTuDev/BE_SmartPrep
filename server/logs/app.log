@@ -542,3 +542,57 @@
 [2024-10-22T06:41:39.581Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-22T06:42:31.567Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-22T06:42:31.594Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T09:08:10.292Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T09:08:10.295Z] INFO: Dữ liệu nhận từ client:
+[2024-10-22T09:08:10.305Z] WARN: Không đủ câu hỏi để tạo bài kiểm tra.
+[2024-10-22T09:09:01.141Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T09:09:01.142Z] INFO: Dữ liệu nhận từ client:
+[2024-10-22T09:09:01.151Z] INFO: Đã chọn ngẫu nhiên 5 câu hỏi.
+[2024-10-22T09:09:01.169Z] INFO: Bài kiểm tra mới đã được tạo: Kiểm tra Toán lớp 12
+[2024-10-22T09:21:22.050Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T09:21:22.058Z] INFO: Dữ liệu nhận từ client:
+[2024-10-22T09:21:22.086Z] INFO: Câu hỏi đã tồn tại: Nội dung nào sau đây không phải là ý nghĩa của Hiệp định Pari năm 1973 về Việt Nam?
+[2024-10-22T09:21:22.089Z] INFO: Câu hỏi đã tồn tại: Mở đầu cho cuộc Tổng tiến công và nổi dậy Xuân 1975 là chiến dịch?
+[2024-10-22T09:21:22.092Z] INFO: Câu hỏi đã tồn tại: Từ việc thành lập Mặt trận Liên Việt (3-1951) Việt Nam có thể rút ra bài học kinh nghiệm gì về xây dựng mặt trận hiện nay?
+[2024-10-22T09:21:22.095Z] ERROR: Lỗi khi tạo bài kiểm tra: Test validation failed: duration: Vui lòng nhập thời gian làm bài
+[2024-10-22T09:22:17.617Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T09:22:17.623Z] INFO: Dữ liệu nhận từ client:
+[2024-10-22T09:22:17.633Z] INFO: Câu hỏi đã tồn tại: Nội dung nào sau đây không phải là ý nghĩa của Hiệp định Pari năm 1973 về Việt Nam?
+[2024-10-22T09:22:17.637Z] INFO: Câu hỏi đã tồn tại: Mở đầu cho cuộc Tổng tiến công và nổi dậy Xuân 1975 là chiến dịch?
+[2024-10-22T09:22:17.640Z] INFO: Câu hỏi đã tồn tại: Từ việc thành lập Mặt trận Liên Việt (3-1951) Việt Nam có thể rút ra bài học kinh nghiệm gì về xây dựng mặt trận hiện nay?
+[2024-10-22T09:22:17.644Z] INFO: Bài kiểm tra mới đã được tạo: Bài kiểm tra Toán lớp 12
+[2024-10-22T09:23:54.803Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T09:23:54.809Z] INFO: Dữ liệu nhận từ client:
+[2024-10-22T09:23:54.820Z] INFO: Đã thêm câu hỏi mới: Nội dung nào sau đây không phải là ý nghĩa của Hiệp định Pari năm 1973 về Việt Nam?
+[2024-10-22T09:23:54.826Z] INFO: Đã thêm câu hỏi mới: Mở đầu cho cuộc Tổng tiến công và nổi dậy Xuân 1975 là chiến dịch?
+[2024-10-22T09:23:54.831Z] INFO: Đã thêm câu hỏi mới: Từ việc thành lập Mặt trận Liên Việt (3-1951) Việt Nam có thể rút ra bài học kinh nghiệm gì về xây dựng mặt trận hiện nay?
+[2024-10-22T09:23:54.835Z] INFO: Bài kiểm tra mới đã được tạo: Bài kiểm tra Toán lớp 12
+[2024-10-22T09:26:08.226Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-22T09:26:08.231Z] INFO: Dữ liệu nhận từ client:
+[2024-10-22T09:26:08.238Z] INFO: Câu hỏi đã tồn tại: Nội dung nào sau đây không phải là ý nghĩa của Hiệp định Pari năm 1973 về Việt Nam?
+[2024-10-22T09:26:08.241Z] INFO: Câu hỏi đã tồn tại: Mở đầu cho cuộc Tổng tiến công và nổi dậy Xuân 1975 là chiến dịch?
+[2024-10-22T09:26:08.243Z] INFO: Câu hỏi đã tồn tại: Từ việc thành lập Mặt trận Liên Việt (3-1951) Việt Nam có thể rút ra bài học kinh nghiệm gì về xây dựng mặt trận hiện nay?
+[2024-10-22T09:26:08.255Z] INFO: Bài kiểm tra mới đã được tạo: Bài kiểm tra Toán lớp 12
+[2024-10-22T16:31:47.463Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-22T16:31:47.471Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-22T16:34:12.469Z] INFO: Bài kiểm tra được bắt đầu cho học sinh: 6717d36cda38be8f69660c66
+[2024-10-22T16:36:24.097Z] INFO: Bài kiểm tra được bắt đầu cho học sinh: 6717d36cda38be8f69660c66
+[2024-10-22T16:41:33.558Z] ERROR: Lỗi khi nộp câu trả lời: QuestionModel is not defined
+[2024-10-23T10:21:51.939Z] INFO: Bắt đầu bài kiểm tra cho learner: 6717d36cda38be8f69660c66 với test_id: 67176f2a01aaa11a57c477f7
+[2024-10-23T10:21:51.980Z] INFO: Bài kiểm tra đã được bắt đầu: 6718ce3f10679963da27d3fb
+[2024-10-23T10:23:55.337Z] INFO: Nộp câu trả lời cho submission: 6718ce3f10679963da27d3fb, question: 67176f2a01aaa11a57c477ef
+[2024-10-23T10:23:55.340Z] INFO: Correct Answers: undefined
+[2024-10-23T10:23:55.342Z] ERROR: Error submitting answer: Cannot read properties of undefined (reading 'includes')
+[2024-10-23T10:38:07.018Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
+[2024-10-23T10:38:33.803Z] INFO: Nộp câu trả lời cho submission: 6718d20fbe65d0c3082f60d4, question: 67176f2a01aaa11a57c477ef
+[2024-10-23T10:38:33.809Z] ERROR: Lỗi khi nộp câu trả lời: QuestionModel is not defined
+[2024-10-23T10:39:33.593Z] INFO: Nộp câu trả lời cho submission: 6718d20fbe65d0c3082f60d4, question: 67176f2a01aaa11a57c477ef
+[2024-10-23T10:39:33.610Z] INFO: Câu hỏi: Nội dung nào sau đây không phải là ý nghĩa của Hiệp định Pari năm 1973 về Việt Nam?
+[2024-10-23T10:39:33.611Z] INFO: Các tùy chọn: Mở ra bước ngoặt mới của cuộc kháng chiến chống Mỹ, cứu nước., Là thắng lợi của sự kết hợp giữa đấu tranh quân sự, binh vận và ngoại giao., Tạo ra thời cơ thuận lợi để nhân dân Việt Nam tiến lên giải phóng miền Nam., Là thắng lợi của sự kết hợp giữa đấu tranh quân sự, chính trị và ngoại giao.
+[2024-10-23T10:39:33.612Z] INFO: Đáp án đúng: Là thắng lợi của sự kết hợp giữa đấu tranh quân sự, binh vận và ngoại giao.
+[2024-10-23T10:39:33.626Z] INFO: Câu trả lời: Là thắng lợi của sự kết hợp giữa đấu tranh quân sự, Kết quả: Sai
+[2024-10-23T10:42:08.157Z] INFO: Hoàn thành bài kiểm tra với submission ID: 6718d20fbe65d0c3082f60d4
+[2024-10-23T10:42:08.164Z] INFO: Bài kiểm tra đã được nộp với ID: 6718d20fbe65d0c3082f60d4, điểm: 0
+[2024-10-23T10:52:41.820Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
+[2024-10-23T10:53:13.579Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
+[2024-10-23T10:54:41.878Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66

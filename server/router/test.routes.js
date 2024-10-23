@@ -16,5 +16,6 @@ router.post(
 router.get('/:id', testController.getTestById);
 router.put('/:examId', Auth, testController.verifyInstructorRole, testController.updateTest);
 router.delete('/:id', Auth, testController.verifyInstructorRole, testController.deleteTest);
-
+router.get('/get_all', testController.getAllTests);
+router.get('/submissions/:test_id', testController.getSubmissionsByTestId);
 export default router;
