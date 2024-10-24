@@ -530,6 +530,7 @@
 [2024-10-22T04:32:43.338Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
 [2024-10-22T04:32:43.339Z] INFO: Yêu cầu cập nhật câu hỏi ID: 67172adeef3c2f71b1c22e9f
 [2024-10-22T04:32:43.357Z] INFO: Lấy danh sách tất cả câu hỏi:
+
 [2024-10-22T07:57:23.472Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-22T07:57:23.509Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-22T08:14:11.081Z] ERROR: Lỗi khi lấy danh sách câu hỏi: connect ECONNREFUSED 127.0.0.1:27017
@@ -549,3 +550,4 @@
 [2024-10-22T15:41:08.716Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-24T05:27:12.089Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-24T05:27:12.134Z] INFO: Lấy danh sách tất cả câu hỏi:
+
