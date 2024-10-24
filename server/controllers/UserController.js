@@ -25,26 +25,27 @@ export async function verifyUser(req, res, next) {
 }
 
 // Đăng ký người dùng mới
+
 export async function register(req, res) {
   try {
-    // Trích xuất dữ liệu từ body request
     const { username, fullname, email, phone, password, role } = req.body;
+    const cv = req.file ? req.file.filename : null;
 
-    console.log('Đăng ký người dùng mới với thông tin:', req.body);
+    console.log('Đăng ký người dùng mới:', req.body);
 
-    // Kiểm tra nếu file được upload
-    let cv = req.file ? req.file.filename : null;
+    // Check if username or email already exists
+    const existUser = await UserModel.findOne({
+      $or: [{ username }, { email }],
+    });
 
-    // Kiểm tra nếu username hoặc email đã tồn tại
-    const existUser = await UserModel.findOne({ $or: [{ username }, { email }] });
     if (existUser) {
       return res.status(400).json({ error: 'Tên đăng nhập hoặc Email đã tồn tại!' });
     }
 
-    // Mã hóa mật khẩu
+    // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Tạo người dùng mới
+    // Create new user with `is_locked: true` for instructors
     const newUser = new UserModel({
       username,
       fullname,
@@ -52,60 +53,60 @@ export async function register(req, res) {
       phone,
       password: hashedPassword,
       role: role || 'learner',
-      cv: role === 'instructor' ? cv : null, // Chỉ lưu CV nếu là instructor
+      cv: role === 'instructor' ? cv : null, // Only store CV for instructors
+      is_locked: role === 'instructor', // Lock instructor accounts
     });
 
-    // Lưu người dùng vào cơ sở dữ liệu
     await newUser.save();
 
-    res.status(201).json({ msg: 'Đăng ký thành công!' });
+    res.status(201).json({ msg: 'Đăng ký thành công! Tài khoản của bạn đang chờ phê duyệt.' });
   } catch (error) {
     console.error('Lỗi khi đăng ký người dùng:', error);
     res.status(500).json({ error: 'Lỗi khi đăng ký người dùng!' });
   }
 }
 
+
+// User login
 export async function login(req, res) {
   try {
-    const { identifier, password } = req.body; // Lấy identifier và password từ body
+    const { identifier, password } = req.body;
+
     console.log("Đang đăng nhập với identifier:", identifier);
 
-    // Tìm người dùng bằng username hoặc email
+    // Find user by username or email
     const user = await UserModel.findOne({
       $or: [{ username: identifier }, { email: identifier }],
     }).select("+password");
 
     if (!user) {
-      console.log("Tên đăng nhập hoặc Email không tồn tại!");
-      return res
-        .status(404)
-        .json({ error: "Tên đăng nhập hoặc Email không tồn tại!" });
+      return res.status(404).json({ error: "Tên đăng nhập hoặc Email không tồn tại!" });
     }
 
-    // Kiểm tra mật khẩu
+    // Check if the account is locked
+    if (user.is_locked) {
+      return res.status(403).json({ error: "Tài khoản của bạn chưa được xét duyệt, hãy đợi trong giây lát." });
+    }
+
+    // Verify password
     const passwordCheck = await bcrypt.compare(password, user.password);
     if (!passwordCheck) {
-      console.log("Mật khẩu không đúng!");
       return res.status(400).json({ error: "Mật khẩu không đúng!" });
     }
 
-    // Tạo token JWT
+    // Generate JWT token
     const token = jwt.sign(
       { userId: user._id, username: user.username, role: user.role },
       process.env.JWT_SECRET,
       { expiresIn: "24h" }
     );
 
-    // Ghi log thông tin người dùng
-    console.log("Thông tin người dùng đã đăng nhập:", {
+    console.log("Người dùng đã đăng nhập:", {
       _id: user._id,
       username: user.username,
-      email: user.email,
-      phone: user.phone,
       role: user.role,
     });
 
-    // Trả về thông tin chi tiết
     return res.status(200).json({
       msg: "Đăng nhập thành công!",
       token,
@@ -114,17 +115,18 @@ export async function login(req, res) {
         username: user.username,
         email: user.email,
         phone: user.phone,
+        fullname: user.fullname,
         role: user.role,
-        fullname: user.fullname, // Thêm fullname vào thông tin trả về
-        createdAt: user.createdAt, // Thêm createdAt vào thông tin trả về
-        updatedAt: user.updatedAt, // Thêm updatedAt vào thông tin trả về
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
       },
     });
   } catch (error) {
     console.error("Lỗi khi đăng nhập:", error);
-    return res.status(500).json({ error: "Lỗi khi đăng nhập!" });
+    res.status(500).json({ error: "Lỗi khi đăng nhập!" });
   }
 }
+
 
 // Forgot PW
 export async function forgotPW(req, res) {
@@ -165,32 +167,32 @@ export async function forgotPW(req, res) {
 
 // Reset PW
 export async function resetPW(req, res) {
-    const { token, newPassword } = req.body;
+  const { token, newPassword } = req.body;
 
-    try {
-      const secretKey = process.env.JWT_SECRET; // Phải khớp với secret khi tạo token
-      const decoded = jwt.verify(token, secretKey); // Giải mã token
-        console.log(token, newPassword);
-        
-      const userId = decoded.userId;
-      console.log(userId);
-        
-      // Cập nhật mật khẩu mới cho người dùng
-      const user = await UserModel.findById(userId).select('+password');
-      if (!user) {
-        return res.status(404).json({ error: 'Người dùng không tồn tại.' });
-      }
-      console.log(user);
-      const hashedPassword = await bcrypt.hash(newPassword, 10);
-      user.password = hashedPassword; // Nhớ hash mật khẩu mới trước khi lưu
-      await user.save();
-  
-      res.status(200).json({ message: 'Mật khẩu đã được đặt lại thành công!' });
-    } catch (error) {
-      console.error('Lỗi khi xác thực token:', error);
-      res.status(400).json({ error: 'Token không hợp lệ hoặc đã hết hạn.' });
+  try {
+    const secretKey = process.env.JWT_SECRET; // Phải khớp với secret khi tạo token
+    const decoded = jwt.verify(token, secretKey); // Giải mã token
+    console.log(token, newPassword);
+
+    const userId = decoded.userId;
+    console.log(userId);
+
+    // Cập nhật mật khẩu mới cho người dùng
+    const user = await UserModel.findById(userId).select('+password');
+    if (!user) {
+      return res.status(404).json({ error: 'Người dùng không tồn tại.' });
     }
+    console.log(user);
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+    user.password = hashedPassword; // Nhớ hash mật khẩu mới trước khi lưu
+    await user.save();
+
+    res.status(200).json({ message: 'Mật khẩu đã được đặt lại thành công!' });
+  } catch (error) {
+    console.error('Lỗi khi xác thực token:', error);
+    res.status(400).json({ error: 'Token không hợp lệ hoặc đã hết hạn.' });
   }
+}
 
 
 
@@ -343,7 +345,7 @@ const transporter = nodemailer.createTransport({
 
 // Hàm tạo token JWT
 const generateVerifyToken = (userId) => {
-  const secretKey =  process.env.JWT_SECRET; // Thay bằng secret của bạn
+  const secretKey = process.env.JWT_SECRET; // Thay bằng secret của bạn
   const expiresIn = "5m"; // Token có hiệu lực trong 5 phút
   // Tạo token với payload là userId
   return jwt.sign({ userId }, secretKey, { expiresIn });
@@ -381,16 +383,42 @@ async function sendVerifyToken(userEmail, userId) {
 
 // Get all leaner
 export async function getUserByRole(req, res) {
-    try {
-        const role = req.params.role;
-        // Chỉ admin mới có quyền truy cập
-        if (req.user.role !== 'admin') return res.status(403).json({ error: "Bạn không có quyền truy cập danh sách người dùng!" });
+  try {
+    const role = req.params.role;
+    // Chỉ admin mới có quyền truy cập
+    if (req.user.role !== 'admin') return res.status(403).json({ error: "Bạn không có quyền truy cập danh sách người dùng!" });
 
-        const users = await UserModel.find({ role: role }, '-password'); // Trả về tất cả người dùng, loại bỏ trường password
-        console.log("Tất cả người dùng:", users); // Log danh sách người dùng
-        res.status(200).json(users);
-    } catch (error) {
-        console.error("Lỗi khi lấy danh sách người dùng:", error); // Log lỗi
-        res.status(500).json({ error: "Lỗi khi lấy danh sách người dùng!" });
+    const users = await UserModel.find({ role: role }, '-password'); // Trả về tất cả người dùng, loại bỏ trường password
+    console.log("Tất cả người dùng:", users); // Log danh sách người dùng
+    res.status(200).json(users);
+  } catch (error) {
+    console.error("Lỗi khi lấy danh sách người dùng:", error); // Log lỗi
+    res.status(500).json({ error: "Lỗi khi lấy danh sách người dùng!" });
+  }
+}
+
+
+// Unlock an instructor account (Admin only)
+export async function unlockInstructor(req, res) {
+  try {
+    const { id } = req.params;
+
+    // Only admins can unlock instructors
+    if (req.user.role !== 'admin') {
+      return res.status(403).json({ error: 'Bạn không có quyền thực hiện thao tác này!' });
     }
+
+    const user = await UserModel.findById(id);
+    if (!user || user.role !== 'instructor') {
+      return res.status(404).json({ error: 'Không tìm thấy người dùng hoặc người dùng không phải là instructor.' });
+    }
+
+    user.is_locked = false; // Unlock the account
+    await user.save();
+
+    res.status(200).json({ msg: 'Tài khoản đã được mở khóa thành công!' });
+  } catch (error) {
+    console.error('Lỗi khi mở khóa tài khoản:', error);
+    res.status(500).json({ error: 'Lỗi khi mở khóa tài khoản!' });
+  }
 }
