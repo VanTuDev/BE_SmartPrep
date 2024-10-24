@@ -6,7 +6,7 @@ import Auth from '../middleware/auth.js';
 import { uploadImage } from '../middleware/upload.js'; // Import chính xác
 
 // Định nghĩa các route cho người dùng
-router.post('/register', upload.single('cv'), userController.register); // Đăng ký tài khoản mới
+router.post('/register', uploadImage.single('cv'), userController.register); // Đăng ký tài khoản mới
 router.post('/login', userController.login); // Đăng nhập tài khoản
 router.post('/forgotPW', userController.forgotPW); // Quên MK
 router.post('/resetPW', userController.resetPW); // Quên MK
