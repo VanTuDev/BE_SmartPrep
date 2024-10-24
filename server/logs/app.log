@@ -706,3 +706,213 @@
 [2024-10-24T09:51:04.155Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
 [2024-10-24T09:57:54.235Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
 [2024-10-24T10:02:55.746Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T10:23:54.601Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T10:24:50.829Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T10:25:45.338Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T10:25:45.339Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T10:25:45.340Z] INFO: Đang tạo bài kiểm tra mới...
+[2024-10-24T10:25:45.355Z] INFO: Bài kiểm tra đã được tạo thành công!
+[2024-10-24T10:26:11.538Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T10:26:11.540Z] INFO: Nhận yêu cầu thêm câu hỏi.
+[2024-10-24T10:26:11.545Z] WARN: Câu hỏi đã tồn tại.
+[2024-10-24T10:26:57.883Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T10:27:31.732Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:01:02.875Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:01:02.878Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:01:02.895Z] ERROR: Lỗi khi tạo bài kiểm tra:
+[2024-10-24T12:02:25.225Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:02:25.228Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:02:25.247Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required., question_type: `multiple_choice` is not a valid enum value for path `question_type`.
+[2024-10-24T12:04:41.258Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:04:41.261Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:04:41.276Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required., question_type: `multiple_choice` is not a valid enum value for path `question_type`.
+[2024-10-24T12:06:59.584Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:06:59.586Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:06:59.604Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required., question_type: `multiple_choice` is not a valid enum value for path `question_type`.
+[2024-10-24T12:07:32.205Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:07:32.206Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:07:32.210Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:09:47.993Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:09:47.996Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:09:47.996Z] INFO: Instructor ID:
+[2024-10-24T12:09:48.012Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:11:00.448Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:11:00.450Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:11:00.450Z] ERROR: ID instructor không hợp lệ.
+[2024-10-24T12:15:53.505Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:15:53.508Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:15:53.509Z] INFO: Instructor ID:
+[2024-10-24T12:15:53.526Z] INFO: Bài kiểm tra đã được tạo thành công!
+[2024-10-24T12:20:29.491Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:20:29.494Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:20:29.511Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:21:44.499Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:21:44.503Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:21:44.504Z] INFO: Instructor ID:
+[2024-10-24T12:21:44.525Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:22:57.528Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:22:57.531Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:22:57.532Z] INFO: Instructor ID:
+[2024-10-24T12:22:57.552Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:25:01.039Z] INFO: Thông tin user từ token:
+[2024-10-24T12:25:01.041Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:25:01.042Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:25:01.043Z] INFO: Instructor ID:
+[2024-10-24T12:25:01.054Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:26:26.968Z] INFO: Thông tin user từ token:
+[2024-10-24T12:26:26.970Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:26:26.971Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:26:26.972Z] INFO: Instructor ID:
+[2024-10-24T12:26:26.983Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:28:02.212Z] INFO: Thông tin user từ token:
+[2024-10-24T12:28:02.214Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:28:02.215Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:28:02.215Z] INFO: Instructor ID:
+[2024-10-24T12:28:02.240Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:28:51.367Z] INFO: Thông tin user từ token:
+[2024-10-24T12:28:51.370Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:28:51.371Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:28:51.371Z] INFO: Instructor ID:
+[2024-10-24T12:28:51.386Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:30:19.111Z] INFO: Thông tin user từ token:
+[2024-10-24T12:30:19.113Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:30:19.114Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:30:19.114Z] INFO: Instructor ID:
+[2024-10-24T12:30:19.131Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T12:30:34.606Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T12:30:34.608Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T12:30:34.609Z] INFO: Instructor ID:
+[2024-10-24T12:30:34.625Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T13:21:17.490Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T13:21:17.491Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T13:21:17.492Z] INFO: Instructor ID:
+[2024-10-24T13:21:17.496Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T13:22:50.154Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T13:22:50.161Z] INFO: Instructor ID:
+[2024-10-24T13:22:50.178Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T13:23:50.146Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T13:23:50.150Z] INFO: Instructor ID:
+[2024-10-24T13:23:50.154Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T13:24:16.047Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T13:24:16.050Z] INFO: Instructor ID:
+[2024-10-24T13:24:16.055Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T13:27:29.460Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T13:27:44.242Z] INFO: Instructor ID:
+[2024-10-24T13:28:18.043Z] ERROR: Lỗi khi tạo bài kiểm tra: Question validation failed: instructor: Path `instructor` is required.
+[2024-10-24T13:28:33.140Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T13:28:38.889Z] INFO: Instructor ID:
+[2024-10-24T13:30:33.989Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T13:30:42.537Z] INFO: Instructor ID:
+[2024-10-24T15:09:51.750Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:10:19.405Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:10:19.407Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T15:10:19.427Z] INFO: Câu hỏi mới được thêm:
+[2024-10-24T15:10:19.433Z] INFO: Câu hỏi mới được thêm:
+[2024-10-24T15:10:19.434Z] INFO: Danh sách câu hỏi ID:
+[2024-10-24T15:10:19.440Z] INFO: Bài kiểm tra đã được tạo thành công!
+[2024-10-24T15:11:04.116Z] INFO: Bài kiểm tra tìm thấy.
+[2024-10-24T15:16:19.465Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:16:19.468Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:16:19.469Z] WARN: ID không hợp lệ.
+[2024-10-24T15:18:11.594Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:18:11.594Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:18:11.595Z] WARN: ID không hợp lệ.
+[2024-10-24T15:20:47.085Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:20:47.087Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:20:47.087Z] WARN: ID không hợp lệ.
+[2024-10-24T15:22:53.738Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:22:53.740Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:22:53.740Z] WARN: ID không hợp lệ.
+[2024-10-24T15:24:52.631Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:24:52.634Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:24:52.646Z] ERROR: Lỗi khi cập nhật bài kiểm tra:
+[2024-10-24T15:25:48.916Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:25:48.919Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:25:48.920Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:25:48.931Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:25:48.931Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:25:48.934Z] ERROR: Lỗi khi cập nhật bài kiểm tra: Cannot read properties of undefined (reading 'grade_id')
+[2024-10-24T15:27:16.957Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:29:18.076Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:30:48.593Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:30:48.596Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:30:48.596Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:30:48.609Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:30:48.610Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:30:48.614Z] ERROR: Lỗi khi cập nhật bài kiểm tra: Cannot read properties of undefined (reading 'grade_id')
+[2024-10-24T15:31:33.894Z] INFO: Bài kiểm tra tìm thấy.
+[2024-10-24T15:32:00.377Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:32:00.378Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:32:00.378Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:32:00.380Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:32:00.381Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:32:00.384Z] ERROR: Lỗi khi cập nhật bài kiểm tra: Cannot read properties of undefined (reading 'grade_id')
+[2024-10-24T15:33:36.842Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:33:36.844Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:33:36.855Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:33:36.856Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:33:36.859Z] ERROR: Lỗi khi cập nhật bài kiểm tra: Cannot read properties of undefined (reading 'grade_id')
+[2024-10-24T15:35:54.407Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:35:54.410Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:35:54.421Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:35:54.422Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:35:54.422Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:35:54.425Z] ERROR: Lỗi khi cập nhật bài kiểm tra: Cannot read properties of undefined (reading 'grade_id')
+[2024-10-24T15:50:59.397Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:51:25.261Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:52:04.065Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:52:09.213Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:52:11.797Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:52:31.198Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:52:33.071Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:52:35.016Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:52:36.132Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:52:38.126Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:52:55.188Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:52:57.824Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:53:06.728Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:53:08.430Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:53:10.678Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:53:25.823Z] ERROR: Lỗi khi cập nhật bài kiểm tra: Cannot read properties of undefined (reading 'grade_id')
+[2024-10-24T15:54:30.231Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:55:14.673Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:55:20.832Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:55:25.522Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:55:26.851Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:55:36.967Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:59:18.071Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:59:20.778Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T15:59:24.361Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T15:59:25.851Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T15:59:30.686Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T15:59:34.634Z] INFO: Dữ liệu bài kiểm tra được truyền vào:
+[2024-10-24T15:59:53.845Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T15:59:57.265Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T16:00:00.827Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T16:00:03.855Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T16:00:05.601Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T16:00:06.623Z] INFO: Dữ liệu bài kiểm tra được truyền vào:
+[2024-10-24T16:00:06.630Z] ERROR: Lỗi trong quá trình thêm hoặc tìm kiếm câu hỏi: Cannot read properties of undefined (reading 'grade_id')
+[2024-10-24T16:00:08.244Z] ERROR: Lỗi khi cập nhật bài kiểm tra: Lỗi trong quá trình xử lý câu hỏi.
+[2024-10-24T16:00:19.671Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T16:00:20.904Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T16:00:24.766Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T16:00:26.791Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T16:00:31.549Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T16:00:37.926Z] INFO: Dữ liệu bài kiểm tra được truyền vào:
+[2024-10-24T16:10:34.899Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T16:10:41.057Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T16:10:42.342Z] INFO: Bài kiểm tra hiện tại:
+[2024-10-24T16:10:43.173Z] INFO: Dữ liệu đầu vào:
+[2024-10-24T16:10:43.174Z] INFO: Đang kiểm tra và thêm câu hỏi mới.
+[2024-10-24T16:10:43.175Z] INFO: Dữ liệu bài kiểm tra được truyền vào:
+[2024-10-24T16:10:43.180Z] ERROR: Lỗi trong quá trình thêm hoặc tìm kiếm câu hỏi: Cannot read properties of undefined (reading 'grade_id')
+[2024-10-24T16:10:43.181Z] ERROR: Lỗi khi cập nhật bài kiểm tra: Lỗi trong quá trình xử lý câu hỏi.
+[2024-10-24T16:11:00.297Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T16:11:02.133Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T16:14:29.730Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T16:14:33.209Z] INFO: Nhận yêu cầu cập nhật bài kiểm tra.
+[2024-10-24T16:14:38.044Z] INFO: Dữ liệu bài kiểm tra được truyền vào:
+[2024-10-24T16:14:38.061Z] INFO: Câu hỏi mới được thêm:
+[2024-10-24T16:14:38.063Z] INFO: Danh sách câu hỏi ID:
+[2024-10-24T16:14:44.327Z] INFO: Bài kiểm tra đã được cập nhật thành công.

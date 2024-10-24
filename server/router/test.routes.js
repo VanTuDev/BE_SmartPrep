@@ -1,93 +1,23 @@
 import { Router } from 'express';
 import Auth from '../middleware/auth.js';
-import { uploadExcel } from '../middleware/upload.js';
 import * as testController from '../controllers/TestController.js';
 
 const router = Router();
 
-// Tạo bài kiểm tra với các câu hỏi đã chọn
-router.post(
-   '/create',
-   Auth,
-   testController.verifyInstructorRole,
-   testController.createTest
-);
+// Route tạo bài kiểm tra mới
+router.post('/create', Auth, testController.verifyInstructorRole, testController.createTest);
 
-// Upload câu hỏi từ Excel vào bài kiểm tra
-router.post(
-   '/:testId/upload-excel',
-   Auth,
-   testController.verifyInstructorRole,
-   uploadExcel.single('file'),
-   testController.uploadQuestionsExcel
-);
+// Route lấy tất cả bài kiểm tra của instructor
+router.get('/', Auth, testController.verifyInstructorRole, testController.getAllTests);
 
-// Lấy câu hỏi random dựa trên tiêu chí và thêm vào bài kiểm tra
-router.post(
-   '/:testId/random-questions',
-   Auth,
-   testController.verifyInstructorRole,
-   testController.getRandomQuestions
-);
+// Route lấy bài kiểm tra theo ID
+router.get('/:id', Auth, testController.getTestById);
 
-// Thêm từng câu hỏi thủ công vào bài kiểm tra
-router.post(
-   '/:testId/add-single-question',
-   Auth,
-   testController.verifyInstructorRole,
-   testController.addSingleQuestion
-);
+// Route xóa bài kiểm tra
+router.delete('/:id', Auth, testController.verifyInstructorRole, testController.deleteTest);
 
-// Lấy bài kiểm tra theo ID
-router.get('/:id', testController.getTestById);
+router.put('/update/:id', Auth, testController.verifyInstructorRole, testController.updateTest)
 
-// Cập nhật bài kiểm tra theo ID
-router.put(
-   '/:examId',
-   Auth,
-   testController.verifyInstructorRole,
-   testController.updateTest
-);
-
-// Xóa bài kiểm tra theo ID
-router.delete(
-   '/:id',
-   Auth,
-   testController.verifyInstructorRole,
-   testController.deleteTest
-);
-
-// Lấy tất cả các bài kiểm tra
-router.get('/get_all', testController.getAllTests);
-
-// Lấy tất cả bài làm cho một bài kiểm tra cụ thể
-router.get('/submissions/:test_id', testController.getSubmissionsByTestId);
-
-router.get('/:id', testController.updateTestStatus, testController.getTestById);
-
-router.put(
-   '/:testId/publish',
-   Auth,
-   testController.verifyInstructorRole,
-   async (req, res) => {
-      try {
-         const { testId } = req.params;
-
-         const test = await TestModel.findByIdAndUpdate(
-            testId,
-            { status: 'published' },
-            { new: true }
-         );
-
-         if (!test) {
-            return res.status(404).json({ error: 'Không tìm thấy bài kiểm tra!' });
-         }
-
-         res.status(200).json({ msg: 'Bài kiểm tra đã được publish!', test });
-      } catch (error) {
-         console.error('Lỗi khi publish bài kiểm tra:', error);
-         res.status(500).json({ error: 'Không thể publish bài kiểm tra!' });
-      }
-   }
-);
+// Route lấy bài làm theo ID bài kiểm tra
+router.get('/:test_id/submissions', Auth, testController.verifyInstructorRole, testController.getSubmissionsByTestId);
 export default router;
