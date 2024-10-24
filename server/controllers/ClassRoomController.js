@@ -193,25 +193,25 @@ export async function manageJoinRequest(req, res) {
 }
 
 // Kick học sinh khỏi lớp
-export async function kickLearner(req, res) {
-   try {
-      const { classId, learnerId } = req.params;
+export const kickLearner = async (req, res) => {
+    try {
+        const { classId, learnerId } = req.params;
 
-      const classroom = await ClassRoomModel.findById(classId);
-      if (!classroom) return res.status(404).json({ error: "Không tìm thấy lớp học!" });
-
-      if (!classroom.learners.includes(learnerId)) {
-         return res.status(400).json({ error: "Học sinh không có trong lớp!" });
-      }
-
-      classroom.learners = classroom.learners.filter(id => id.toString() !== learnerId);
-      await classroom.save();
-
-      res.status(200).json({ msg: "Đã kick học sinh khỏi lớp!", classroom });
-   } catch (error) {
-      res.status(500).json({ error: 'Lỗi khi kick học sinh!' });
-   }
-}
+        const classRoom = await ClassRoomModel.findById(classId);
+        if (!classRoom) {
+            return res.status(404).json({ message: 'Lớp học không tồn tại.' });
+        }
+        // Remove learner from learners array
+        classRoom.learners = classRoom.learners.filter(
+            id => id.toString() !== learnerId
+        );
+        await classRoom.save();
+        res.status(200).json({ message: 'Học viên đã bị xóa khỏi lớp.' });
+    } catch (error) {
+        console.error('Lỗi khi xóa học viên:', error);
+        res.status(500).json({ message: 'Không thể xóa học viên.' });
+    }
+};
 
 // Lấy tất cả lớp của giáo viên
 export async function getAllClassesByInstructor(req, res) {
@@ -224,6 +224,23 @@ export async function getAllClassesByInstructor(req, res) {
    }
 }
 
+// Hiển thị các lớp học sinh đã tham gia 
+export const getAllClassesByLearner = async (req, res) => {
+   try {
+      const learnerId = req.user.userId;
+
+      // Query only classes where the learner is in the `learners` array
+      const classes = await ClassRoomModel.find({ learners: learnerId });
+
+      res.status(200).json({ msg: 'Lấy danh sách lớp thành công!', classes });
+  } catch (error) {
+      console.error('Lỗi khi lấy danh sách lớp học của học viên:', error);
+      res.status(500).json({ msg: 'Không thể lấy danh sách lớp học.' });
+  }
+};
+
+
+
 // Lấy chi tiết lớp học
 export async function getClassRoomDetails(req, res) {
    try {
@@ -233,6 +250,7 @@ export async function getClassRoomDetails(req, res) {
          .populate('learners', 'fullname email phone')
          .populate('instructor', 'fullname email phone')
          .populate('invited_learners', 'fullname email phone')
+         .populate('pending_requests', 'fullname email image')
          .populate('tests_id'); // Populate bài kiểm tra
 
       if (!classroom) {
@@ -281,6 +299,57 @@ export async function deleteClassRoom(req, res) {
    }
 }
 
+export const approveJoinRequest = async (req, res) => {
+   try {
+       const { classId, learnerId } = req.params;
+
+       const classRoom = await ClassRoomModel.findById(classId);
+       if (!classRoom) {
+           return res.status(404).json({ message: 'Lớp học không tồn tại.' });
+       }
+
+       // Check if learner exists in pending requests
+       if (!classRoom.pending_requests.includes(learnerId)) {
+           return res.status(400).json({ message: 'Yêu cầu không tồn tại.' });
+       }
+
+       // Move learner from pending_requests to learners
+       classRoom.pending_requests = classRoom.pending_requests.filter(
+           (id) => id.toString() !== learnerId
+       );
+       classRoom.learners.push(learnerId);
+       await classRoom.save();
+
+       res.status(200).json({ message: 'Yêu cầu đã được phê duyệt.' });
+   } catch (error) {
+       console.error('Lỗi khi phê duyệt yêu cầu:', error);
+       res.status(500).json({ message: 'Không thể phê duyệt yêu cầu.' });
+   }
+};
+
+// Reject learner join request
+export const rejectJoinRequest = async (req, res) => {
+   try {
+       const { classId, learnerId } = req.params;
+
+       const classRoom = await ClassRoomModel.findById(classId);
+       if (!classRoom) {
+           return res.status(404).json({ message: 'Lớp học không tồn tại.' });
+       }
+
+       classRoom.pending_requests = classRoom.pending_requests.filter(
+           (id) => id.toString() !== learnerId
+       );
+       await classRoom.save();
+
+       res.status(200).json({ message: 'Yêu cầu đã bị từ chối.' });
+   } catch (error) {
+       console.error('Lỗi khi từ chối yêu cầu:', error);
+       res.status(500).json({ message: 'Không thể từ chối yêu cầu.' });
+   }
+};
+
+// rời lớp
 export async function leaveClass(req, res) {
    try {
       const { classId } = req.params;
