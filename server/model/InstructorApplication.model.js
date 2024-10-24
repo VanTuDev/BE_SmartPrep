@@ -27,10 +27,12 @@ const InstructorApplicationSchema = new mongoose.Schema({
         type: String, // Đường dẫn tới CV (file PDF)
         trim: true
     },
-    citizenIdPhoto: {
-        type: String, // Đường dẫn tới ảnh căn cước công dân
-        trim: true
-    },
+    citizenIdPhotos: [
+        {
+            type: String, // Đường dẫn tới từng ảnh căn cước công dân
+            trim: true
+        }
+    ], // Mảng để lưu ảnh mặt trước và mặt sau
     bio: {
         type: String, // Mô tả ngắn về giáo viên
         trim: true
