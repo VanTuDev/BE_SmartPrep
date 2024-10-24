@@ -36,7 +36,7 @@ app.use(express.urlencoded({ limit: '20mb', extended: true }));
 app.use('/api/instructor/questions', questionRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/instructor/category', categoryRoutes);
-app.use('/api/test', testRoutes);
+app.use('/api/instructor/test', testRoutes);
 app.use('/api/instructor/groups', groupRoutes);
 app.use('/api/classrooms', classRoomRoutes);
 app.use('/api/submissions', submissionRoutes);

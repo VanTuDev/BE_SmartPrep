@@ -530,3 +530,35 @@
 [2024-10-22T04:32:43.338Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
 [2024-10-22T04:32:43.339Z] INFO: Yêu cầu cập nhật câu hỏi ID: 67172adeef3c2f71b1c22e9f
 [2024-10-22T04:32:43.357Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T16:08:14.038Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-22T16:08:14.068Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-23T04:27:39.744Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-23T04:27:39.768Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-23T05:33:18.949Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-23T05:33:18.965Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-23T15:23:22.816Z] INFO: Lấy bài kiểm tra theo ID: create
+[2024-10-23T15:23:22.822Z] ERROR: Lỗi khi lấy bài kiểm tra: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "Test"
+[2024-10-23T15:23:34.428Z] INFO: Lấy bài kiểm tra theo ID: create
+[2024-10-23T15:23:34.430Z] ERROR: Lỗi khi lấy bài kiểm tra: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "Test"
+[2024-10-23T15:25:52.459Z] ERROR: Lỗi khi lấy bài kiểm tra: Cast to ObjectId failed for value "create" (type string) at path "_id" for model "Test"
+[2024-10-23T15:32:22.369Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-23T15:32:22.387Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-23T15:47:18.723Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-23T15:47:18.740Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T04:37:43.810Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T04:37:43.834Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T05:11:09.479Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T05:11:09.495Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T05:11:15.873Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T05:11:15.892Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T05:11:20.577Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T05:11:20.579Z] INFO: Yêu cầu xóa câu hỏi ID: 67172adeef3c2f71b1c22e9f
+[2024-10-24T05:11:20.605Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T10:39:14.743Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T10:39:14.769Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T10:39:48.643Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T10:39:48.663Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T10:39:55.190Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T10:39:55.206Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T10:45:51.004Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T10:45:51.020Z] INFO: Lấy danh sách tất cả câu hỏi:
