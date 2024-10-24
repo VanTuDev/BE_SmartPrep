@@ -14,7 +14,10 @@ import {
    getClassRoomDetails,
    updateClassRoom,
    deleteClassRoom,
-   leaveClass
+   leaveClass,
+   getAllClassesByLearner,
+   approveJoinRequest,
+   rejectJoinRequest
 } from '../controllers/ClassRoomController.js';
 
 const router = express.Router();
@@ -62,13 +65,21 @@ router.put('/instructor/update/:classId', Auth, updateClassRoom);
 router.delete('/instructor/delete/:classId', Auth, deleteClassRoom);
 
 // ==================== Learner (Student) Routes ==================== //
+// Hiển thị các lớp học sinh đã tham gia 
+router.get('/learner/classes', Auth, getAllClassesByLearner);
 
 // Học sinh tham gia lớp học qua mã code
 router.post('/learner/join', Auth, joinClassByCode);
 
+
+// Instructor approves join request
+router.post('/instructor/:classId/approve/:learnerId', Auth, approveJoinRequest);
+
+// Instructor rejects join request
+router.post('/instructor/:classId/reject/:learnerId', Auth, rejectJoinRequest);
+
 // Học sinh rời khỏi lớp học
 router.delete('/learner/:classId/leave', Auth, leaveClass);
-
 // ==================== General Routes ==================== //
 
 // Lấy chi tiết lớp học (Instructor và Learner đều có thể xem)

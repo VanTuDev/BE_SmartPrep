@@ -375,3 +375,22 @@ async function sendVerifyToken(userEmail, userId) {
     throw new Error("Không thể gửi email xác thực. Vui lòng thử lại.");
   }
 }
+
+
+// ADMIN CONTROLLER
+
+// Get all leaner
+export async function getUserByRole(req, res) {
+    try {
+        const role = req.params.role;
+        // Chỉ admin mới có quyền truy cập
+        if (req.user.role !== 'admin') return res.status(403).json({ error: "Bạn không có quyền truy cập danh sách người dùng!" });
+
+        const users = await UserModel.find({ role: role }, '-password'); // Trả về tất cả người dùng, loại bỏ trường password
+        console.log("Tất cả người dùng:", users); // Log danh sách người dùng
+        res.status(200).json(users);
+    } catch (error) {
+        console.error("Lỗi khi lấy danh sách người dùng:", error); // Log lỗi
+        res.status(500).json({ error: "Lỗi khi lấy danh sách người dùng!" });
+    }
+}
