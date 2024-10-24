@@ -21,17 +21,17 @@ const TestSchema = new mongoose.Schema({
    grade_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Grade',
-      required: false
+      required: null
    },
    category_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Category',
-      required: false
+      required: null
    },
    group_id: { // Tham chiếu đến chương học
       type: mongoose.Schema.Types.ObjectId,
       ref: 'GroupQuestion',
-      default: false
+      default: null
    },
    // thay đổi question -> question_id
    questions_id: [{ // Tham chiếu đến danh sách câu hỏi trong bài kiểm tra

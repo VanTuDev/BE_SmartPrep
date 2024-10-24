@@ -596,3 +596,112 @@
 [2024-10-23T10:52:41.820Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
 [2024-10-23T10:53:13.579Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
 [2024-10-23T10:54:41.878Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
+[2024-10-24T07:55:31.616Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T07:55:31.620Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T07:55:31.621Z] INFO: Đã tự động cập nhật trạng thái bài kiểm tra.
+[2024-10-24T07:55:31.624Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T07:55:31.627Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T07:57:29.389Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T07:57:29.392Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T07:57:29.392Z] INFO: Đã tự động cập nhật trạng thái bài kiểm tra.
+[2024-10-24T07:57:29.396Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T07:57:29.398Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T07:59:53.661Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T07:59:53.666Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T07:59:53.667Z] INFO: Đã tự động cập nhật trạng thái bài kiểm tra.
+[2024-10-24T07:59:53.669Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T07:59:53.674Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T08:01:45.444Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T08:01:45.451Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T08:01:45.452Z] INFO: autoUpdateStatus chạy trong 16ms.
+[2024-10-24T08:01:45.454Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T08:01:45.456Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T08:02:38.915Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T08:02:38.919Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T08:02:38.920Z] INFO: autoUpdateStatus chạy trong 15ms.
+[2024-10-24T08:02:38.922Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:02:38.938Z] INFO: Bài kiểm tra mới đã được tạo: Bài kiểm tra Toán lớp 12
+[2024-10-24T08:05:55.421Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T08:05:55.425Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'start'.
+[2024-10-24T08:05:55.428Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T08:05:55.429Z] INFO: Đã cập nhật 0 bài kiểm tra sang 'end'.
+[2024-10-24T08:05:55.429Z] INFO: Đã tự động cập nhật trạng thái bài kiểm tra.
+[2024-10-24T08:07:54.522Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:07:54.541Z] INFO: Bài kiểm tra mới đã được tạo: Bài kiểm tra lớp 12
+[2024-10-24T08:11:41.823Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:11:41.834Z] INFO: Đã thêm 2 câu hỏi từ client.
+[2024-10-24T08:11:41.838Z] ERROR: Lỗi khi thêm câu hỏi: Test validation failed: group_id: Cast to ObjectId failed for value "false" (type boolean) at path "group_id" because of "BSONTypeError"
+[2024-10-24T08:14:00.239Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:14:00.242Z] INFO: Đã thêm 2 câu hỏi từ client.
+[2024-10-24T08:14:00.244Z] ERROR: Lỗi khi thêm câu hỏi: Test validation failed: group_id: Cast to ObjectId failed for value "false" (type boolean) at path "group_id" because of "BSONTypeError"
+[2024-10-24T08:15:55.216Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:15:55.231Z] INFO: Đã thêm 2 câu hỏi từ client.
+[2024-10-24T08:15:55.247Z] INFO: Bài kiểm tra đã được cập nhật với 2 câu hỏi.
+[2024-10-24T08:19:47.878Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:19:47.884Z] INFO: Bài kiểm tra mới đã được tạo: Bài kiểm tra lớp 12
+[2024-10-24T08:20:56.748Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-24T08:20:56.754Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-24T08:20:56.759Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-24T08:20:56.764Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-24T08:21:11.568Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T08:21:11.584Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T08:22:04.024Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:22:04.025Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-24T08:22:04.025Z] WARN: Không có câu hỏi để thêm.
+[2024-10-24T08:22:26.622Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:22:26.623Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-24T08:22:26.623Z] WARN: Không có câu hỏi để thêm.
+[2024-10-24T08:23:05.406Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-24T08:23:05.410Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-24T08:23:05.415Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-24T08:23:05.420Z] WARN: Không tìm thấy bài kiểm tra với ID: get_all_test
+[2024-10-24T08:23:19.042Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T08:23:19.054Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T08:23:29.931Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:23:29.931Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-24T08:23:29.932Z] WARN: Không có câu hỏi để thêm.
+[2024-10-24T08:23:35.670Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:23:35.670Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-24T08:23:35.679Z] INFO: Câu hỏi đã được thêm:
+[2024-10-24T08:23:35.696Z] INFO: Lấy danh sách tất cả câu hỏi:
+[2024-10-24T08:59:51.169Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T08:59:51.172Z] ERROR: Lỗi khi tạo bài kiểm tra: Cannot read properties of undefined (reading 'map')
+[2024-10-24T09:11:01.204Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:11:01.208Z] ERROR: Lỗi khi tạo bài kiểm tra: isValidObjectId is not defined
+[2024-10-24T09:11:39.508Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:11:39.509Z] ERROR: Lỗi khi tạo bài kiểm tra: isValidObjectId is not defined
+[2024-10-24T09:13:46.137Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:13:46.141Z] ERROR: Lỗi khi tạo bài kiểm tra: isValidObjectId is not defined
+[2024-10-24T09:15:58.346Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:15:58.347Z] ERROR: Lỗi khi tạo bài kiểm tra: isValidObjectId is not defined
+[2024-10-24T09:17:34.551Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:17:34.554Z] INFO: Nhận yêu cầu tạo bài kiểm tra...
+[2024-10-24T09:17:34.555Z] INFO: Đang tạo bài kiểm tra mới...
+[2024-10-24T09:17:34.585Z] INFO: Bài kiểm tra đã được tạo thành công!
+[2024-10-24T09:20:02.409Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:20:02.411Z] ERROR: Lỗi khi thêm câu hỏi: isValidObjectId is not defined
+[2024-10-24T09:22:29.675Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:22:29.678Z] INFO: Nhận yêu cầu thêm câu hỏi.
+[2024-10-24T09:22:29.703Z] INFO: Câu hỏi mới được tạo thành công.
+[2024-10-24T09:25:59.054Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:25:59.057Z] INFO: Nhận yêu cầu thêm câu hỏi.
+[2024-10-24T09:25:59.073Z] WARN: Câu hỏi đã tồn tại.
+[2024-10-24T09:26:06.604Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:26:06.605Z] INFO: Nhận yêu cầu thêm câu hỏi.
+[2024-10-24T09:26:06.611Z] WARN: Câu hỏi đã tồn tại.
+[2024-10-24T09:31:27.898Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:31:27.901Z] INFO: Nhận yêu cầu thêm câu hỏi.
+[2024-10-24T09:31:27.914Z] WARN: Câu hỏi đã tồn tại.
+[2024-10-24T09:34:37.859Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:34:37.876Z] ERROR: Lỗi khi upload file Excel: Cannot read properties of undefined (reading '0')
+[2024-10-24T09:35:31.194Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:35:31.200Z] ERROR: Lỗi khi upload file Excel: Cannot read properties of undefined (reading '0')
+[2024-10-24T09:37:38.757Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:38:53.155Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:43:31.765Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:43:44.389Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:46:28.369Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:46:52.661Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:47:26.165Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:51:04.155Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-24T09:57:54.235Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
