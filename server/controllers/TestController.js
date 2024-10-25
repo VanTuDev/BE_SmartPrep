@@ -296,8 +296,3 @@ export async function updateTest(req, res) {
       res.status(500).json({ error: 'Lỗi khi cập nhật bài kiểm tra!' });
    }
 }
-
-
-
-
-
