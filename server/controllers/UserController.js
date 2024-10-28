@@ -45,7 +45,7 @@ export async function register(req, res) {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user with `is_locked: true` for instructors
+    // Create new user with is_locked: true for instructors
     const newUser = new UserModel({
       username,
       fullname,
@@ -53,19 +53,110 @@ export async function register(req, res) {
       phone,
       password: hashedPassword,
       role: role || 'learner',
-      cv: role === 'instructor' ? cv : null, // Only store CV for instructors
-      is_locked: role === 'instructor', // Lock instructor accounts
+      cv: role === 'instructor' ? cv : null,
+      is_locked: true, // Lock account until verified
     });
 
+    // Save the new user
     await newUser.save();
 
-    res.status(201).json({ msg: 'Đăng ký thành công! Tài khoản của bạn đang chờ phê duyệt.' });
+    // Generate a verification token
+    const token = generateVerifyToken(newUser._id);
+
+    // Construct the verification link
+    const verifyLink = `http://localhost:3000/verify?token=${token}`;
+
+    const subject = 'Xác thực người dùng'
+
+    // HTML content for the verification email
+    const html = `
+      <h3>Xin chào, ${fullname}!</h3>
+      <p>Vui lòng nhấp vào liên kết bên dưới để xác thực tài khoản của bạn:</p>
+      <a href="${verifyLink}" style="display: inline-block; margin: 10px 0; padding: 10px 20px; color: white; background-color: #4CAF50; text-decoration: none;">Xác thực tài khoản</a>
+      <p>Nếu bạn không yêu cầu đăng ký tài khoản này, vui lòng bỏ qua email này.</p>
+      <p><strong>Chú ý:</strong> Liên kết này sẽ hết hạn sau 5 phút.</p>
+    `;
+
+    // Send verification email
+    await sendVerifyToken(newUser.email, subject, html);
+
+    res.status(201).json({
+      msg: 'Đăng ký thành công! Vui lòng kiểm tra email để xác thực tài khoản của bạn.',
+    });
   } catch (error) {
     console.error('Lỗi khi đăng ký người dùng:', error);
     res.status(500).json({ error: 'Lỗi khi đăng ký người dùng!' });
   }
 }
 
+//Resend verification
+export async function resendVerificationEmail(req, res) {
+  const { identifier } = req.body; // Get identifier from request body
+
+  try {
+    // Find user by email or username
+    const user = await UserModel.findOne({
+      $or: [{ email: identifier }, { username: identifier }],
+    });
+
+    if (!user) {
+      return res.status(404).json({ error: 'Người dùng không tồn tại!' });
+    }
+
+    if (!user.is_locked) {
+      return res.status(400).json({ error: 'Tài khoản đã được xác thực!' });
+    }
+
+    const token = generateVerifyToken(user._id); // Generate a verification token
+
+    // Construct the verification link
+    const verifyLink = `http://localhost:3000/verify?token=${token}`;
+    const subject = 'Xác thực người dùng';
+
+    const html = `
+      <h3>Xin chào, ${user.fullname}!</h3>
+      <p>Vui lòng nhấp vào liên kết bên dưới để xác thực tài khoản của bạn:</p>
+      <a href="${verifyLink}" style="display: inline-block; margin: 10px 0; padding: 10px 20px; color: white; background-color: #4CAF50; text-decoration: none;">Xác thực tài khoản</a>
+      <p>Nếu bạn không yêu cầu đăng ký tài khoản này, vui lòng bỏ qua email này.</p>
+      <p><strong>Chú ý:</strong> Liên kết này sẽ hết hạn sau 5 phút.</p>
+    `;
+
+    // Send the verification email
+    await sendVerifyToken(user.email, subject, html);
+
+    res.status(200).json({ msg: 'Email xác thực đã được gửi lại!' });
+  } catch (error) {
+    console.error('Lỗi khi gửi lại email:', error);
+    res.status(500).json({ error: 'Không thể gửi lại email.' });
+  }
+}
+
+
+//Verify user
+export async function verifyNewUser(req, res) {
+  const { token } = req.body; // Extract token from the request body
+
+  try {
+    const { userId } = jwt.verify(token, process.env.JWT_SECRET); // Verify token
+
+    const user = await UserModel.findById(userId);
+    if (!user) {
+      return res.status(404).json({ error: 'Người dùng không tồn tại!' });
+    }
+
+    if (!user.is_locked) {
+      return res.status(400).json({ msg: 'Tài khoản của bạn đã được xác thực!' });
+    }
+
+    user.is_locked = false;
+    await user.save();
+
+    res.status(200).json({ msg: 'Tài khoản của bạn đã được xác thực và kích hoạt thành công!' });
+  } catch (error) {
+    console.error('Lỗi khi xác thực người dùng:', error);
+    res.status(400).json({ error: 'Liên kết xác thực không hợp lệ hoặc đã hết hạn!' });
+  }
+}
 
 // User login
 export async function login(req, res) {
@@ -85,7 +176,7 @@ export async function login(req, res) {
 
     // Check if the account is locked
     if (user.is_locked) {
-      return res.status(403).json({ error: "Tài khoản của bạn chưa được xét duyệt, hãy đợi trong giây lát." });
+      return res.status(403).json({ error: "Tài khoản của bạn chưa được xét duyệt, hãy kiểm tra hòm thư của bạn." });
     }
 
     // Verify password
@@ -127,6 +218,64 @@ export async function login(req, res) {
   }
 }
 
+export async function ggLogin(req, res) {
+  try {
+    const { username, fullname, email, google_id, role, profile } = req.body;
+
+    console.log("Đang đăng nhập với email:", email);
+
+    // Tìm kiếm người dùng theo email (vì email là duy nhất)
+    let user = await UserModel.findOne({ email });
+
+    // Nếu không có, tạo người dùng mới
+    if (!user) {
+      user = new UserModel({
+        username,
+        fullname,
+        email,
+        role: role || 'learner',
+        profile: profile,
+        google_id, // Lưu Google ID để phân biệt
+      });
+
+      await user.save();
+      console.log("Người dùng mới đã được tạo:", user);
+    }
+
+    // Kiểm tra nếu tài khoản bị khóa
+    if (user.is_locked) {
+      return res.status(403).json({
+        error: "Tài khoản của bạn chưa được xét duyệt, hãy đợi trong giây lát.",
+      });
+    }
+
+    // Tạo token JWT cho người dùng
+    const token = jwt.sign(
+      { userId: user._id, username: user.username, role: user.role },
+      process.env.JWT_SECRET,
+      { expiresIn: "24h" }
+    );
+
+    console.log("Người dùng đã đăng nhập:", { _id: user._id, role: user.role });
+
+    return res.status(200).json({
+      msg: "Đăng nhập thành công!",
+      token,
+      user: {
+        _id: user._id,
+        username: user.username,
+        email: user.email,
+        fullname: user.fullname,
+        role: user.role,
+        createdAt: user.createdAt,
+        updatedAt: user.updatedAt,
+      },
+    });
+  } catch (error) {
+    console.error("Lỗi khi đăng nhập:", error);
+    res.status(500).json({ error: "Lỗi khi đăng nhập!" });
+  }
+}
 
 // Forgot PW
 export async function forgotPW(req, res) {
@@ -155,7 +304,20 @@ export async function forgotPW(req, res) {
       role: user.role,
     });
 
-    await sendVerifyToken(user.email, user._id); // Gửi email
+    const token = generateVerifyToken(user._id); // Tạo token
+    const resetLink = `http://localhost:3000/reset-password?token=${token}`; // Link reset password
+
+    const subject = 'Reset mật khẩu'
+
+    const html = `
+        <h3>Xin chào,</h3>
+        <p>Bạn đã yêu cầu đặt lại mật khẩu. Nhấp vào liên kết bên dưới để tiến hành đặt lại:</p>
+        <a href="${resetLink}" style="display: inline-block; margin: 10px 0; padding: 10px 20px; color: white; background-color: #4CAF50; text-decoration: none;">Đặt lại mật khẩu</a>
+        <p>Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.</p>
+        <p><strong>Chú ý:</strong> Liên kết sẽ hết hạn sau 5 phút.</p>
+      `
+
+    await sendVerifyToken(user.email, subject, html); // Gửi email
 
     // Trả về status OK
     return res.status(200).json({ message: "Người dùng đã được tìm thấy!" });
@@ -352,21 +514,13 @@ const generateVerifyToken = (userId) => {
 };
 
 // Hàm gửi email xác thực
-async function sendVerifyToken(userEmail, userId) {
-  const token = generateVerifyToken(userId); // Tạo token
-  const resetLink = `http://localhost:3000/reset-password?token=${token}`; // Link reset password
+async function sendVerifyToken(userEmail, subject, html) {
 
   const mailOptions = {
     from: '"Nine Quiz" <your-email@gmail.com>', // Tên hiển thị và email gửi
     to: userEmail, // Email người nhận
-    subject: "Reset mật khẩu",
-    html: `
-        <h3>Xin chào,</h3>
-        <p>Bạn đã yêu cầu đặt lại mật khẩu. Nhấp vào liên kết bên dưới để tiến hành đặt lại:</p>
-        <a href="${resetLink}" style="display: inline-block; margin: 10px 0; padding: 10px 20px; color: white; background-color: #4CAF50; text-decoration: none;">Đặt lại mật khẩu</a>
-        <p>Nếu bạn không yêu cầu đặt lại mật khẩu, vui lòng bỏ qua email này.</p>
-        <p><strong>Chú ý:</strong> Liên kết sẽ hết hạn sau 5 phút.</p>
-      `,
+    subject: subject,
+    html: html,
   };
 
   try {
