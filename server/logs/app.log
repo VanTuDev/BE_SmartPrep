@@ -955,3 +955,6 @@
 [2024-10-25T06:16:29.729Z] WARN: ID không hợp lệ.
 [2024-10-25T06:19:07.545Z] WARN: ID không hợp lệ.
 [2024-10-25T06:20:20.044Z] INFO: Bài kiểm tra tìm thấy.
+[2024-10-25T07:51:49.898Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
+[2024-10-25T07:54:32.242Z] INFO: Câu trả lời: 4, Kết quả: Đúng
+[2024-10-25T07:55:15.276Z] INFO: Bài kiểm tra đã được nộp với ID: 671b4e15aecde1951286c671, điểm: 3.333333333333333
