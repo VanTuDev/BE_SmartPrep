@@ -29,6 +29,7 @@ export const startTest = async (req, res) => {
          learner,
          test_id,
          questions,
+         duration: test.duration,
          status: 'in-progress',
          started_at: Date.now(),
       });
@@ -130,8 +131,13 @@ export const getSubmissionById = async (req, res) => {
 
    try {
       const submission = await SubmissionModel.findById(submissionId)
-         .populate('learner', 'name')
-         .populate('test_id', 'title');
+         .populate('learner', 'name')  // Lấy thông tin người dùng
+         .populate('test_id', 'title') // Lấy thông tin bài kiểm tra
+         .populate({
+            path: 'questions.question_id',  // Populate chi tiết câu hỏi
+            model: 'Question',  // Tham chiếu đến model `Question`
+            select: 'question_text options', // Chỉ lấy các trường cần thiết
+         });
 
       if (!submission) {
          logger.warn(`Không tìm thấy submission với ID: ${submissionId}`);

@@ -42,6 +42,10 @@ const SubmissionSchema = new mongoose.Schema({
       type: Date,
       default: null,
    },
+   duration: {
+      type: Number, // Thời gian làm bài (phút)
+      required: true,
+   },
    score: { // Điểm số
       type: Number,
       default: 0,
