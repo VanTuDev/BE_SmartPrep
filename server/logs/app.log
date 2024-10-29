@@ -1206,3 +1206,9 @@
 [2024-10-28T16:24:38.482Z] INFO: Bài kiểm tra tìm thấy.
 [2024-10-28T16:24:39.291Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
 [2024-10-28T16:28:40.058Z] INFO: Bài kiểm tra đã được nộp với ID: 671fbac72d7d0d5fe7283222, điểm: 0
+[2024-10-29T05:58:06.358Z] INFO: Bài kiểm tra tìm thấy.
+[2024-10-29T05:58:06.383Z] INFO: Bài kiểm tra tìm thấy.
+[2024-10-29T05:58:20.713Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
+[2024-10-29T05:58:26.325Z] INFO: Câu trả lời: 3, Kết quả: Sai
+[2024-10-29T05:58:28.000Z] INFO: Câu trả lời: 2/3, Kết quả: Sai
+[2024-10-29T05:58:32.403Z] INFO: Bài kiểm tra đã được nộp với ID: 6720797c8326dc115e472af3, điểm: 0
