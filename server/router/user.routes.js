@@ -8,8 +8,11 @@ import { uploadImage } from '../middleware/upload.js'; // Import chính xác
 // Định nghĩa các route cho người dùng
 router.post('/register', uploadImage.single('cv'), userController.register); // Đăng ký tài khoản mới
 router.post('/login', userController.login); // Đăng nhập tài khoản
+router.post('/ggLogin', userController.ggLogin); // Đăng nhập tài khoản = GG
+router.post('/verify', userController.verifyNewUser); // Verify user
+router.post('/resend-verification', userController.resendVerificationEmail); // Verify user
 router.post('/forgotPW', userController.forgotPW); // Quên MK
-router.post('/resetPW', userController.resetPW); // Quên MK
+router.post('/resetPW', userController.resetPW); // reset MK
 
 // Lấy thông tin hồ sơ người dùng đã đăng nhập (dựa vào token JWT)
 router.get('/profile', Auth, userController.getUserProfile);
