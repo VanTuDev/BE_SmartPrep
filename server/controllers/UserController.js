@@ -1,4 +1,5 @@
 import UserModel from "../model/User.model.js";
+import InstructorApplicationModel from "../model/InstructorApplication.model.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import nodemailer from "nodemailer"// Xác thực người dùng bằng email hoặc username
@@ -304,6 +305,10 @@ export async function deleteUser(req, res) {
     }
 
     const { id } = req.params;
+
+    await InstructorApplicationModel.deleteMany({ teacher: id });
+    console.log("Đã xóa tất cả đơn ứng tuyển liên quan đến người dùng:", id);
+
     console.log("Đang xóa người dùng với ID:", id);
     await UserModel.findByIdAndDelete(id);
     res.status(200).json({ msg: "Xóa người dùng thành công!" });
