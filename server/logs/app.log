@@ -2115,3 +2115,421 @@
 [2024-10-29T07:57:31.220Z] INFO: Lấy danh sách bài kiểm tra.
 [2024-10-29T07:57:31.225Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
 [2024-10-29T07:57:31.232Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:04:35.112Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:04:35.169Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:04:35.179Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:04:35.196Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:08:07.336Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:08:09.549Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:08:09.563Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:08:09.579Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:08:09.593Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:08:10.458Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:08:10.471Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:08:10.475Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:08:10.484Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:14:39.255Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:14:39.268Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:14:39.275Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:14:39.286Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:14:53.972Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:14:53.981Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:14:53.987Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:14:53.995Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:17:47.109Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:17:47.110Z] INFO: Nhận yêu cầu tạo nhiều câu hỏi:
+[2024-10-30T13:17:47.117Z] INFO: Câu hỏi đã được thêm:
+[2024-10-30T13:19:25.006Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:19:25.019Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:19:25.024Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:19:25.034Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:19:30.422Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:19:30.433Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:19:30.438Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:19:30.453Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:22:17.621Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:22:19.904Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:22:19.916Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:22:19.921Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:22:19.967Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:22:21.557Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:22:21.565Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:22:21.569Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:22:21.582Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:34:01.055Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:34:01.075Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T13:34:01.081Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T13:34:01.092Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T15:30:44.360Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:30:44.384Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T15:30:44.388Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:30:44.402Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T15:35:53.152Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:35:53.166Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T15:35:53.172Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:35:53.187Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T15:43:26.006Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:43:26.023Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T15:43:26.038Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:43:26.049Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T15:45:00.610Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:54:25.455Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:54:25.472Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T15:54:25.478Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T15:54:25.494Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:05:21.026Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:05:21.037Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:05:21.044Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:05:21.066Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:05:35.329Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:05:35.339Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:05:35.349Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:05:35.375Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:05:45.944Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:05:45.954Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:05:45.960Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:05:45.968Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:18:57.868Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:18:57.878Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:18:57.884Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:18:57.892Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:27:06.101Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:27:14.512Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:31:47.587Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:31:57.992Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:31:58.000Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:31:58.007Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:31:58.018Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:32:01.892Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:32:01.899Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:32:01.903Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:32:01.910Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:32:14.024Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:32:14.035Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-30T16:32:14.042Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:32:14.047Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:32:50.449Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:32:50.460Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:32:50.468Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:32:50.478Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:32:53.672Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:32:53.678Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:32:53.681Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:32:53.687Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T16:38:56.478Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:38:56.482Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-30T16:38:56.498Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T16:38:56.505Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:12:14.604Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:12:14.613Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:12:14.618Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:12:14.626Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:12:36.555Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:12:36.620Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:12:50.746Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:12:50.757Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:12:50.762Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:12:50.770Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:13:08.061Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:13:08.069Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:13:08.075Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:13:08.084Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:13:41.441Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:13:41.448Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:13:41.454Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:13:41.463Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:27:31.172Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:32:41.717Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:32:41.726Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:32:41.733Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:32:41.740Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:32:43.635Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:32:43.643Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:32:43.647Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:32:43.652Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:36:49.006Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:36:49.021Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:36:49.035Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:36:49.050Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:36:50.126Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:36:50.132Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:36:50.138Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:36:50.144Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:37:06.260Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:37:08.357Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:37:08.367Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:37:08.371Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:37:08.382Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:37:09.317Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:37:09.325Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:37:09.330Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:37:09.337Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:54:17.108Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:54:27.659Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:54:27.670Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:54:27.679Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:54:27.693Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:55:26.440Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:55:26.446Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-30T17:55:26.453Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:55:26.461Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:55:29.991Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:55:29.995Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-30T17:55:30.000Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:55:30.009Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:55:32.964Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:55:32.967Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-30T17:55:32.975Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:55:32.983Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:59:20.997Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:59:21.006Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T17:59:21.011Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T17:59:21.019Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:00:40.759Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:06:58.476Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:07:00.288Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:00.087Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:04.988Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:04.997Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:10:05.008Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:05.027Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:10:06.021Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:06.027Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:10:06.031Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:06.036Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:10:41.617Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:51.941Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:51.967Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:10:51.972Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:10:51.985Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:21:26.721Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:24:17.478Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:24:19.254Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:24:19.269Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:24:19.274Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:24:19.288Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:24:20.726Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:24:20.736Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:24:20.742Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:24:20.751Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:27:33.460Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:27:35.960Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:27:35.973Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:27:36.008Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:27:36.024Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:32:16.350Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:36:08.012Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:36:08.025Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:36:08.037Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:36:08.052Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:36:09.658Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:36:09.666Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:36:09.671Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:36:09.680Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:41:00.430Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:41:00.448Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:41:00.454Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:41:00.472Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:41:02.630Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:41:02.642Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-30T18:41:02.646Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-30T18:41:02.657Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T02:51:16.890Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:16.894Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-31T02:51:16.905Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:16.914Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T02:51:21.094Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:21.098Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-31T02:51:21.102Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:21.109Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T02:51:26.365Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:26.369Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-31T02:51:26.375Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:26.381Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T02:51:31.442Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:31.445Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-31T02:51:31.452Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:31.459Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T02:51:35.009Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:35.013Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-31T02:51:35.018Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T02:51:35.024Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:01:40.622Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:01:40.631Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:01:40.637Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:01:40.647Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:02:05.374Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:03:10.416Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:03:10.431Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:03:10.436Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:03:10.447Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:03:34.412Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:03:36.404Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:03:36.414Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:03:36.424Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:03:36.432Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:05:06.108Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:05:07.887Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:05:07.897Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:05:07.902Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:05:07.913Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:15:47.359Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:16:23.834Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:21:10.765Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:21:16.281Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:21:45.838Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:21:51.408Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:21:51.417Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:21:51.425Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:21:51.437Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:22:19.218Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:22:28.590Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:22.937Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:26.871Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:29.302Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:37.906Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:41.624Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:41.638Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:40:41.646Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:41.661Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:40:49.479Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:49.485Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-31T03:40:49.492Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:40:49.498Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T03:42:24.004Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:42:30.326Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:42:30.372Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T03:42:34.835Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T04:08:26.919Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T04:08:26.934Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T04:08:26.940Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T04:08:26.954Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T04:08:57.337Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T04:08:57.346Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T04:08:57.353Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T04:08:57.362Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T08:27:59.346Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T08:27:59.379Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T08:27:59.387Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T08:27:59.409Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T09:36:07.312Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:18:49.924Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:19:49.293Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:19:49.306Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T11:19:49.315Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:19:49.328Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T11:26:00.169Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:26:02.167Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:26:02.180Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T11:26:02.246Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:26:02.273Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T11:45:36.445Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:54:36.266Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:54:38.055Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:54:38.069Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T11:54:38.090Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:54:38.105Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T11:55:03.289Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:55:26.851Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:55:28.442Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:55:28.455Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T11:55:28.477Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T11:55:28.495Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:08:31.120Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:08:32.546Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:08:32.559Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:08:32.575Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:08:32.600Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:10:03.661Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:10:03.665Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:10:03.674Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:10:03.679Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:10:58.927Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:11:00.075Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:11:00.082Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:11:00.089Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:11:00.097Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:11:19.612Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:11:19.623Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:11:19.630Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:11:19.637Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:12:15.687Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:12:15.694Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:12:15.698Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:12:15.705Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:12:21.388Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:12:21.395Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:12:21.398Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:12:21.406Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:12:35.803Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:12:35.814Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:12:35.817Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:12:35.825Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:20:06.827Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:20:06.835Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:20:06.844Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:20:06.853Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:20:08.606Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:20:08.616Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:20:08.624Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:20:08.633Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:20:26.978Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:20:26.989Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:20:26.992Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:20:27.000Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:22:41.205Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:22:41.216Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:22:41.223Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:22:41.231Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:26:30.455Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:26:30.461Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:26:30.466Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:26:30.474Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:26:32.059Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:26:32.070Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:26:32.077Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:26:32.090Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:26:33.533Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:26:33.541Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:26:33.549Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:26:33.555Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:26:38.427Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:26:38.434Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:26:38.437Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:26:38.448Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:27:05.974Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:27:05.983Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:27:05.987Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:27:05.994Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:39:17.573Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:39:17.580Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:39:17.584Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:39:17.592Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:39:21.546Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:39:21.554Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:39:21.563Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:39:21.569Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:39:25.354Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:39:25.362Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:39:25.364Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T12:39:25.373Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T12:57:41.213Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:00:20.140Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:00:21.932Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:00:21.939Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T13:00:21.950Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:00:21.960Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T13:08:38.779Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:08:40.370Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:08:40.378Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T13:08:40.393Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:08:40.401Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T13:08:46.734Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:08:46.740Z] INFO: Xóa bài kiểm tra thành công.
+[2024-10-31T13:08:46.747Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:08:46.753Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T13:22:06.217Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:22:06.229Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T13:22:06.233Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-10-31T13:22:06.244Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-10-31T13:22:40.111Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
