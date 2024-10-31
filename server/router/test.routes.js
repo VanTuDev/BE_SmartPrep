@@ -10,6 +10,7 @@ router.post('/create', Auth, testController.verifyInstructorRole, testController
 // Route lấy tất cả bài kiểm tra của instructor
 router.get('/', Auth, testController.verifyInstructorRole, testController.getAllTests);
 
+
 // Route lấy bài kiểm tra theo ID
 router.get('/:id', Auth, testController.getTestById);
 
@@ -20,5 +21,4 @@ router.put('/update/:id', Auth, testController.verifyInstructorRole, testControl
 
 // Route lấy bài làm theo ID bài kiểm tra
 router.get('/:test_id/submissions', Auth, testController.verifyInstructorRole, testController.getSubmissionsByTestId);
-
 export default router;

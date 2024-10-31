@@ -1,4 +1,3 @@
-// middleware/upload.js
 import multer from 'multer';
 import path from 'path';
 import fs from 'fs';
@@ -10,24 +9,24 @@ const storage = multer.diskStorage({
       if (!fs.existsSync(uploadPath)) {
          fs.mkdirSync(uploadPath); // Tạo thư mục nếu chưa tồn tại
       }
-      cb(null, uploadPath);
+      cb(null, uploadPath); // Lưu file vào thư mục 'uploads'
    },
    filename: (req, file, cb) => {
       const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
-      cb(null, uniqueSuffix + path.extname(file.originalname));
+      cb(null, uniqueSuffix + path.extname(file.originalname)); // Đặt tên tệp với timestamp và giữ nguyên phần mở rộng
    }
 });
 
-// Bộ lọc file cho ảnh (JPEG và PNG)
-const imageFilter = (req, file, cb) => {
-   const allowedTypes = /jpeg|jpg|png/;
+// Bộ lọc file hợp lệ cho ảnh JPEG, PNG và PDF
+const fileFilter = (req, file, cb) => {
+   const allowedTypes = /jpeg|jpg|png|pdf/;
    const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
    const mimeType = allowedTypes.test(file.mimetype);
 
    if (extName && mimeType) {
-      cb(null, true); // Định dạng ảnh hợp lệ
+      cb(null, true); // File hợp lệ
    } else {
-      cb(new Error('Lỗi: Chỉ hỗ trợ định dạng ảnh JPEG và PNG!')); // Lỗi nếu không hợp lệ
+      cb(new Error('Lỗi: Chỉ hỗ trợ các tệp JPEG, PNG và PDF!')); // Thông báo lỗi rõ ràng
    }
 };
 
@@ -37,10 +36,9 @@ const excelFilter = (req, file, cb) => {
    console.log('MIME type:', file.mimetype);
    console.log('Đường dẫn phần mở rộng:', path.extname(file.originalname).toLowerCase());
 
-   const allowedTypes = /xlsx|xls/; // Kiểm tra phần mở rộng tệp
+   const allowedTypes = /xlsx|xls/;
    const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
 
-   // MIME types phổ biến cho Excel
    const mimeTypes = [
       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
       'application/vnd.ms-excel'
@@ -53,23 +51,22 @@ const excelFilter = (req, file, cb) => {
    if (extName && mimeType) {
       cb(null, true); // File hợp lệ
    } else {
-      const errorMessage = `Lỗi: Tệp không hợp lệ! Chỉ hỗ trợ các tệp Excel (.xlsx, .xls)`;
+      const errorMessage = 'Lỗi: Chỉ hỗ trợ các tệp Excel (.xlsx, .xls)!';
       console.error(errorMessage);
       cb(new Error(errorMessage)); // Trả về lỗi
    }
 };
 
-
-// Middleware upload cho ảnh (sử dụng imageFilter)
+// Middleware upload cho ảnh và PDF (5MB giới hạn)
 export const uploadImage = multer({
    storage: storage,
-   limits: { fileSize: 5 * 1024 * 1024 }, // Giới hạn 5MB cho ảnh
-   fileFilter: imageFilter
+   limits: { fileSize: 5 * 1024 * 1024 }, // 5MB giới hạn cho ảnh/PDF
+   fileFilter: fileFilter
 });
 
-// Middleware upload cho file Excel
+// Middleware upload cho file Excel (5MB giới hạn)
 export const uploadExcel = multer({
    storage: storage,
-   limits: { fileSize: 5 * 1024 * 1024 }, // Giới hạn kích thước 5MB
+   limits: { fileSize: 5 * 1024 * 1024 }, // 5MB giới hạn cho Excel
    fileFilter: excelFilter
 });

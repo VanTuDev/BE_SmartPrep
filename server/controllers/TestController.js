@@ -22,13 +22,12 @@ export function verifyInstructorRole(req, res, next) {
 
 export async function createTest(req, res) {
    try {
-      logger.info('Nhận yêu cầu tạo bài kiểm tra...', { body: req.body, user: req.user });
+      console.log('Received Payload:', req.body); // Log payload for debugging
 
       const instructorId = req.user.userId || req.user._id;
 
       if (!mongoose.Types.ObjectId.isValid(instructorId)) {
-         logger.error('ID instructor không hợp lệ.', { instructorId });
-         return res.status(400).json({ error: 'Instructor không hợp lệ!' });
+         return res.status(400).json({ error: 'Invalid instructor ID!' });
       }
 
       const {
@@ -37,54 +36,95 @@ export async function createTest(req, res) {
          duration,
          start_date,
          end_date,
-         status,
          questions,
          grade_id,
          category_id,
-         group_id,
-         classRoom_id
+         group_id = null,  // Default to null if not provided
+         classRoom_id = null  // Default to null if not provided
       } = req.body;
 
-      if (!title || !duration || !start_date || !end_date || !questions) {
-         logger.warn('Thiếu thông tin bắt buộc.', { body: req.body });
-         return res.status(400).json({ error: 'Thiếu thông tin bắt buộc!' });
+      // Validate required fields
+      if (!title || !description || !duration || !start_date || !end_date || !questions || questions.length === 0) {
+         return res.status(400).json({ error: 'Missing required fields!' });
       }
 
-      // Chuẩn bị testData để truyền vào hàm tạo câu hỏi
-      const testData = {
+      // Process questions to ensure all IDs are valid
+      const questionIds = await processQuestions(questions, {
          grade_id,
          category_id,
          group_id,
-         classRoom_id: classRoom_id || null,
-         instructor: mongoose.Types.ObjectId(instructorId) // Gán instructor
-      };
+         classRoom_id,
+         instructorId
+      });
 
-      const questionIds = await getExistingOrAddQuestions(questions, testData); // Gọi hàm xử lý câu hỏi
-
+      // Create a new Test instance
       const newTest = new TestModel({
          title,
          description,
-         questions_id: questionIds,
          duration,
          start_date,
          end_date,
-         status: status || 'draft',
-         grade_id,
-         category_id,
-         group_id,
-         classRoom_id: classRoom_id || null,
-         instructor: mongoose.Types.ObjectId(instructorId)
+         questions_id: questionIds,
+         grade_id: grade_id || null,
+         category_id: category_id || null,
+         group_id,  // Allow null or valid ID
+         classRoom_id,  // Allow null or valid ID
+         instructor: mongoose.Types.ObjectId(instructorId),
+         status: 'published',  // Default status
       });
 
+      // Save to the database
       await newTest.save();
-      logger.info('Bài kiểm tra đã được tạo thành công!', { testId: newTest._id });
-
-      res.status(201).json({ msg: 'Tạo bài kiểm tra thành công!', test: newTest });
+      res.status(201).json({ msg: 'Test created successfully!', test: newTest });
    } catch (error) {
-      logger.error('Lỗi khi tạo bài kiểm tra:', { message: error.message, stack: error.stack });
-      res.status(500).json({ error: `Không thể tạo bài kiểm tra: ${error.message}` });
+      console.error('Error creating test:', error); // Log error for debugging
+      res.status(500).json({ error: `Failed to create test: ${error.message}` });
    }
 }
+
+
+// Xử lý câu hỏi (kiểm tra ID hoặc tạo mới nếu cần)
+async function processQuestions(questions, { grade_id, category_id, group_id, classRoom_id, instructorId }) {
+   const questionIds = [];
+
+   try {
+      for (const question of questions) {
+         let questionId;
+
+         if (typeof question === 'string' && mongoose.Types.ObjectId.isValid(question)) {
+            questionId = question;
+         } else if (question.question_text && question.options) {
+            const newQuestion = new QuestionModel({
+               question_text: question.question_text,
+               question_type: question.question_type,
+               options: question.options,
+               correct_answers: question.correct_answers,
+               grade_id,
+               category_id,
+               group_id,
+               classRoom_id,
+               instructor: mongoose.Types.ObjectId(instructorId),
+            });
+
+            const savedQuestion = await newQuestion.save();
+            console.log('Câu hỏi mới được thêm:', savedQuestion._id); // Log câu hỏi mới
+            questionId = savedQuestion._id;
+         } else {
+            console.warn('Dữ liệu câu hỏi không hợp lệ:', question); // Log dữ liệu lỗi
+            throw new Error('Câu hỏi không hợp lệ!');
+         }
+
+         questionIds.push(questionId);
+      }
+   } catch (error) {
+      console.error('Lỗi trong quá trình xử lý câu hỏi:', error); // Log lỗi
+      throw new Error('Không thể xử lý câu hỏi!');
+   }
+
+   return questionIds;
+}
+
+
 
 // Hàm kiểm tra và thêm câu hỏi vào DB nếu chưa tồn tại
 async function getExistingOrAddQuestions(questions, testData) {

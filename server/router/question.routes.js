@@ -91,4 +91,15 @@ router.get(
    questionController.getQuestionsByTest
 );
 
+//
+
+// Lấy câu hỏi ngẫu nhiên theo khối, môn và chương với số lượng chỉ định
+router.get(
+   '/random/:gradeId/:categoryId/:groupId',
+   Auth,
+   questionController.getRandomQuestions
+);
+
+router.get('/random/:groupId', Auth, questionController.getRandomQuestions);
+
 export default router;

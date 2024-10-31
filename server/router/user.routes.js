@@ -6,8 +6,10 @@ import Auth from '../middleware/auth.js';
 import { uploadImage } from '../middleware/upload.js'; // Import chính xác
 
 // Định nghĩa các route cho người dùng
-router.post('/register', userController.register); // Đăng ký tài khoản mới
+router.post('/register', uploadImage.single('cv'), userController.register); // Đăng ký tài khoản mới
 router.post('/login', userController.login); // Đăng nhập tài khoản
+router.post('/forgotPW', userController.forgotPW); // Quên MK
+router.post('/resetPW', userController.resetPW); // Quên MK
 
 // Lấy thông tin hồ sơ người dùng đã đăng nhập (dựa vào token JWT)
 router.get('/profile', Auth, userController.getUserProfile);
@@ -27,5 +29,8 @@ router.put('/updateuser', Auth, uploadImage.single('profile'), userController.up
 
 // Xóa người dùng (yêu cầu quyền Admin)
 router.delete('/deleteuser/:id', Auth, userController.deleteUser);
+
+// ADMIN ROUTER
+router.get('/admin/get_user/:role', Auth, userController.getUserByRole);
 
 export default router;
