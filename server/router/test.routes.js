@@ -10,6 +10,7 @@ router.post('/create', Auth, testController.verifyInstructorRole, testController
 // Route lấy tất cả bài kiểm tra của instructor
 router.get('/', Auth, testController.verifyInstructorRole, testController.getAllTests);
 
+
 // Route lấy bài kiểm tra theo ID
 router.get('/:id', Auth, testController.getTestById);
 
