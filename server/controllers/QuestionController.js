@@ -163,49 +163,59 @@ export async function getQuestionById(req, res) {
 }
 
 
-// Lấy tất cả câu hỏi của Instructor
+// Lấy tất cả câu hỏi do người dùng hiện tại tạo ra
 export const getAllQuestions = async (req, res) => {
    try {
-      const questions = await QuestionModel.find()
+      const { gradeId, categoryId, groupId } = req.query;
+      const filter = { instructor: req.user.userId }; // Lọc theo instructor
+
+      if (gradeId) filter.grade_id = gradeId;
+      if (categoryId) filter.category_id = categoryId;
+      if (groupId) filter.group_id = groupId;
+
+      const questions = await QuestionModel.find(filter)
          .populate('category_id', 'name')
          .populate('group_id', 'name')
-         .populate('grade_id', 'name');
+         .populate('grade_id', 'name')
+         .lean();
 
-      logger.info('Lấy danh sách tất cả câu hỏi:', questions);
+      if (questions.length === 0) {
+         return res.status(404).json({ error: 'Không có câu hỏi nào được tìm thấy!' });
+      }
+
       res.status(200).json(questions);
    } catch (error) {
-      logger.error('Lỗi khi lấy danh sách câu hỏi:', error);
-      res.status(500).json({ error: 'Lỗi khi lấy danh sách câu hỏi!' });
+      console.error('Lỗi khi lấy câu hỏi:', error);
+      res.status(500).json({ error: 'Lỗi khi lấy câu hỏi!' });
    }
 };
 
-// Lấy câu hỏi theo Category (Môn học)
+
+
 export async function getQuestionsByCategory(req, res) {
    try {
       const { categoryId } = req.params;
 
-      // Kiểm tra nếu ID không hợp lệ
       if (!mongoose.Types.ObjectId.isValid(categoryId)) {
-         console.log(`ID không hợp lệ: ${categoryId}`);
-         return res.status(400).json({ error: "ID không hợp lệ!" });
+         return res.status(400).json({ error: 'ID không hợp lệ!' });
       }
 
-      const questions = await QuestionModel.find({ category_id: categoryId });
+      const questions = await QuestionModel.find({
+         category_id: categoryId,
+         instructor: req.user.userId, // Lọc theo instructor hiện tại
+      });
 
       if (questions.length === 0) {
-         console.log(`Không có câu hỏi nào thuộc Category ID: ${categoryId}`);
-         return res.status(404).json({ error: "Không tìm thấy câu hỏi nào cho môn học này!" });
+         return res.status(404).json({ error: 'Không tìm thấy câu hỏi nào cho môn học này!' });
       }
-
-      // Log danh sách câu hỏi ra terminal
-      console.log('Danh sách câu hỏi theo Category:', JSON.stringify(questions, null, 2));
 
       res.status(200).json(questions);
    } catch (error) {
-      console.error("Lỗi khi lấy câu hỏi theo môn:", error);
-      res.status(500).json({ error: "Lỗi khi lấy câu hỏi theo môn!" });
+      console.error('Lỗi khi lấy câu hỏi theo môn:', error);
+      res.status(500).json({ error: 'Lỗi khi lấy câu hỏi theo môn!' });
    }
 }
+
 
 // Lấy câu hỏi theo Grade (Khối)
 export async function getQuestionsByGrade(req, res) {
@@ -282,5 +292,36 @@ export async function getQuestionsByTest(req, res) {
    } catch (error) {
       console.error("Lỗi khi lấy câu hỏi theo bài kiểm tra:", error);
       res.status(500).json({ error: "Lỗi khi lấy câu hỏi theo bài kiểm tra!" });
+   }
+}
+
+
+// Lấy câu hỏi ngẫu nhiên theo khối, môn, chương với số lượng chỉ định
+export async function getRandomQuestions(req, res) {
+   try {
+      const { groupId } = req.params; // Nhận group_id từ params
+      const { quantity } = req.query; // Nhận số lượng câu hỏi từ query params
+
+      // Kiểm tra nếu group_id hợp lệ
+      if (!mongoose.Types.ObjectId.isValid(groupId)) {
+         return res.status(400).json({ error: "ID của chương không hợp lệ!" });
+      }
+
+      const limit = parseInt(quantity, 10) || 1; // Số lượng câu hỏi (mặc định là 1 nếu không truyền)
+
+      // Tìm câu hỏi phù hợp và lấy ngẫu nhiên
+      const questions = await QuestionModel.aggregate([
+         { $match: { group_id: mongoose.Types.ObjectId(groupId) } }, // Lọc theo group_id
+         { $sample: { size: limit } } // Lấy ngẫu nhiên số lượng `limit` câu hỏi
+      ]);
+
+      if (questions.length === 0) {
+         return res.status(404).json({ error: "Không tìm thấy câu hỏi nào cho chương này!" });
+      }
+
+      res.status(200).json({ questions });
+   } catch (error) {
+      console.error("Lỗi khi lấy câu hỏi ngẫu nhiên:", error);
+      res.status(500).json({ error: "Lỗi khi lấy câu hỏi ngẫu nhiên!" });
    }
 }
