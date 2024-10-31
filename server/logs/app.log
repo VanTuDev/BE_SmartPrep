@@ -563,6 +563,7 @@
 [2024-10-24T13:58:31.086Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-24T13:58:35.476Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-24T13:58:35.492Z] INFO: Lấy danh sách tất cả câu hỏi:
+
 [2024-10-25T05:55:02.558Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-25T05:55:02.578Z] INFO: Lấy danh sách tất cả câu hỏi:
 [2024-10-25T05:55:05.687Z] INFO: Lấy danh sách tất cả câu hỏi:
@@ -2533,3 +2534,4 @@
 [2024-10-31T13:22:06.233Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
 [2024-10-31T13:22:06.244Z] INFO: Lấy danh sách bài kiểm tra.
 [2024-10-31T13:22:40.111Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+
