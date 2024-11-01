@@ -215,6 +215,16 @@ export const kickLearner = async (req, res) => {
 };
 
 // Lấy tất cả lớp của giáo viên
+export async function getAllClasses(req, res) {
+   try {
+      const classes = await ClassRoomModel.find();
+      res.status(200).json({ msg: "Lấy danh sách lớp thành công!", classes });
+   } catch (error) {
+      res.status(500).json({ error: "Lỗi khi lấy danh sách lớp!" });
+   }
+}
+
+// Lấy tất cả lớp của giáo viên
 export async function getAllClassesByInstructor(req, res) {
    try {
       const instructorId = req.user.userId;
