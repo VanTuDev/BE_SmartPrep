@@ -14,6 +14,7 @@ import groupRoutes from './router/group.routes.js';
 import classRoomRoutes from './router/classRoom.routes.js';
 import submissionRoutes from './router/submission.routes.js';
 import gradeRoutes from './router/grade.routes.js';
+import adminRoutes from './router/admin.routes.js'
 import instructorApplicationRoutes from './router/instructorApplication.routes.js'
 import morgan from 'morgan';
 dotenv.config();
@@ -43,6 +44,7 @@ app.use('/api/classrooms', classRoomRoutes);
 app.use('/api/submissions', submissionRoutes);
 app.use('/api/instructor/grades', gradeRoutes);
 app.use('/api/access_instructor', instructorApplicationRoutes);
+app.use('/api/admin', adminRoutes);
 
 app.get('/', (req, res) => {
     res.send('API Server is running...');

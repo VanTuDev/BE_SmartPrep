@@ -176,6 +176,16 @@ async function getExistingOrAddQuestions(questions, testData) {
    }
 }
 
+// Lấy tất cả bài kiểm tra
+export async function getAllTestsByAdmin(req, res) {
+   try {
+      const tests = await TestModel.find();
+      res.status(200).json(tests);
+   } catch (error) {
+      res.status(500).json({ error: "Lỗi khi lấy danh sách bai kiem tra!" });
+   }
+}
+
 
 // Lấy tất cả bài kiểm tra của Instructor hiện tại
 export async function getAllTests(req, res) {

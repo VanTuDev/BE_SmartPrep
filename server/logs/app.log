@@ -2535,3 +2535,58 @@
 [2024-10-31T13:22:06.244Z] INFO: Lấy danh sách bài kiểm tra.
 [2024-10-31T13:22:40.111Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
 
+[2024-10-31T23:19:31.290Z] INFO: Xác thực quyền Instructor cho người dùng: admin
+[2024-10-31T23:19:31.293Z] WARN: Người dùng không có quyền Instructor. Role: admin
+[2024-10-31T23:19:31.301Z] INFO: Xác thực quyền Instructor cho người dùng: admin
+[2024-10-31T23:19:31.301Z] WARN: Người dùng không có quyền Instructor. Role: admin
+[2024-10-31T23:29:18.954Z] INFO: Xác thực quyền Instructor cho người dùng: admin
+[2024-10-31T23:29:18.955Z] WARN: Người dùng không có quyền Instructor. Role: admin
+[2024-10-31T23:29:18.959Z] INFO: Xác thực quyền Instructor cho người dùng: admin
+[2024-10-31T23:29:18.960Z] WARN: Người dùng không có quyền Instructor. Role: admin
+[2024-10-31T23:30:55.120Z] INFO: Xác thực quyền Instructor cho người dùng: admin
+[2024-10-31T23:30:55.120Z] WARN: Người dùng không có quyền Instructor. Role: admin
+[2024-10-31T23:35:31.268Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-10-31T23:37:26.563Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-10-31T23:37:26.576Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-10-31T23:45:16.366Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-10-31T23:45:16.375Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-10-31T23:48:14.161Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-10-31T23:48:14.169Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-10-31T23:55:47.869Z] WARN: ID không hợp lệ: get_all_question
+[2024-10-31T23:55:47.877Z] WARN: ID không hợp lệ: get_all_question
+[2024-10-31T23:58:14.847Z] WARN: ID không hợp lệ: get_all_question
+[2024-10-31T23:58:14.852Z] WARN: ID không hợp lệ: get_all_question
+[2024-11-01T00:01:02.461Z] WARN: ID không hợp lệ.
+[2024-11-01T00:03:54.811Z] WARN: ID không hợp lệ.
+[2024-11-01T00:04:16.698Z] WARN: ID không hợp lệ.
+[2024-11-01T00:04:16.707Z] WARN: ID không hợp lệ.
+[2024-11-01T00:05:58.177Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-11-01T00:09:06.110Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-11-01T00:09:11.139Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-11-01T00:09:58.853Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-11-01T00:09:58.880Z] WARN: ID không hợp lệ: get_all_question
+[2024-11-01T00:10:41.017Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-11-01T00:10:41.028Z] WARN: ID không hợp lệ: get_all_question_admin
+[2024-11-01T00:12:41.553Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-11-01T00:12:41.566Z] WARN: Không tìm thấy bài kiểm tra.
+[2024-11-01T00:12:41.573Z] WARN: ID không hợp lệ: get_all_question_admin
+[2024-11-01T00:12:41.578Z] WARN: ID không hợp lệ: get_all_question_admin
+[2024-11-01T00:14:58.093Z] WARN: ID không hợp lệ.
+[2024-11-01T00:14:58.104Z] WARN: ID không hợp lệ: get_all_question_admin
+[2024-11-01T00:34:50.604Z] WARN: ID không hợp lệ: get_all_question_admin
+[2024-11-01T00:58:24.827Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-01T00:58:24.835Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-01T00:58:24.842Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-01T00:58:24.848Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-01T00:58:55.687Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-01T00:58:55.691Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-01T00:58:55.696Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-01T00:58:55.699Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-01T01:03:49.853Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-01T01:03:49.857Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-01T01:03:49.866Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-01T01:03:49.871Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-01T01:03:53.520Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-01T01:03:53.525Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-01T01:03:53.530Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-01T01:03:53.534Z] INFO: Lấy danh sách bài kiểm tra.

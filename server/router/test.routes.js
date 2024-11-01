@@ -20,4 +20,7 @@ router.put('/update/:id', Auth, testController.verifyInstructorRole, testControl
 
 // Route lấy bài làm theo ID bài kiểm tra
 router.get('/:test_id/submissions', Auth, testController.verifyInstructorRole, testController.getSubmissionsByTestId);
+
+// ==================== Admin Routes ==================== //
+
 export default router;
