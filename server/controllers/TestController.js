@@ -70,7 +70,7 @@ export async function createTest(req, res) {
          group_id,  // Allow null or valid ID
          classRoom_id,  // Allow null or valid ID
          instructor: mongoose.Types.ObjectId(instructorId),
-         status: 'draft',  // Default status
+         status: 'published',  // Default status
       });
 
       // Save to the database

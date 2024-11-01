@@ -5,7 +5,6 @@ import dotenv from 'dotenv';
 import path from 'path';
 import connect from './database/conn.js';
 import { Server } from 'socket.io';
-
 import questionRoutes from './router/question.routes.js';
 import userRoutes from './router/user.routes.js';
 import testRoutes from './router/test.routes.js';
