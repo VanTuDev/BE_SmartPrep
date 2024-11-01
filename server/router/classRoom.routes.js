@@ -17,7 +17,8 @@ import {
    leaveClass,
    getAllClassesByLearner,
    approveJoinRequest,
-   rejectJoinRequest
+   rejectJoinRequest,
+   createMessage
 } from '../controllers/ClassRoomController.js';
 
 const router = express.Router();

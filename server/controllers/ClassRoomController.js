@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import ClassRoomModel from '../model/ClassRoom.model.js';
+import MessageModel from '../model/Messange.model.js';
 import UserModel from '../model/User.model.js';
 import fs from 'fs';
 import XLSX from 'xlsx';
@@ -381,3 +382,37 @@ export async function leaveClass(req, res) {
       res.status(500).json({ error: "Lỗi khi rời khỏi lớp học!" });
    }
 }
+
+export const createMessage = async (req, res) => {
+   const { classId } = req.params; // Lấy classId từ URL
+   const { message } = req.body;
+   const userId = req.user.userId; // Giả sử userId có trong token và middleware xác thực đã thêm vào req.user
+
+   try {
+       const newMessage = new MessageModel({
+           classId,
+           sender: userId,
+           message,
+       });
+
+       await newMessage.save();
+       res.status(201).json({
+           message: 'Tin nhắn đã được lưu thành công!',
+           data: newMessage,
+       });
+   } catch (error) {
+       console.error('Lỗi khi lưu tin nhắn:', error); // In lỗi ra console
+       res.status(500).json({ error: 'Không thể lưu tin nhắn!', details: error.message });
+   }
+};
+
+export const ViewMessage = async (req, res) => {
+   const { classId } = req.params;
+   try {
+       const messages = await MessageModel.find({ classId }).populate('sender', 'username');
+       res.status(200).json(messages);
+   } catch (error) {
+       console.error('Lỗi khi lấy tin nhắn:', error);
+       res.status(500).json({ error: 'Không thể lấy tin nhắn!' });
+   }
+};
