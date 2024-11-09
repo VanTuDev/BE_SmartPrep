@@ -97,3 +97,80 @@
 [2024-11-08T16:05:06.019Z] INFO: Xác thực quyền Admin cho người dùng: admin
 [2024-11-08T16:07:05.444Z] INFO: Xác thực quyền Admin cho người dùng: admin
 [2024-11-08T16:07:05.468Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-09T08:37:45.463Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T08:37:45.500Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T08:37:45.510Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T08:37:45.537Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T08:38:34.945Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T08:38:34.963Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T08:38:34.971Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T08:38:34.986Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T08:41:16.230Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T08:41:16.244Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T08:41:16.253Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T08:41:16.271Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:00:44.048Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:00:44.085Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:00:44.095Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:00:44.122Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:00:55.633Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:00:55.647Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:00:55.654Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:00:55.677Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:03:42.667Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:03:42.689Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:03:42.695Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:03:42.711Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:05:29.131Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:10:59.777Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:10:59.796Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:10:59.801Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:10:59.817Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:11:30.069Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:11:30.162Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:11:30.170Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:11:52.125Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:11:52.134Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:11:52.157Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:11:52.171Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:13:27.574Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:13:27.584Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:13:36.580Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-09T09:13:36.586Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-09T09:13:39.306Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:13:39.314Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:13:45.706Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-09T09:13:45.710Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-09T09:14:54.928Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:14:54.937Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:15:08.955Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-09T09:15:08.960Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-09T09:15:19.261Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:15:19.272Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:15:54.909Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:15:54.921Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:15:54.926Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:15:54.939Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:16:34.900Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:16:35.000Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:16:35.015Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:16:35.024Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:16:35.038Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:16:47.645Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:16:47.657Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:18:15.415Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:18:15.437Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:18:51.431Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:18:51.440Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:18:51.469Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:18:51.475Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:19:02.819Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:19:02.826Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:19:02.833Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:19:02.843Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:22:09.313Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:22:09.323Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:22:25.271Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:22:25.281Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:22:47.825Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:22:47.831Z] INFO: Tests retrieved successfully for learner.

@@ -18,8 +18,7 @@ import {
    getAllClassesByLearner,
    approveJoinRequest,
    rejectJoinRequest,
-   getAllClassRooms
-   createMessage,
+   getAllClassRooms,
    getAllClasses
 } from '../controllers/ClassRoomController.js';
 
