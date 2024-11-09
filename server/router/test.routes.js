@@ -27,7 +27,8 @@ router.get('/submission/:submissionId', Auth, testController.getSubmissionById);
 // Route lấy bài làm theo ID bài test
 router.get('/:test_id/submissions', Auth, testController.verifyInstructorRole, testController.getSubmissionsByTestId);
 
-// Route lấy bài kiểm tra theo userId trong lớp
+
 router.get('/user/:userId/classroom-tests', Auth, testController.getTestsByClassroom);
+// ==================== Admin Routes ==================== //
 
 export default router;
