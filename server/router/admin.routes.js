@@ -4,6 +4,7 @@ const router = Router();
 import * as userController from '../controllers/UserController.js';
 import * as testController from '../controllers/TestController.js';
 import * as questionController from '../controllers/QuestionController.js';
+import * as adminController from '../controllers/AdminController.js'
 import Auth from '../middleware/auth.js';
 
 // ADMIN ROUTER
@@ -12,5 +13,8 @@ router.get('/get_all_exam_admin',Auth, testController.getAllTestsByAdmin);
 
 // Get all class
 router.get('/get_all_question_admin', Auth, questionController.getAllQuestionsByAdmin);
+
+router.get('/get_sorted_classes', Auth, adminController.verifyAdminRole, adminController.getSortedClasses);
+
 
 export default router;
