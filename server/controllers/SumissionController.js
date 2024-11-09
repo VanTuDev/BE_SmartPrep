@@ -35,6 +35,13 @@ export const startTest = async (req, res) => {
       });
 
       await newSubmission.save();
+
+      // Thêm submission_id vào submission_ids của Test
+      await TestModel.findByIdAndUpdate(
+         test_id,
+         { $push: { submission_ids: newSubmission._id } }
+      );
+
       logger.info(`Bài kiểm tra đã được bắt đầu cho người dùng: ${learner}`);
       res.status(201).json({ msg: 'Bài kiểm tra đã được bắt đầu!', submission: newSubmission });
    } catch (error) {
@@ -136,7 +143,7 @@ export const getSubmissionById = async (req, res) => {
          .populate({
             path: 'questions.question_id',  // Populate chi tiết câu hỏi
             model: 'Question',  // Tham chiếu đến model `Question`
-            select: 'question_text options', // Chỉ lấy các trường cần thiết
+            select: 'question_text options correct_answers', // Chỉ lấy các trường cần thiết
          });
 
       if (!submission) {
