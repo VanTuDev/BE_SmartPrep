@@ -18,6 +18,7 @@ import {
    getAllClassesByLearner,
    approveJoinRequest,
    rejectJoinRequest,
+   getAllClassRooms
    createMessage,
    getAllClasses
 } from '../controllers/ClassRoomController.js';
@@ -87,8 +88,12 @@ router.delete('/learner/:classId/leave', Auth, leaveClass);
 // Lấy chi tiết lớp học (Instructor và Learner đều có thể xem)
 router.get('/details/:classId', Auth, getClassRoomDetails);
 
+router.get('/details', Auth, getAllClassRooms);
+
+
 
 // ==================== Admin Routes ==================== //
 // Get all class
 router.get('/get_all_class', Auth, getAllClasses);
+
 export default router;
