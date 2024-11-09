@@ -4,6 +4,8 @@ import MessageModel from '../model/Messange.model.js';
 import UserModel from '../model/User.model.js';
 import fs from 'fs';
 import XLSX from 'xlsx';
+import jwt from "jsonwebtoken";
+
 
 // Tạo lớp học
 export async function createClassRoom(req, res) {
@@ -278,6 +280,35 @@ export async function getClassRoomDetails(req, res) {
    }
 }
 
+// Lấy tất cả chi tiết lớp học
+export async function getAllClassRooms(req, res) {
+   try {
+      const token = req.headers.authorization?.split(" ")[1];
+      if (!token) {
+         return res.status(401).json({ error: "Token không tồn tại!" });
+      }
+      
+      // Decode the token to get the instructor ID
+      const {userId} = jwt.verify(token, process.env.JWT_SECRET);
+      const instructorId = userId
+
+      // Find classrooms where the instructor matches the decoded instructor ID
+      const classrooms = await ClassRoomModel.find({ instructor: instructorId })
+         .populate('learners', 'fullname email phone')
+         .populate('instructor', 'fullname email phone')
+         .populate('invited_learners', 'fullname email phone')
+         .populate('pending_requests', 'fullname email image')
+         .populate('tests_id'); // Populate bài kiểm tra
+
+      res.status(200).json({
+         message: "Lấy danh sách các lớp học của giảng viên thành công!",
+         classrooms,
+      });
+   } catch (error) {
+      console.error("Lỗi khi lấy danh sách lớp học:", error);
+      res.status(500).json({ error: "Lỗi khi lấy danh sách lớp học!" });
+   }
+}
 // Cập nhật thông tin lớp học
 export async function updateClassRoom(req, res) {
    try {
