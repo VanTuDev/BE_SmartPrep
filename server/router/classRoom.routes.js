@@ -17,7 +17,8 @@ import {
    leaveClass,
    getAllClassesByLearner,
    approveJoinRequest,
-   rejectJoinRequest
+   rejectJoinRequest,
+   getAllClassRooms
 } from '../controllers/ClassRoomController.js';
 
 const router = express.Router();
@@ -84,5 +85,8 @@ router.delete('/learner/:classId/leave', Auth, leaveClass);
 
 // Lấy chi tiết lớp học (Instructor và Learner đều có thể xem)
 router.get('/details/:classId', Auth, getClassRoomDetails);
+
+router.get('/details', Auth, getAllClassRooms);
+
 
 export default router;
