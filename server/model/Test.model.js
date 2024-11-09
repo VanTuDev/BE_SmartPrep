@@ -2,18 +2,15 @@ import mongoose from 'mongoose';
 
 // Định nghĩa schema cho bài kiểm tra
 const TestSchema = new mongoose.Schema({
-   // tên bài kiểm tra
    title: {
       type: String,
       required: [true, "Please provide the title of the test"],
    },
-   // Nội dung chi tiết nói về bào kiểm tra
    description: {
       type: String,
-      required: [false, "Please provide a description for the test"], // không bắt buộc
+      required: [false, "Please provide a description for the test"],
    },
-   // tham chiếu đến id test
-   instructor: { // Tham chiếu đến giáo viên tạo bài kiểm tra
+   instructor: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
@@ -28,57 +25,48 @@ const TestSchema = new mongoose.Schema({
       ref: 'Category',
       required: null
    },
-   group_id: { // Tham chiếu đến chương học
+   group_id: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'GroupQuestion',
       default: null
    },
-   // thay đổi question -> question_id
-   questions_id: [{ // Tham chiếu đến danh sách câu hỏi trong bài kiểm tra
+   questions_id: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Question',
       required: true,
    }],
-   // Bài kiểm tra được add trong lớp
-   classRoom_id: { // Tham chiếu đến lớp học liên quan
+   classRoom_ids: [{
       type: mongoose.Schema.Types.ObjectId,
       ref: 'ClassRoom',
-      required: false, // Không bắt buộc vì có thể có hoặc không
-   },
-   // thời gian làm bài
+      required: false,
+   }],
    duration: {
       type: Number,
       required: [true, "Vui lòng nhập thời gian làm bài"],
    },
-
-
-   // THời gian của bài kiểm tra
    start_date: {
       type: Date,
-      required: true, // thời gian Ngày bắt đầu
+      required: true,
    },
-
    end_date: {
       type: Date,
-      required: true, // thời gian Ngày kết thúc
+      required: true,
    },
-
-   access_link: { // Đường dẫn truy cập bài kiểm tra - có thể gửi vào trong box chat của lớp
+   access_link: {
       type: String,
       required: false,
    },
-
    status: {
       type: String,
-      enum: ['published', 'draft', 'start', 'end'], // Trạng thái bài kiểm tra đã đăng, đang soạn, đang diễn ra, đã kết thúc
+      enum: ['published', 'draft', 'start', 'end'],
       default: 'draft',
    },
+   submission_ids: [{ 
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Submission',
+   }],
+}, { timestamps: true });
 
-
-
-}, { timestamps: true }); // Tự động thêm createdAt và updatedAt
-
-// Kiểm tra xem model đã tồn tại hay chưa
 const TestModel = mongoose.models.Test || mongoose.model('Test', TestSchema);
 
 export default TestModel;

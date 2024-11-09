@@ -10,6 +10,9 @@ router.post('/create', Auth, testController.verifyInstructorRole, testController
 // Route lấy tất cả bài kiểm tra của instructor
 router.get('/', Auth, testController.verifyInstructorRole, testController.getAllTests);
 
+// Route để lấy tất cả bài kiểm tra theo ID của lớp học
+router.get('/classroom/:classRoomId/tests', Auth, testController.getTestsByClassRoomId);
+
 // Route lấy bài kiểm tra theo ID
 router.get('/:id', Auth, testController.getTestById);
 
@@ -18,6 +21,14 @@ router.delete('/:id', Auth, testController.verifyInstructorRole, testController.
 
 router.put('/update/:id', Auth, testController.verifyInstructorRole, testController.updateTest)
 
-// Route lấy bài làm theo ID bài kiểm tra
+// Route lấy bài làm theo ID submission
+router.get('/submission/:submissionId', Auth, testController.getSubmissionById);
+
+// Route lấy bài làm theo ID bài test
 router.get('/:test_id/submissions', Auth, testController.verifyInstructorRole, testController.getSubmissionsByTestId);
+
+
+router.get('/user/:userId/classroom-tests', Auth, testController.getTestsByClassroom);
+// ==================== Admin Routes ==================== //
+
 export default router;

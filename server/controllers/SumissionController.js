@@ -1,201 +1,172 @@
 import SubmissionModel from '../model/Submission.model.js';
 import TestModel from '../model/Test.model.js';
 import QuestionModel from '../model/Question.model.js';
+import logger from '../utils/logger.js'; // Winston Logger
 
 // Bắt đầu một bài kiểm tra mới cho người dùng
-// export const startTest = async (req, res) => {
-//    const { _id_user, _id_test } = req.body;
+export const startTest = async (req, res) => {
+   try {
+      const { learner, test_id } = req.body;
 
-//    try {
-//       // Lấy thông tin bài kiểm tra từ TestModel và `populate` chi tiết câu hỏi từ `QuestionModel`
-//       const test = await TestModel.findById(_id_test)
-//          .populate({
-//             path: 'questions.question_id',
-//             model: QuestionModel,
-//             select: 'question_text question_type options correct_answers', // Lấy cả `correct_answers` từ QuestionModel
-//          })
-//          .lean();
+      // Lấy thông tin bài kiểm tra và populate câu hỏi
+      const test = await TestModel.findById(test_id).populate('questions_id').lean();
 
-//       if (!test) {
-//          return res.status(404).json({ message: 'Test not found' });
-//       }
+      if (!test) {
+         logger.warn(`Không tìm thấy bài kiểm tra với ID: ${test_id}`);
+         return res.status(404).json({ error: 'Test not found!' });
+      }
 
-//       if (!test.questions || test.questions.length === 0) {
-//          return res.status(400).json({ message: 'Test contains no questions' });
-//       }
+      // Khởi tạo các câu hỏi với trạng thái mặc định cho submission
+      const questions = test.questions_id.map(q => ({
+         question_id: q._id,
+         user_answer: [], // Để trống cho người dùng trả lời
+         is_correct: false,
+         submission_time: Date.now()
+      }));
 
-//       // Chuyển đổi danh sách câu hỏi từ bài kiểm tra để thêm vào submission
-//       const questions = test.questions.map((question, index) => {
-//          if (
-//             question.question_id &&
-//             question.question_id.question_text &&
-//             question.question_id.question_type &&
-//             Array.isArray(question.question_id.options) &&
-//             question.question_id.correct_answers // Đảm bảo rằng câu hỏi có trường `correct_answers`
-//          ) {
-//             return {
-//                question_text: question.question_id.question_text, // Lấy `question_text` từ QuestionModel
-//                question_type: question.question_id.question_type, // Lấy `question_type` từ QuestionModel
-//                options: question.question_id.options || [], // Lấy `options` từ QuestionModel nếu có
-//                answer: '', // Đáp án mà người dùng sẽ chọn (mặc định rỗng)
-//                correct_answers: question.question_id.correct_answers, // Thêm `correct_answers` từ câu hỏi
-//                _id: question.question_id._id // Lưu ID của từng câu hỏi
-//             };
-//          } else {
-//             console.error(`Question at index ${index} is invalid or missing fields:`, question);
-//             return null;
-//          }
-//       });
+      // Tạo mới một submission
+      const newSubmission = new SubmissionModel({
+         learner,
+         test_id,
+         questions,
+         duration: test.duration,
+         status: 'in-progress',
+         started_at: Date.now(),
+      });
 
-//       if (questions.includes(null)) {
-//          console.error('Invalid questions detected:', questions.filter((q) => q === null)); // Log các câu hỏi không hợp lệ
-//          return res.status(400).json({ message: 'Test contains invalid or missing questions' });
-//       }
+      await newSubmission.save();
 
-//       // Tạo mới một Submission với danh sách câu hỏi
-//       const newSubmission = new SubmissionModel({
-//          _id_user,
-//          _id_test,
-//          questions, // Thêm danh sách câu hỏi vào Submission, bao gồm cả `correct_answers`
-//          status: 'in-progress',
-//          started_at: Date.now(),
-//       });
+      // Thêm submission_id vào submission_ids của Test
+      await TestModel.findByIdAndUpdate(
+         test_id,
+         { $push: { submission_ids: newSubmission._id } }
+      );
 
-//       await newSubmission.save();
-//       res.status(201).json({ message: 'Test started successfully', submission: newSubmission });
-//    } catch (error) {
-//       console.error(`Error starting test: ${error.message}`);
-//       res.status(500).json({ message: `Error starting test: ${error.message}` });
-//    }
-// };
+      logger.info(`Bài kiểm tra đã được bắt đầu cho người dùng: ${learner}`);
+      res.status(201).json({ msg: 'Bài kiểm tra đã được bắt đầu!', submission: newSubmission });
+   } catch (error) {
+      logger.error('Lỗi khi bắt đầu bài kiểm tra:', error);
+      res.status(500).json({ error: `Lỗi khi bắt đầu bài kiểm tra: ${error.message}` });
+   }
+};
 
+// Nộp câu trả lời cho câu hỏi
+export const submitAnswer = async (req, res) => {
+   const { submissionId } = req.params;
+   const { question_id, selected_answer } = req.body;
 
+   try {
+      // Tìm submission
+      const submission = await SubmissionModel.findById(submissionId);
+      if (!submission) {
+         logger.warn(`Không tìm thấy submission với ID: ${submissionId}`);
+         return res.status(404).json({ error: 'Submission not found!' });
+      }
 
-// Nộp câu trả lời cho một câu hỏi
-// export const submitAnswer = async (req, res) => {
-//    const { submissionId } = req.params; // Lấy ID của submission
-//    const { question_id, selected_answer } = req.body; // Lấy thông tin câu hỏi và đáp án từ request
+      // Tìm câu hỏi trong submission
+      const questionInSubmission = submission.questions.find(q => q.question_id.toString() === question_id);
+      if (!questionInSubmission) {
+         logger.warn(`Câu hỏi không tồn tại trong submission: ${question_id}`);
+         return res.status(404).json({ error: 'Question not found in submission!' });
+      }
 
-//    try {
-//       // Tìm kiếm submission hiện tại bằng ID
-//       const submission = await SubmissionModel.findById(submissionId);
-//       if (!submission) {
-//          return res.status(404).json({ message: 'Submission not found' });
-//       }
+      // Lấy thông tin câu hỏi từ DB
+      const question = await QuestionModel.findById(question_id).lean();
+      if (!question) {
+         logger.warn(`Không tìm thấy câu hỏi với ID: ${question_id}`);
+         return res.status(404).json({ error: 'Question not found!' });
+      }
 
-//       // Tìm câu hỏi trong mảng `questions` và cập nhật đáp án `answer`
-//       const question = submission.questions.find((q) => q._id.toString() === question_id);
-//       console.log("Question Found:", question);
-//       if (!question) {
-//          return res.status(404).json({ message: 'Question not found in this submission' });
-//       }
+      // Kiểm tra xem đáp án có đúng không
+      const isCorrect = question.correct_answers.includes(selected_answer);
 
-//       // Cập nhật đáp án mà người dùng đã chọn vào `answer`
-//       question.answer = selected_answer;
+      // Cập nhật thông tin câu trả lời trong submission
+      questionInSubmission.user_answer = selected_answer;
+      questionInSubmission.is_correct = isCorrect;
 
-//       // Lưu lại submission đã được cập nhật
-//       await submission.save();
-//       res.status(200).json({ message: 'Answer submitted successfully', submission });
-//    } catch (error) {
-//       console.error('Error submitting answer:', error);
-//       res.status(500).json({ message: `Error submitting answer: ${error.message}` });
-//    }
-// };
+      await submission.save();
+      logger.info(`Câu trả lời: ${selected_answer}, Kết quả: ${isCorrect ? 'Đúng' : 'Sai'}`);
 
-// Hoàn thành và nộp toàn bộ bài kiểm tra
+      res.status(200).json({
+         msg: 'Nộp câu trả lời thành công!',
+         question: question.question_text,
+         selected_answer,
+         is_correct: isCorrect
+      });
+   } catch (error) {
+      logger.error('Lỗi khi nộp câu trả lời:', error);
+      res.status(500).json({ error: `Lỗi khi nộp câu trả lời: ${error.message}` });
+   }
+};
+
+// Hoàn thành và nộp bài kiểm tra
 export const finishTest = async (req, res) => {
    const { submissionId } = req.params;
 
    try {
       const submission = await SubmissionModel.findById(submissionId);
       if (!submission) {
+         logger.warn(`Không tìm thấy submission với ID: ${submissionId}`);
          return res.status(404).json({ message: 'Submission not found' });
       }
 
       // Tính toán điểm
-      let totalCorrectAnswers = 0;
-      submission.questions.forEach((question) => {
-         // So sánh `answer` của người dùng với `correct_answers` của câu hỏi
-         if (question.answer && question.correct_answers.includes(question.answer)) {
-            totalCorrectAnswers += 1;
-         }
-      });
-
-      // Tính toán điểm trên thang điểm 10
+      const totalCorrectAnswers = submission.questions.filter(q => q.is_correct).length;
       const score = (totalCorrectAnswers / submission.questions.length) * 10;
 
-      // Cập nhật `score` và trạng thái của bài thi
-      submission.score = score; // Lưu điểm vào trường `score`
+      // Cập nhật thông tin submission
+      submission.score = score;
       submission.status = 'submitted';
       submission.finished_at = Date.now();
 
       await submission.save();
-      res.status(200).json({ message: `Test submitted successfully. Your score is ${score}/10.`, submission });
+      logger.info(`Bài kiểm tra đã được nộp với ID: ${submissionId}, điểm: ${score}`);
+
+      res.status(200).json({
+         msg: `Bài kiểm tra đã nộp thành công. Điểm của bạn là ${score}/10.`,
+         submission
+      });
    } catch (error) {
-      console.error(`Error submitting test: ${error.message}`);
-      res.status(500).json({ message: `Error submitting test: ${error.message}` });
+      logger.error('Lỗi khi nộp bài kiểm tra:', error);
+      res.status(500).json({ error: `Lỗi khi nộp bài kiểm tra: ${error.message}` });
    }
 };
 
-
-// Lấy thông tin chi tiết bài làm theo ID
+// Lấy thông tin submission theo ID
 export const getSubmissionById = async (req, res) => {
    const { submissionId } = req.params;
 
    try {
       const submission = await SubmissionModel.findById(submissionId)
-         .populate('_id_user', 'name')
-         .populate('_id_test', 'title');
+         .populate('learner', 'name')  // Lấy thông tin người dùng
+         .populate('test_id', 'title') // Lấy thông tin bài kiểm tra
+         .populate({
+            path: 'questions.question_id',  // Populate chi tiết câu hỏi
+            model: 'Question',  // Tham chiếu đến model `Question`
+            select: 'question_text options correct_answers', // Chỉ lấy các trường cần thiết
+         });
+
       if (!submission) {
-         return res.status(404).json({ message: 'Submission not found' });
+         logger.warn(`Không tìm thấy submission với ID: ${submissionId}`);
+         return res.status(404).json({ error: 'Submission not found!' });
       }
 
       res.status(200).json(submission);
    } catch (error) {
-      res.status(500).json({ message: `Error fetching submission: ${error.message}` });
+      logger.error('Lỗi khi lấy submission:', error);
+      res.status(500).json({ error: 'Lỗi khi lấy submission!' });
    }
 };
 
-// Lấy tất cả các bài làm của một người dùng cụ thể
+// Lấy tất cả các bài làm của người dùng
 export const getAllSubmissionsByUser = async (req, res) => {
    const { userId } = req.params;
 
    try {
-      const submissions = await SubmissionModel.find({ _id_user: userId }).populate('_id_test', 'title');
+      const submissions = await SubmissionModel.find({ learner: userId }).populate('test_id', 'title');
       res.status(200).json(submissions);
    } catch (error) {
-      res.status(500).json({ message: `Error fetching submissions: ${error.message}` });
+      logger.error('Lỗi khi lấy bài làm:', error);
+      res.status(500).json({ error: 'Lỗi khi lấy bài làm!' });
    }
 };
-
-export async function startTest(req, res) {
-   try {
-      const { learner, test_id } = req.body;
-      const newSubmission = new SubmissionModel({
-         learner,
-         test_id,
-         status: 'in-progress'
-      });
-
-      await newSubmission.save();
-      res.status(201).json({ msg: "Bắt đầu bài kiểm tra!", submission: newSubmission });
-   } catch (error) {
-      res.status(500).json({ error: "Lỗi khi bắt đầu bài kiểm tra!" });
-   }
-}
-
-export async function submitAnswer(req, res) {
-   try {
-      const { submissionId, question_id, selected_answer } = req.body;
-      const submission = await SubmissionModel.findById(submissionId);
-
-      const question = submission.questions.find(q => q._id.toString() === question_id);
-      if (!question) return res.status(404).json({ error: "Câu hỏi không tồn tại!" });
-
-      question.user_answer = selected_answer;
-      await submission.save();
-      res.status(200).json({ msg: "Nộp câu trả lời thành công!", submission });
-   } catch (error) {
-      res.status(500).json({ error: "Lỗi khi nộp câu trả lời!" });
-   }
-}

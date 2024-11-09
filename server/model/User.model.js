@@ -1,5 +1,4 @@
     import mongoose from 'mongoose';
-
     // Định nghĩa schema cho người dùng với các trường
     const UserSchema = new mongoose.Schema({
         username: {

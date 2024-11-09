@@ -9,6 +9,7 @@ import { sendEmailService } from '../services/EmailService.js';
 const router = Router();
 const upload = multer({ dest: 'uploads/' });
 
+// Create Instructor application
 router.post('/applications',Auth, uploadFiles.fields([
     { name: 'cv', maxCount: 1 }, // Single PDF file for CV
     { name: 'citizenIdPhotos', maxCount: 2 } // Array of 2 photos for citizen ID front and back
@@ -32,7 +33,7 @@ router.post('/applications',Auth, uploadFiles.fields([
             return res.status(400).json({ message: 'User not authenticated' });
         }
 
-        const { fullname, email, phone, specialization, bio } = req.body;
+        const { specialization, bio } = req.body;
 
         // Extract file paths from multer
         const cvFilePath = req.files.cv[0].path;
@@ -56,6 +57,7 @@ router.post('/applications',Auth, uploadFiles.fields([
     }
 });
 
+// Get all instructors application
 router.get('/applications', Auth, async (req, res) => {
     try {
         // Retrieve all applications from the database
@@ -117,14 +119,14 @@ router.put('/applications/:id/review', Auth, async (req, res) => {
             await UserModel.findByIdAndUpdate(userId, { is_locked: false });
             application.applicationStatus = 'approved';
 
-            await sendEmailService();
+            await sendEmailService(userEmail, 'approved');
         }
 
         // Nếu là rejected, chỉ cập nhật applicationStatus
         if (status === 'rejected') {
             application.applicationStatus = 'rejected';
 
-            await sendEmailService();
+            await sendEmailService(userEmail, 'rejected');
         }
 
         // Cập nhật ngày duyệt đơn (reviewDate)
@@ -140,6 +142,7 @@ router.put('/applications/:id/review', Auth, async (req, res) => {
     }
 });
 
+// Delete application
 router.delete('/applications/:id', Auth, async (req, res) => {
     try {
         const applicationId = req.params.id;

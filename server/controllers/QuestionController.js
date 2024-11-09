@@ -56,6 +56,17 @@ export async function createMultipleQuestions(req, res) {
       res.status(500).json({ error: `Lỗi khi thêm câu hỏi: ${error.message}` });
    }
 }
+
+// Get all question
+export async function getAllQuestionsByAdmin(req, res) {
+   try {
+      const questions = await QuestionModel.find();
+      res.status(200).json({ msg: "Lấy danh sách cau hoi thành công!", questions });
+   } catch (error) {
+      res.status(500).json({ error: "Lỗi khi lấy danh sách cau hoi!" });
+   }
+}
+
 // Cập nhật câu hỏi theo ID
 export async function updateQuestion(req, res) {
    try {

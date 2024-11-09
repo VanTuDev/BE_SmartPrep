@@ -19,6 +19,8 @@ import {
    approveJoinRequest,
    rejectJoinRequest,
    getAllClassRooms
+   createMessage,
+   getAllClasses
 } from '../controllers/ClassRoomController.js';
 
 const router = express.Router();
@@ -88,5 +90,10 @@ router.get('/details/:classId', Auth, getClassRoomDetails);
 
 router.get('/details', Auth, getAllClassRooms);
 
+
+
+// ==================== Admin Routes ==================== //
+// Get all class
+router.get('/get_all_class', Auth, getAllClasses);
 
 export default router;

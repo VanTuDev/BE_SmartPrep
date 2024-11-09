@@ -2,6 +2,7 @@ import mongoose from 'mongoose';
 import TestModel from '../model/Test.model.js';
 import QuestionModel from '../model/Question.model.js';
 import SubmissionModel from '../model/Submission.model.js';
+import ClassRoomModel from '../model/ClassRoom.model.js';
 import logger from '../utils/logger.js';
 
 // Middleware kiểm tra quyền Instructor
@@ -39,8 +40,8 @@ export async function createTest(req, res) {
          questions,
          grade_id,
          category_id,
-         group_id = null,  // Default to null if not provided
-         classRoom_id = null  // Default to null if not provided
+         group_id = null,
+         classRoom_ids = []  // Đặt classRoom_ids là mảng
       } = req.body;
 
       // Validate required fields
@@ -48,12 +49,17 @@ export async function createTest(req, res) {
          return res.status(400).json({ error: 'Missing required fields!' });
       }
 
-      // Process questions to ensure all IDs are valid
+      // Kiểm tra các ID của lớp học
+      const validatedClassRoomIds = classRoom_ids
+         .filter(id => mongoose.Types.ObjectId.isValid(id))
+         .map(id => mongoose.Types.ObjectId(id));
+
+      // Process questions
       const questionIds = await processQuestions(questions, {
          grade_id,
          category_id,
          group_id,
-         classRoom_id,
+         classRoom_ids: validatedClassRoomIds, // Đưa vào mảng ID lớp học
          instructorId
       });
 
@@ -67,10 +73,10 @@ export async function createTest(req, res) {
          questions_id: questionIds,
          grade_id: grade_id || null,
          category_id: category_id || null,
-         group_id,  // Allow null or valid ID
-         classRoom_id,  // Allow null or valid ID
+         group_id,
+         classRoom_ids: validatedClassRoomIds, // Gán mảng các ID lớp học
          instructor: mongoose.Types.ObjectId(instructorId),
-         status: 'draft',  // Default status
+         status: 'published',
       });
 
       // Save to the database
@@ -81,6 +87,7 @@ export async function createTest(req, res) {
       res.status(500).json({ error: `Failed to create test: ${error.message}` });
    }
 }
+
 
 
 // Xử lý câu hỏi (kiểm tra ID hoặc tạo mới nếu cần)
@@ -176,6 +183,16 @@ async function getExistingOrAddQuestions(questions, testData) {
    }
 }
 
+// Lấy tất cả bài kiểm tra
+export async function getAllTestsByAdmin(req, res) {
+   try {
+      const tests = await TestModel.find();
+      res.status(200).json(tests);
+   } catch (error) {
+      res.status(500).json({ error: "Lỗi khi lấy danh sách bai kiem tra!" });
+   }
+}
+
 
 // Lấy tất cả bài kiểm tra của Instructor hiện tại
 export async function getAllTests(req, res) {
@@ -243,34 +260,57 @@ export async function deleteTest(req, res) {
 }
 
 // Lấy bài làm của bài kiểm tra theo ID bài kiểm tra
-export async function getSubmissionsByTestId(req, res) {
+export const getSubmissionById = async (req, res) => {
+   const { submissionId } = req.params;
+
+   try {
+      const submission = await SubmissionModel.findById(submissionId)
+         .populate('learner', 'name')
+         .populate('test_id', 'title')
+         .populate({
+            path: 'questions.question_id',
+            model: 'Question',
+            select: 'question_text options',
+         });
+
+      if (!submission) {
+         logger.warn(`Không tìm thấy submission với ID: ${submissionId}`);
+         return res.status(404).json({ error: 'Submission not found!' });
+      }
+
+      res.status(200).json(submission);
+   } catch (error) {
+      logger.error('Lỗi khi lấy submission:', error);
+      res.status(500).json({ error: 'Lỗi khi lấy submission!' });
+   }
+};
+
+// Controller function to get submissions by test_id
+export const getSubmissionsByTestId = async (req, res) => {
    const { test_id } = req.params;
 
    try {
-      const submissions = await SubmissionModel.find({ _id_test: test_id })
-         .populate('_id_user')
-         .populate('_id_test');
+      const submissions = await SubmissionModel.find({ test_id: mongoose.Types.ObjectId(test_id) })
+         .populate({ path:'learner', select:'fullname email'})
+         .populate({ path: 'class_id', select: 'name' })
+         .populate('test_id', 'title');
 
-      if (!submissions.length) {
-         logger.warn('Không có bài làm cho bài kiểm tra.', { testId: test_id });
-         return res.status(404).json({ message: 'No submissions found for this test' });
+      if (!submissions || submissions.length === 0) {
+         return res.status(404).json({ error: 'Submission not found!' });
       }
 
-      logger.info('Lấy bài làm thành công.', { submissions });
       res.status(200).json(submissions);
    } catch (error) {
-      logger.error('Lỗi khi lấy bài làm:', { error });
-      res.status(500).json({ error: 'Lỗi khi lấy bài làm!' });
+      logger.error('Error retrieving submissions:', error);
+      res.status(500).json({ error: 'Failed to retrieve submissions.' });
    }
-}
+};
 
 // Cập nhật bài kiểm tra theo ID
 export async function updateTest(req, res) {
-   const { id } = req.params; // Lấy ID bài kiểm tra từ URL
-   logger.info('Nhận yêu cầu cập nhật bài kiểm tra.', { id, body: req.body });
+   const { id } = req.params;
 
    try {
-      // Kiểm tra xem ID có hợp lệ không
       if (!mongoose.Types.ObjectId.isValid(id)) {
          logger.warn('ID không hợp lệ.', { id });
          return res.status(400).json({ error: 'ID không hợp lệ!' });
@@ -283,11 +323,11 @@ export async function updateTest(req, res) {
          start_date,
          end_date,
          status,
-         questions, // Danh sách câu hỏi mới (nếu có)
+         questions,
          grade_id,
          category_id,
          group_id,
-         classRoom_id,
+         classRoom_ids = [] // Đặt classRoom_ids là mảng
       } = req.body;
 
       // Lấy bài kiểm tra hiện tại từ DB
@@ -297,21 +337,25 @@ export async function updateTest(req, res) {
          return res.status(404).json({ error: 'Không tìm thấy bài kiểm tra!' });
       }
 
-      // Nếu có câu hỏi mới, kiểm tra và thêm vào DB
+      // Xử lý các câu hỏi nếu có
       let updatedQuestionIds = existingTest.questions_id;
       if (questions && questions.length > 0) {
-         // Tạo testData để truyền vào getExistingOrAddQuestions
          const testData = {
             grade_id: grade_id || existingTest.grade_id,
             category_id: category_id || existingTest.category_id,
             group_id: group_id || existingTest.group_id,
-            classRoom_id: classRoom_id || existingTest.classRoom_id,
+            classRoom_ids: classRoom_ids || existingTest.classRoom_ids, // Mảng ID lớp học
             instructor: existingTest.instructor,
          };
 
          const questionIds = await getExistingOrAddQuestions(questions, testData);
          updatedQuestionIds = [...new Set([...existingTest.questions_id, ...questionIds])];
       }
+
+      // Kiểm tra các ID của lớp học
+      const validatedClassRoomIds = classRoom_ids
+         .filter(id => mongoose.Types.ObjectId.isValid(id))
+         .map(id => mongoose.Types.ObjectId(id));
 
       // Cập nhật các trường của bài kiểm tra
       existingTest.title = title || existingTest.title;
@@ -323,16 +367,58 @@ export async function updateTest(req, res) {
       existingTest.grade_id = grade_id || existingTest.grade_id;
       existingTest.category_id = category_id || existingTest.category_id;
       existingTest.group_id = group_id || existingTest.group_id;
-      existingTest.classRoom_id = classRoom_id || existingTest.classRoom_id;
+      existingTest.classRoom_ids = validatedClassRoomIds;
       existingTest.questions_id = updatedQuestionIds;
 
-      // Lưu các thay đổi vào DB
       await existingTest.save();
-      logger.info('Bài kiểm tra đã được cập nhật thành công.', { id });
-
       res.status(200).json({ msg: 'Cập nhật bài kiểm tra thành công!', test: existingTest });
    } catch (error) {
-      logger.error('Lỗi khi cập nhật bài kiểm tra:', { message: error.message, stack: error.stack });
       res.status(500).json({ error: 'Lỗi khi cập nhật bài kiểm tra!' });
+   }
+}
+
+export async function getTestsByClassroom(req, res) {
+   const { userId } = req.user; // Get the learner’s user ID from the authenticated request
+
+   try {
+      // Fetch classrooms where the user is enrolled as a learner
+      const classrooms = await ClassRoomModel.find({ learners: userId });
+      const classroomIds = classrooms.map(classroom => classroom._id);
+
+      // Fetch tests that either have a matching classRoom_id or no classRoom_id (public tests), and exclude drafts
+      const tests = await TestModel.find({
+         $and: [
+            {
+               $or: [
+                  { classRoom_id: { $in: classroomIds } },
+                  { classRoom_id: null }
+               ]
+            },
+            { status: { $ne: 'draft' } } // Exclude tests with status 'draft'
+         ]
+      });
+
+      logger.info('Tests retrieved successfully for learner.', { userId, testsCount: tests.length });
+      res.status(200).json(tests);
+   } catch (error) {
+      logger.error('Error retrieving tests by classroom:', error);
+      res.status(500).json({ error: 'Failed to retrieve tests' });
+   }
+}
+
+// Lấy tất cả các bài kiểm tra có trong lớp học dựa trên classRoom_id
+export async function getTestsByClassRoomId(req, res) {
+   const { classRoomId } = req.params;
+   try {
+      const tests = await TestModel.find({ classRoom_ids: classRoomId })
+         .populate('questions_id')
+         .populate('classRoom_ids');
+      if (tests.length === 0) {
+         return res.status(404).json({ message: 'No tests found for this classroom' });
+      }
+      res.status(200).json(tests);
+   } catch (error) {
+      console.error('Error fetching tests for classroom:', error);
+      res.status(500).json({ error: 'Failed to fetch tests for this classroom' });
    }
 }
