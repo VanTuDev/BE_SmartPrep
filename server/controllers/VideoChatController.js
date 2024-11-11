@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
 import { RoomServiceClient, AccessToken } from 'livekit-server-sdk';
 import RoomModel from '../model/Room.model.js';
+import ClassRoomModel from '../model/ClassRoom.model.js';
 
 dotenv.config();
 
@@ -151,21 +152,30 @@ export const getRoomByAuthor = async (req, res) => {
 
 
 // Get rooms by classId
-export const getRoomByClassId = async (req, res) => {
-  const { classId } = req.body;
+export const getRoomByLearnerId = async (req, res) => {
+  const { userId } = req.query;  
 
-  // Ensure classId is provided
-  if (!classId) {
-    return res.status(400).json({ error: 'Class ID is required' });
+  // Ensure userId is provided
+  if (!userId) {
+    return res.status(400).json({ error: 'User ID is required' });
   }
 
   try {
-    // Find rooms by classId
-    const rooms = await RoomModel.find({ classId })
-    .populate('classId');
+    // Step 1: Find classes that the user is enrolled in
+    const classes = await ClassRoomModel.find({ learners: userId }).populate('learners');
+
+    if (classes.length === 0) {
+      return res.status(404).json({ error: 'No classes found for this user' });
+    }
+
+    // Step 2: Get classIds of those classes
+    const classIds = classes.map(cls => cls._id);
+
+    // Step 3: Find rooms for those classIds
+    const rooms = await RoomModel.find({ classId: { $in: classIds } }).populate('classId');
 
     if (rooms.length === 0) {
-      return res.status(404).json({ error: 'No rooms found for this class ID' });
+      return res.status(404).json({ error: 'No rooms found for the classes this user is enrolled in' });
     }
 
     // Return the rooms found
@@ -174,10 +184,11 @@ export const getRoomByClassId = async (req, res) => {
       rooms: rooms,
     });
   } catch (error) {
-    console.error('Error fetching rooms by classId:', error);
+    console.error('Error fetching rooms by learnerId:', error);
     res.status(500).json({ error: 'Unable to fetch rooms' });
   }
 };
+
 
 export const deleteRoom = async (req, res) => {
   const { roomId } = req.params;  // Lấy `roomId` từ URL params
