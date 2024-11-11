@@ -397,3 +397,46 @@
 [2024-11-10T16:11:22.473Z] INFO: Xác thực quyền Admin cho người dùng: admin
 [2024-11-10T16:11:22.489Z] INFO: Xác thực quyền Admin cho người dùng: admin
 [2024-11-10T16:11:22.509Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:08:04.501Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T13:08:04.522Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T13:09:48.037Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T13:09:48.059Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T13:11:11.971Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:11:11.981Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T13:11:11.988Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:11:12.000Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T13:12:04.606Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:12:04.611Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T13:12:04.620Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:12:04.625Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T13:12:33.185Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:12:33.190Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T13:12:33.197Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:12:33.204Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T13:13:03.084Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:13:03.147Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:13:03.157Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T13:13:03.164Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T13:13:03.172Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T13:13:18.066Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T13:13:18.078Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T13:13:25.782Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-11T13:13:25.793Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-11T13:13:27.019Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 673202a0bc97a037beedd52b
+[2024-11-11T13:13:28.509Z] INFO: Câu trả lời: abc, Kết quả: Sai
+[2024-11-11T13:13:29.437Z] INFO: Câu trả lời: Hòn đá, Kết quả: Sai
+[2024-11-11T13:13:35.801Z] INFO: Câu trả lời: Chân không, Kết quả: Sai
+[2024-11-11T13:13:37.165Z] INFO: Câu trả lời: add, Kết quả: Sai
+[2024-11-11T13:13:38.269Z] INFO: Câu trả lời: Vận tốc tăng dần, Kết quả: Sai
+[2024-11-11T13:13:38.924Z] INFO: Câu trả lời: S = v * t, Kết quả: Sai
+[2024-11-11T13:13:41.527Z] INFO: Bài kiểm tra đã được nộp với ID: 673202f6bc97a037beedd59a, điểm: 0
+[2024-11-11T13:19:21.782Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:21.811Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:31.326Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:31.336Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:31.348Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:31.360Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:35.098Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:35.107Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:35.120Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-11T13:19:35.131Z] INFO: Xác thực quyền Admin cho người dùng: admin
