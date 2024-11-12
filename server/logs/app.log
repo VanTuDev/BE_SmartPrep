@@ -97,3 +97,277 @@
 [2024-11-08T16:05:06.019Z] INFO: Xác thực quyền Admin cho người dùng: admin
 [2024-11-08T16:07:05.444Z] INFO: Xác thực quyền Admin cho người dùng: admin
 [2024-11-08T16:07:05.468Z] INFO: Xác thực quyền Admin cho người dùng: admin
+[2024-11-09T09:01:26.159Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:01:26.189Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:01:26.201Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:01:26.227Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:01:53.117Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:01:53.133Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:01:53.143Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:01:53.157Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:02:11.439Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:02:11.454Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:02:22.146Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-09T09:02:22.152Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-09T09:02:24.486Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 6717d36cda38be8f69660c66
+[2024-11-09T09:02:26.277Z] INFO: Câu trả lời: 3, Kết quả: Sai
+[2024-11-09T09:02:27.582Z] INFO: Câu trả lời: 2/3, Kết quả: Sai
+[2024-11-09T09:02:32.294Z] INFO: Bài kiểm tra đã được nộp với ID: 672f2520912fda0da7e41274, điểm: 0
+[2024-11-09T09:02:38.150Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:02:38.162Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:08:21.670Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:08:21.681Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:10:45.768Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:10:45.781Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:13:53.593Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:14:04.053Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:14:04.063Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:19:53.805Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:21:31.209Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:21:31.222Z] INFO: Tests retrieved successfully for learner.
+[2024-11-09T09:28:26.785Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:28:26.800Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:28:26.809Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:28:26.825Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:29:59.116Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:29:59.129Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:29:59.137Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:29:59.149Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:30:29.071Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:30:29.087Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-09T09:30:29.093Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-09T09:30:29.103Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:13:05.253Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:13:05.283Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:13:05.294Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:13:05.315Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:14:31.397Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:14:31.567Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:14:31.586Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:14:31.595Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:14:31.608Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:14:45.190Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:14:45.209Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:14:48.950Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:14:48.963Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:17:26.989Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:18:48.714Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:18:48.726Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:20:07.212Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:20:28.211Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:20:35.223Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:21:35.867Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:21:35.880Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:21:42.054Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:21:42.064Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:21:57.379Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:21:57.393Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:21:57.399Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:21:57.416Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:22:13.716Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:22:13.732Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:22:13.738Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:22:13.747Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:23:27.845Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:23:28.011Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:23:28.025Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:23:28.033Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T02:23:28.042Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T02:23:45.314Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:23:45.332Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:23:47.725Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-11T02:23:47.732Z] INFO: Bài kiểm tra tìm thấy.
+[2024-11-11T02:23:48.951Z] INFO: Bài kiểm tra đã được bắt đầu cho người dùng: 671760e555d66c5a6fedd8e8
+[2024-11-11T02:23:50.053Z] INFO: Câu trả lời: 3x^2 + 2, Kết quả: Sai
+[2024-11-11T02:23:50.870Z] INFO: Câu trả lời: x, Kết quả: Sai
+[2024-11-11T02:23:51.844Z] INFO: Câu trả lời: 1/x, Kết quả: Sai
+[2024-11-11T02:23:52.553Z] INFO: Câu trả lời: cos(x), Kết quả: Sai
+[2024-11-11T02:23:53.389Z] INFO: Câu trả lời: 20x^3, Kết quả: Sai
+[2024-11-11T02:23:54.389Z] INFO: Câu trả lời: 2sqrt(x), Kết quả: Sai
+[2024-11-11T02:23:56.008Z] INFO: Câu trả lời: csc^2(x), Kết quả: Sai
+[2024-11-11T02:23:57.019Z] INFO: Câu trả lời: e^x, Kết quả: Sai
+[2024-11-11T02:23:58.157Z] INFO: Câu trả lời: -1/x^2, Kết quả: Sai
+[2024-11-11T02:23:59.104Z] INFO: Câu trả lời: -sin(x), Kết quả: Sai
+[2024-11-11T02:24:02.538Z] INFO: Bài kiểm tra đã được nộp với ID: 67316ab4bb511c52898626f0, điểm: 0
+[2024-11-11T02:39:40.699Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:39:40.710Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:39:46.386Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:39:46.397Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:39:48.927Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:39:48.939Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:40:36.853Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T02:40:36.864Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T04:34:17.543Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T04:34:17.562Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T04:34:23.781Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T04:34:23.794Z] INFO: Tests retrieved successfully for learner.
+[2024-11-11T04:34:52.837Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T04:34:52.856Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T04:34:52.862Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T04:34:52.888Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T05:01:12.661Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:01:12.663Z] ERROR: Error retrieving submissions: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+[2024-11-11T05:01:12.666Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:01:12.666Z] ERROR: Error retrieving submissions: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+[2024-11-11T05:02:09.059Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:02:09.060Z] ERROR: Error retrieving submissions: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+[2024-11-11T05:02:09.062Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:02:09.063Z] ERROR: Error retrieving submissions: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+[2024-11-11T05:03:34.184Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:02.579Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:02.580Z] ERROR: Error retrieving submissions: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+[2024-11-11T05:07:02.582Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:02.583Z] ERROR: Error retrieving submissions: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+[2024-11-11T05:07:50.667Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:50.684Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T05:07:50.692Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:50.708Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T05:07:53.137Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:53.149Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T05:07:53.160Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:53.172Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T05:07:57.374Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:57.375Z] ERROR: Error retrieving submissions: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+[2024-11-11T05:07:57.378Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:07:57.378Z] ERROR: Error retrieving submissions: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+[2024-11-11T05:20:02.082Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:20:02.092Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:20:02.770Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T05:20:02.777Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:28.340Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:28.350Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:32.277Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:35.282Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:36.271Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:37.264Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:40.263Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:45.267Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:57:49.545Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:58:52.307Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:58:52.315Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:59:32.931Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T08:59:32.940Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:00:35.904Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:00:35.912Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:10:35.929Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:10:35.951Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:10:44.984Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:10:44.995Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:11:23.980Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:11:24.035Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:12:41.091Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:12:41.104Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:14:35.679Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:14:35.689Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:16:58.242Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:16:58.252Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:17:00.422Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:17:00.434Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:17:05.788Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:17:05.800Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T09:17:05.809Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:17:05.822Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T09:17:11.646Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:17:11.654Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:18:00.426Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:18:00.435Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:18:10.965Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:18:10.975Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:37:33.303Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:37:33.313Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:37:59.261Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:38:14.913Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:38:20.276Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:15.671Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:15.686Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:16.650Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:16.658Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:20.239Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:20.263Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:22.526Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:22.531Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:54.660Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:54.670Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:56.781Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:39:56.785Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:41:31.394Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:41:31.405Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:42:02.781Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:42:02.791Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:42:17.758Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:42:17.762Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:45:35.325Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:45:35.335Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:46:00.288Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:46:02.292Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:48:34.030Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:48:47.285Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:48:51.291Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:50:17.073Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:50:42.291Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:50:46.292Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:50:52.294Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:50:57.277Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:51:23.289Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:51:24.286Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:51:27.276Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:51:30.279Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:51:33.287Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:51:42.277Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:51:45.295Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:51:57.296Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:52:24.290Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:52:26.277Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:54:17.291Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:54:23.291Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:55:45.604Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:56:55.084Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:58:22.651Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T09:58:28.331Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:00:23.263Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:00:41.686Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:00:41.705Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T10:00:41.714Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:00:41.725Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T10:00:46.800Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:00:46.810Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:01:17.211Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:01:17.229Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:04:04.675Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:04:04.685Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:07:13.812Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:07:13.822Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:07:51.399Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:07:51.407Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:03.707Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:03.724Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:10.371Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:10.380Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:30.185Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:30.196Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:36.312Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:36.328Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T10:08:36.337Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:36.349Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-11T10:08:44.088Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:44.099Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:50.169Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:57.079Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:08:57.090Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:09:00.893Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:09:00.904Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:09:04.458Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:09:04.469Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:09:46.290Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:09:55.293Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:09:59.281Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:10:01.513Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:10:07.669Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:10:07.679Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:10:07.794Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:10:09.433Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:10:09.443Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:10:11.060Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T10:10:11.073Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T16:18:48.008Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
+[2024-11-11T16:18:48.021Z] INFO: Xác thực quyền Instructor cho người dùng: instructor

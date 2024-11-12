@@ -582,3 +582,23 @@ export async function unlockInstructor(req, res) {
     res.status(500).json({ error: 'Lỗi khi mở khóa tài khoản!' });
   }
 }
+
+// Hàm mới để lấy thông tin hồ sơ người dùng dựa trên userId
+export async function getUserProfileById(req, res) {
+  const { userId } = req.params; // Lấy userId từ URL params
+  console.log("Đang lấy thông tin hồ sơ người dùng với userId:", userId);
+
+  try {
+    const user = await UserModel.findById(userId).select("-password"); // Loại bỏ trường password
+    if (!user) {
+      console.log("Không tìm thấy người dùng với ID:", userId);
+      return res.status(404).json({ error: "Không tìm thấy người dùng!" });
+    }
+
+    console.log("Thông tin hồ sơ người dùng:", user);
+    res.status(200).json(user);
+  } catch (error) {
+    console.error("Lỗi khi lấy thông tin hồ sơ người dùng:", error);
+    res.status(500).json({ error: "Lỗi khi lấy thông tin hồ sơ người dùng!" });
+  }
+}
