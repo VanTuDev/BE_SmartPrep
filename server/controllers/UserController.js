@@ -559,3 +559,14 @@ export async function unlockInstructor(req, res) {
     res.status(500).json({ error: 'Lỗi khi mở khóa tài khoản!' });
   }
 }
+
+// Lấy toàn bộ người dùng là learner
+export async function getAllLearner(req, res) {
+  try {
+      const learners = await UserModel.find({ role: 'learner' }, '-password');
+      res.status(200).json(learners);
+  } catch (error) {
+      console.error("Lỗi khi lấy danh sách người dùng là learner:", error);
+      res.status(500).json({ error: "Lỗi khi lấy danh sách người dùng là learner!" });
+  }
+} 

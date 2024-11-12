@@ -1,6 +1,6 @@
 // user.routes.js
 import { Router } from 'express';
-const router = Router();
+const router = Router(); 
 import * as userController from '../controllers/UserController.js';
 import Auth from '../middleware/auth.js';
 import { uploadImage } from '../middleware/upload.js'; // Import chính xác
@@ -19,6 +19,9 @@ router.get('/profile', Auth, userController.getUserProfile);
 
 // Lấy thông tin người dùng theo username
 router.get('/user/:username', userController.getUser);
+
+// lấy danh sách người dùng là learner
+router.get('/instructors/learners', Auth, userController.getAllLearner);
 
 // Lấy thông tin người dùng theo ID (yêu cầu phải đăng nhập với quyền hạn phù hợp)
 router.get('/user/id/:id', Auth, userController.getUserById);
