@@ -23,8 +23,6 @@ export function verifyInstructorRole(req, res, next) {
 
 export async function createTest(req, res) {
    try {
-      console.log('Received Payload:', req.body); // Log payload for debugging
-
       const instructorId = req.user.userId || req.user._id;
 
       if (!mongoose.Types.ObjectId.isValid(instructorId)) {
@@ -41,52 +39,40 @@ export async function createTest(req, res) {
          grade_id,
          category_id,
          group_id = null,
-         classRoom_ids = []  // Đặt classRoom_ids là mảng
+         classRoom_ids = []
       } = req.body;
 
-      // Validate required fields
       if (!title || !description || !duration || !start_date || !end_date || !questions || questions.length === 0) {
          return res.status(400).json({ error: 'Missing required fields!' });
       }
 
-      // Kiểm tra các ID của lớp học
-      const validatedClassRoomIds = classRoom_ids
-         .filter(id => mongoose.Types.ObjectId.isValid(id))
-         .map(id => mongoose.Types.ObjectId(id));
+      const questionIds = await processQuestions(questions, { grade_id, category_id, group_id, classRoom_ids, instructorId });
 
-      // Process questions
-      const questionIds = await processQuestions(questions, {
-         grade_id,
-         category_id,
-         group_id,
-         classRoom_ids: validatedClassRoomIds, // Đưa vào mảng ID lớp học
-         instructorId
-      });
+      // Ensure unique question IDs using Set
+      const uniqueQuestionIds = [...new Set(questionIds)];
 
-      // Create a new Test instance
       const newTest = new TestModel({
          title,
          description,
          duration,
          start_date,
          end_date,
-         questions_id: questionIds,
+         questions_id: uniqueQuestionIds,
          grade_id: grade_id || null,
          category_id: category_id || null,
          group_id,
-         classRoom_ids: validatedClassRoomIds, // Gán mảng các ID lớp học
+         classRoom_ids,
          instructor: mongoose.Types.ObjectId(instructorId),
          status: 'published',
       });
 
-      // Save to the database
       await newTest.save();
       res.status(201).json({ msg: 'Test created successfully!', test: newTest });
    } catch (error) {
-      console.error('Error creating test:', error); // Log error for debugging
       res.status(500).json({ error: `Failed to create test: ${error.message}` });
    }
 }
+
 
 
 
@@ -186,7 +172,7 @@ async function getExistingOrAddQuestions(questions, testData) {
 // Lấy tất cả bài kiểm tra
 export async function getAllTestsByAdmin(req, res) {
    try {
-      const tests = await TestModel.find();
+      const tests = await TestModel.find().populate('instructor');
       res.status(200).json(tests);
    } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy danh sách bai kiem tra!" });
@@ -291,7 +277,7 @@ export const getSubmissionsByTestId = async (req, res) => {
 
    try {
       const submissions = await SubmissionModel.find({ test_id: mongoose.Types.ObjectId(test_id) })
-         .populate({ path:'learner', select:'fullname email'})
+         .populate({ path: 'learner', select: 'fullname email' })
          .populate({ path: 'class_id', select: 'name' })
          .populate('test_id', 'title');
 
@@ -306,14 +292,12 @@ export const getSubmissionsByTestId = async (req, res) => {
    }
 };
 
-// Cập nhật bài kiểm tra theo ID
 export async function updateTest(req, res) {
    const { id } = req.params;
 
    try {
       if (!mongoose.Types.ObjectId.isValid(id)) {
-         logger.warn('ID không hợp lệ.', { id });
-         return res.status(400).json({ error: 'ID không hợp lệ!' });
+         return res.status(400).json({ error: 'Invalid test ID!' });
       }
 
       const {
@@ -327,37 +311,25 @@ export async function updateTest(req, res) {
          grade_id,
          category_id,
          group_id,
-         classRoom_ids = [] // Đặt classRoom_ids là mảng
+         classRoom_ids = []
       } = req.body;
 
-      // Lấy bài kiểm tra hiện tại từ DB
       const existingTest = await TestModel.findById(id);
       if (!existingTest) {
-         logger.warn('Không tìm thấy bài kiểm tra để cập nhật.', { id });
-         return res.status(404).json({ error: 'Không tìm thấy bài kiểm tra!' });
+         return res.status(404).json({ error: 'Test not found!' });
       }
 
-      // Xử lý các câu hỏi nếu có
-      let updatedQuestionIds = existingTest.questions_id;
-      if (questions && questions.length > 0) {
-         const testData = {
-            grade_id: grade_id || existingTest.grade_id,
-            category_id: category_id || existingTest.category_id,
-            group_id: group_id || existingTest.group_id,
-            classRoom_ids: classRoom_ids || existingTest.classRoom_ids, // Mảng ID lớp học
-            instructor: existingTest.instructor,
-         };
+      const questionIds = await processQuestionsForUpdate(questions, {
+         grade_id,
+         category_id,
+         group_id,
+         classRoom_ids,
+         instructorId: existingTest.instructor
+      });
 
-         const questionIds = await getExistingOrAddQuestions(questions, testData);
-         updatedQuestionIds = [...new Set([...existingTest.questions_id, ...questionIds])];
-      }
+      // Ensure unique question IDs using Set
+      const uniqueQuestionIds = [...new Set(questionIds)];
 
-      // Kiểm tra các ID của lớp học
-      const validatedClassRoomIds = classRoom_ids
-         .filter(id => mongoose.Types.ObjectId.isValid(id))
-         .map(id => mongoose.Types.ObjectId(id));
-
-      // Cập nhật các trường của bài kiểm tra
       existingTest.title = title || existingTest.title;
       existingTest.description = description || existingTest.description;
       existingTest.duration = duration || existingTest.duration;
@@ -367,15 +339,49 @@ export async function updateTest(req, res) {
       existingTest.grade_id = grade_id || existingTest.grade_id;
       existingTest.category_id = category_id || existingTest.category_id;
       existingTest.group_id = group_id || existingTest.group_id;
-      existingTest.classRoom_ids = validatedClassRoomIds;
-      existingTest.questions_id = updatedQuestionIds;
+      existingTest.classRoom_ids = classRoom_ids;
+      existingTest.questions_id = uniqueQuestionIds; // Set unique question IDs
 
       await existingTest.save();
-      res.status(200).json({ msg: 'Cập nhật bài kiểm tra thành công!', test: existingTest });
+      res.status(200).json({ msg: 'Test updated successfully!', test: existingTest });
    } catch (error) {
-      res.status(500).json({ error: 'Lỗi khi cập nhật bài kiểm tra!' });
+      res.status(500).json({ error: 'Failed to update test!' });
    }
 }
+
+
+// Process questions: keep IDs or create new questions
+async function processQuestionsForUpdate(questions, { grade_id, category_id, group_id, classRoom_ids, instructorId }) {
+   const questionIds = [];
+
+   for (const question of questions) {
+      if (typeof question === 'string' && mongoose.Types.ObjectId.isValid(question)) {
+         // Use existing question ID
+         questionIds.push(question);
+      } else if (question.question_text && question.options) {
+         // Create a new question if question details are provided
+         const newQuestion = new QuestionModel({
+            question_text: question.question_text,
+            question_type: question.question_type || 'multiple-choice',
+            options: question.options,
+            correct_answers: question.correct_answers,
+            grade_id,
+            category_id,
+            group_id,
+            classRoom_ids,
+            instructor: mongoose.Types.ObjectId(instructorId),
+         });
+
+         const savedQuestion = await newQuestion.save();
+         questionIds.push(savedQuestion._id); // Add the new question ID
+      } else {
+         throw new Error('Invalid question data!');
+      }
+   }
+
+   return questionIds;
+}
+
 
 export async function getTestsByClassroom(req, res) {
    const { userId } = req.user; // Get the learner’s user ID from the authenticated request
