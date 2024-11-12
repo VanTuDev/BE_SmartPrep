@@ -16,5 +16,8 @@ router.get('/get_all_question_admin', Auth, questionController.getAllQuestionsBy
 
 router.get('/get_sorted_classes', Auth, adminController.verifyAdminRole, adminController.getSortedClasses);
 
+router.post('/add_admin_account', Auth, adminController.verifyAdminRole, adminController.addNewAdmin)
+
+router.put('/deactive_account/:id', Auth, adminController.verifyAdminRole, adminController.deactivateInstructor)
 
 export default router;

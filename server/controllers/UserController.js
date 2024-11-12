@@ -153,9 +153,9 @@ export async function login(req, res) {
     }
 
     // Check if the account is locked
-    if (user.is_locked) {
-      return res.status(403).json({ error: "Tài khoản của bạn chưa được xét duyệt, hãy kiểm tra hòm thư của bạn." });
-    }
+    // if (user.is_locked) {
+    //   return res.status(403).json({ error: "Tài khoản của bạn chưa được xét duyệt, hãy kiểm tra hòm thư của bạn." });
+    // }
 
     // Verify password
     const passwordCheck = await bcrypt.compare(password, user.password);

@@ -172,7 +172,7 @@ async function getExistingOrAddQuestions(questions, testData) {
 // Lấy tất cả bài kiểm tra
 export async function getAllTestsByAdmin(req, res) {
    try {
-      const tests = await TestModel.find();
+      const tests = await TestModel.find().populate('instructor');
       res.status(200).json(tests);
    } catch (error) {
       res.status(500).json({ error: "Lỗi khi lấy danh sách bai kiem tra!" });
