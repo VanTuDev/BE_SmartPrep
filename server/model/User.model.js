@@ -44,9 +44,6 @@
         },
         cv: {
             type: String,
-            required: function () {
-                return this.role === 'instructor'; // Trường CV chỉ bắt buộc nếu role là 'instructor'
-            },
             default: null, // Giá trị mặc định là null nếu không phải instructor
         },
         is_locked: {

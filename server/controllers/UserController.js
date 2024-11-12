@@ -46,7 +46,7 @@ export async function register(req, res) {
     // Hash the password
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    // Create new user with is_locked: true for instructors
+    // Create new user with `is_locked: true` for instructors
     const newUser = new UserModel({
       username,
       fullname,
@@ -54,36 +54,13 @@ export async function register(req, res) {
       phone,
       password: hashedPassword,
       role: role || 'learner',
-      cv: role === 'instructor' ? cv : null,
-      is_locked: true, // Lock account until verified
+      cv: role === 'instructor' ? cv : null, // Only store CV for instructors
+      is_locked: role === 'instructor', // Lock instructor accounts
     });
 
-    // Save the new user
     await newUser.save();
 
-    // Generate a verification token
-    const token = generateVerifyToken(newUser._id);
-
-    // Construct the verification link
-    const verifyLink = `http://localhost:3000/verify?token=${token}`;
-
-    const subject = 'Xác thực người dùng'
-
-    // HTML content for the verification email
-    const html = `
-      <h3>Xin chào, ${fullname}!</h3>
-      <p>Vui lòng nhấp vào liên kết bên dưới để xác thực tài khoản của bạn:</p>
-      <a href="${verifyLink}" style="display: inline-block; margin: 10px 0; padding: 10px 20px; color: white; background-color: #4CAF50; text-decoration: none;">Xác thực tài khoản</a>
-      <p>Nếu bạn không yêu cầu đăng ký tài khoản này, vui lòng bỏ qua email này.</p>
-      <p><strong>Chú ý:</strong> Liên kết này sẽ hết hạn sau 5 phút.</p>
-    `;
-
-    // Send verification email
-    await sendVerifyToken(newUser.email, subject, html);
-
-    res.status(201).json({
-      msg: 'Đăng ký thành công! Vui lòng kiểm tra email để xác thực tài khoản của bạn.',
-    });
+    res.status(201).json({ msg: 'Đăng ký thành công! Tài khoản của bạn đang chờ phê duyệt.' });
   } catch (error) {
     console.error('Lỗi khi đăng ký người dùng:', error);
     res.status(500).json({ error: 'Lỗi khi đăng ký người dùng!' });
