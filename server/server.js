@@ -16,6 +16,7 @@ import groupRoutes from './router/group.routes.js';
 import classRoomRoutes from './router/classRoom.routes.js';
 import submissionRoutes from './router/submission.routes.js';
 import gradeRoutes from './router/grade.routes.js';
+import commentRoutes from './router/comment.routes.js';
 import aiRoutes from './router/aiService.routes.js'
 
 import instructorApplicationRoutes from './router/instructorApplication.routes.js';
@@ -55,6 +56,7 @@ app.use('/api/instructor/grades', gradeRoutes);
 app.use('/api/access_instructor', instructorApplicationRoutes);
 app.use('/api', messageRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/comments', commentRoutes);
 app.use('/api/ai_generate', aiRoutes);
 
 
