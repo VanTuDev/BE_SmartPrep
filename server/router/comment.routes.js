@@ -10,5 +10,6 @@ router.get('/', CommentController.getCommentsByTest); // Lấy danh sách bình 
 router.put('/:id', CommentController.updateComment); // Sửa bình luận
 router.delete('/:id', CommentController.deleteComment); // Xóa bình luận
 router.post('/:id/reply', CommentController.replyToComment); // Trả lời bình luận
+router.delete('/:id/reply/:replyId', CommentController.deleteReply); // Xóa reply
 
 export default router;
