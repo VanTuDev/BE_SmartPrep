@@ -77,8 +77,9 @@ export const submitAnswer = async (req, res) => {
          return res.status(404).json({ error: 'Question not found!' });
       }
 
-      // Kiểm tra xem đáp án có đúng không
-      const isCorrect = question.correct_answers.includes(selected_answer);
+      // Kiểm tra đáp án cho dạng câu hỏi multiple-choice
+      const isCorrect = question.correct_answers.every(answer => selected_answer.includes(answer)) &&
+         selected_answer.length === question.correct_answers.length;
 
       // Cập nhật thông tin câu trả lời trong submission
       questionInSubmission.user_answer = selected_answer;
