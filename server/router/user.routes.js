@@ -23,6 +23,9 @@ router.get('/user/:username', userController.getUser);
 // Lấy thông tin người dùng theo ID (yêu cầu phải đăng nhập với quyền hạn phù hợp)
 router.get('/user/id/:id', Auth, userController.getUserById);
 
+// Route mới để lấy thông tin hồ sơ người dùng theo userId
+router.get('/user/profile/:userId', Auth, userController.getUserProfileById);
+
 // Lấy danh sách tất cả người dùng (Chỉ Admin có quyền truy cập)
 router.get('/users', Auth, userController.getAllUsers);
 router.get('/all', Auth, userController.getAllUsers);
