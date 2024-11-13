@@ -21,7 +21,7 @@ router.get('/profile', Auth, userController.getUserProfile);
 router.get('/user/:username', userController.getUser);
 
 // lấy danh sách người dùng là learner
-router.get('/instructors/learners', Auth, userController.getAllLearner);
+router.get('/instructors/learners', Auth, userController.getAllLearner); 
 
 // Lấy thông tin người dùng theo ID (yêu cầu phải đăng nhập với quyền hạn phù hợp)
 router.get('/user/id/:id', Auth, userController.getUserById);
