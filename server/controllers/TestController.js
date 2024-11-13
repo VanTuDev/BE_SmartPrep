@@ -7,7 +7,7 @@ import logger from '../utils/logger.js';
 
 // Middleware kiểm tra quyền Instructor
 export function verifyInstructorRole(req, res, next) {
-   try {
+   try { 
       const { role } = req.user;
       logger.info(`Xác thực quyền Instructor cho người dùng: ${role}`);
       if (role !== 'instructor') {

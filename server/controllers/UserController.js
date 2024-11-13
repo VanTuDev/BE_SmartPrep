@@ -560,6 +560,17 @@ export async function unlockInstructor(req, res) {
   }
 }
 
+// Lấy toàn bộ người dùng là learner
+export async function getAllLearner(req, res) {
+  try {
+      const learners = await UserModel.find({ role: 'learner' }, '-password');
+      res.status(200).json(learners);
+  } catch (error) {
+      console.error("Lỗi khi lấy danh sách người dùng là learner:", error);
+      res.status(500).json({ error: "Lỗi khi lấy danh sách người dùng là learner!" });
+  }
+} 
+
 // Hàm mới để lấy thông tin hồ sơ người dùng dựa trên userId
 export async function getUserProfileById(req, res) {
   const { userId } = req.params; // Lấy userId từ URL params
