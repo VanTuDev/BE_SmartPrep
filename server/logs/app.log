@@ -167,3 +167,6 @@
 [2024-11-13T19:02:20.806Z] INFO: Lấy danh sách bài kiểm tra.
 [2024-11-13T19:02:20.814Z] INFO: Xác thực quyền Instructor cho người dùng: instructor
 [2024-11-13T19:02:20.825Z] INFO: Lấy danh sách bài kiểm tra.
+[2024-11-14T03:18:58.500Z] INFO: Tests retrieved successfully for learner.
+[2024-11-14T03:18:58.547Z] INFO: Tests retrieved successfully for learner.
+[2024-11-14T03:18:58.622Z] INFO: Tests retrieved successfully for learner.

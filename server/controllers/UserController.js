@@ -55,12 +55,34 @@ export async function register(req, res) {
       password: hashedPassword,
       role: role || 'learner',
       cv: role === 'instructor' ? cv : null, // Only store CV for instructors
-      is_locked: role === 'instructor', // Lock instructor accounts
+      is_locked: true, // Lock account until verified
     });
 
     await newUser.save();
 
-    res.status(201).json({ msg: 'Đăng ký thành công! Tài khoản của bạn đang chờ phê duyệt.' });
+    // Generate a verification token
+    const token = generateVerifyToken(newUser._id);
+
+    // Construct the verification link
+    const verifyLink = `http://localhost:3000/verify?token=${token}`;
+
+    const subject = 'Xác thực người dùng'
+
+    // HTML content for the verification email
+    const html = `
+      <h3>Xin chào, ${fullname}!</h3>
+      <p>Vui lòng nhấp vào liên kết bên dưới để xác thực tài khoản của bạn:</p>
+      <a href="${verifyLink}" style="display: inline-block; margin: 10px 0; padding: 10px 20px; color: white; background-color: #4CAF50; text-decoration: none;">Xác thực tài khoản</a>
+      <p>Nếu bạn không yêu cầu đăng ký tài khoản này, vui lòng bỏ qua email này.</p>
+      <p><strong>Chú ý:</strong> Liên kết này sẽ hết hạn sau 5 phút.</p>
+    `;
+
+    // Send verification email
+    await sendVerifyToken(newUser.email, subject, html);
+
+    res.status(201).json({
+      msg: 'Đăng ký thành công! Vui lòng kiểm tra email để xác thực tài khoản của bạn.',
+    });
   } catch (error) {
     console.error('Lỗi khi đăng ký người dùng:', error);
     res.status(500).json({ error: 'Lỗi khi đăng ký người dùng!' });
@@ -153,9 +175,9 @@ export async function login(req, res) {
     }
 
     // Check if the account is locked
-    // if (user.is_locked) {
-    //   return res.status(403).json({ error: "Tài khoản của bạn chưa được xét duyệt, hãy kiểm tra hòm thư của bạn." });
-    // }
+    if (user.is_locked) {
+      return res.status(403).json({ error: "Tài khoản của bạn chưa được xét duyệt, hãy kiểm tra hòm thư của bạn." });
+    }
 
     // Verify password
     const passwordCheck = await bcrypt.compare(password, user.password);
@@ -186,7 +208,6 @@ export async function login(req, res) {
         phone: user.phone,
         fullname: user.fullname,
         role: user.role,
-        is_locked: user.is_locked,
         createdAt: user.createdAt,
         updatedAt: user.updatedAt,
       },
